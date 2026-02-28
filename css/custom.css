@@ -1618,3 +1618,9 @@ body.firefly-invoice-view .text-center.d-print-none p a:hover {
 body.firefly-invoice-view .invoice-header img {
     max-width: 100%;
 }
+
+
+#sitejetPromoPanel {display:none}
+[data-identifier="sitejet"] {
+  display: none !important;
+}
