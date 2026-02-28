@@ -205,6 +205,11 @@
     box-shadow: 0 0 12px var(--firefly-accent), 0 0 24px rgba(26, 254, 223, 0.3);
 }
 
+/* Bootstrap-switch: mesma borda dos cards (accent ciano) */
+.bootstrap-switch {
+    border: 1px solid var(--firefly-accent) !important;
+}
+
 .btn {
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -326,6 +331,7 @@ body .btn.btn-primary.btn-block:hover {
 #btnCompleteOrder,
 .btn.btn-primary.btn-lg,
 .btn.btn-success.btn-lg.btn-checkout {
+    margin-top: 30px;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
     font-size: 16px;
@@ -472,6 +478,82 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
         border: none;
         box-shadow: none;
     }
+}
+
+/* Resumo do Pedido (checkout): borda e padding em cada item */
+.checkout-order-summary .checkout-cart-items .checkout-cart-item {
+    border-bottom: 1px solid var(--border-muted, rgba(255, 255, 255, 0.15));
+    padding: 0.75rem 0 1rem;
+}
+.checkout-order-summary .checkout-cart-items .checkout-cart-item:last-child {
+    border-bottom: none;
+}
+
+/* Formulário cartão (Stripe / gateway): nome e número 100%, validade e CVV lado a lado; nome primeiro */
+#order-standard_cart #creditCardInputFields,
+#order-standard_cart #paymentGatewayInput {
+    display: flex;
+    flex-direction: column;
+}
+/* Nome do cartão em 100% e primeiro (order -1) */
+#order-standard_cart #creditCardInputFields .row:has(input[name="ccname"]),
+#order-standard_cart #creditCardInputFields .row:has(label[for*="ccname"]),
+#order-standard_cart #paymentGatewayInput .row:has(input[name="ccname"]),
+#order-standard_cart #paymentGatewayInput .row:has(label[for*="ccname"]) {
+    order: -1;
+}
+#order-standard_cart #creditCardInputFields .row:has(input[name="ccname"]) > [class*="col-"],
+#order-standard_cart #creditCardInputFields .row:has(label[for*="ccname"]) > [class*="col-"],
+#order-standard_cart #paymentGatewayInput .row:has(input[name="ccname"]) > [class*="col-"],
+#order-standard_cart #paymentGatewayInput .row:has(label[for*="ccname"]) > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+/* Número do cartão 100% (Stripe ou campo clássico) */
+#order-standard_cart #creditCardInputFields .col-md-6:has(#stripeCreditCard),
+#order-standard_cart #paymentGatewayInput .col-md-6:has(#stripeCreditCard),
+#order-standard_cart #creditCardInputFields .row:has(#stripeCreditCard) > [class*="col-"],
+#order-standard_cart #paymentGatewayInput .row:has(#stripeCreditCard) > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+/* Validade e CVV lado a lado (50% cada) */
+#order-standard_cart #creditCardInputFields .row:has(#stripeCreditCardExpiry),
+#order-standard_cart #paymentGatewayInput .row:has(#stripeCreditCardExpiry),
+#order-standard_cart #creditCardInputFields .row:has(input[name="ccexpiry"]),
+#order-standard_cart #creditCardInputFields .row:has(input[name="cccvv"]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+#order-standard_cart #creditCardInputFields .row:has(#stripeCreditCardExpiry) > [class*="col-"],
+#order-standard_cart #paymentGatewayInput .row:has(#stripeCreditCardExpiry) > [class*="col-"],
+#order-standard_cart #creditCardInputFields .row:has(input[name="ccexpiry"]) > [class*="col-"],
+#order-standard_cart #creditCardInputFields .row:has(input[name="cccvv"]) > [class*="col-"] {
+    flex: 1 1 0;
+    min-width: 0;
+}
+/* Garantir que rows dentro do bloco de cartão usem flex para os col-* funcionarem */
+#order-standard_cart #creditCardInputFields .row,
+#order-standard_cart #paymentGatewayInput .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Botão Google Pay / carteira digital: coluna e botão em 100% */
+#order-standard_cart #paymentGatewayInput .row > [class*="col-"]:only-of-type,
+#order-standard_cart #creditCardInputFields .row > [class*="col-"]:only-of-type {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+#order-standard_cart #paymentGatewayInput div:has(> iframe),
+#order-standard_cart #creditCardInputFields div:has(> iframe) {
+    width: 100% !important;
+}
+#order-standard_cart #paymentGatewayInput div:has(> iframe) iframe,
+#order-standard_cart #creditCardInputFields div:has(> iframe) iframe {
+    width: 100% !important;
+    min-width: 100%;
 }
 
 /* Botão Validar Código: mesma cor do hover como estado normal */
@@ -799,10 +881,15 @@ body a:hover {
     border-color: #898989 !important;
 }
 
-/* Total a pagar hoje: verde um pouco mais escuro */
+/* Total a pagar hoje: accent ciano do tema, fonte escura */
 #totalDueToday.alert-success {
-    background-color: #1a6b2a !important;
-    border-color: #165a24 !important;
+    background-color: var(--firefly-accent) !important;
+    border-color: var(--firefly-accent) !important;
+    color: #0D172A !important;
+}
+#totalDueToday.alert-success strong,
+#totalDueToday.alert-success #totalCartPrice {
+    color: #0D172A !important;
 }
 /* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
 body .form-control,
