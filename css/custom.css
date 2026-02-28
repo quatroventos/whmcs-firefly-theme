@@ -436,6 +436,15 @@ body #order-standard_cart .domain-selection-options .btn {
     border-bottom-left-radius: 0 !important;
 }
 
+/* Campos domínio próprio: mesma altura do botão Usar (padding 14px 30px) */
+#domainowndomain #owndomainsld,
+#domainowndomain #owndomaintld,
+#domainowndomain .input-group .input-group-text {
+    min-height: 46px !important;
+    padding: 14px 12px !important;
+    box-sizing: border-box;
+}
+
 /* Seletor de domínios: sem borda branca */
 #frmProductDomain .domain-input-group .form-control,
 #frmProductDomain .domain-input-group input,
@@ -550,10 +559,6 @@ body .text-muted,
 body .modal-title,
 body .modal-body,
 body .modal-footer,
-.alert-warning {
-    background-color: #898989 !important;
-    border-color: #898989 !important;
-}
 body .alert,
 body .list-inline-item,
 body .copyright,
@@ -566,6 +571,12 @@ body .btn-success {
 }
 body a:hover {
     color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Alert warning: fundo e borda cinza */
+.alert-warning {
+    background-color: #898989 !important;
+    border-color: #898989 !important;
 }
 /* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
 body .form-control,
