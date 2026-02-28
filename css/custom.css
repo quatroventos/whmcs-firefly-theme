@@ -332,6 +332,11 @@ footer.footer {
     background-color: #0D172A !important;
 }
 
+/* Esconder caixa de seleção de idioma/moeda no rodapé */
+footer .list-inline-item:has(button[data-target="#modalChooseLanguage"]) {
+    display: none !important;
+}
+
 /* Área principal: mesma cor de fundo do site (#0D172A) */
 section#main-body {
     background-color: #0D172A !important;
@@ -396,9 +401,8 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 }
 #frmProductDomain .domain-tab-panels {
     padding: 16px;
-    background: var(--firefly-page-bg, #0D172A);
-    border: none;
-    border-top: none;
+    background-color: var(--bg);
+    border: 1px solid var(--border-muted);
     border-radius: 0 0 8px 8px;
 }
 #frmProductDomain .domain-selection-options .option.domain-tab-panel {
@@ -441,7 +445,7 @@ body #order-standard_cart .domain-selection-options .btn {
 #domainowndomain #owndomaintld,
 #domainowndomain .input-group .input-group-text {
     min-height: 46px !important;
-    padding: 14px 12px !important;
+    padding: 11px 12px !important;
     box-sizing: border-box;
 }
 
