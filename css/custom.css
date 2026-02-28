@@ -205,9 +205,9 @@
     box-shadow: 0 0 12px var(--firefly-accent), 0 0 24px rgba(26, 254, 223, 0.3);
 }
 
-/* Bootstrap-switch: mesma borda dos cards (accent ciano) */
+/* Bootstrap-switch: mesma borda dos cards */
 .bootstrap-switch {
-    border: 1px solid var(--firefly-accent) !important;
+    border: 1px solid var(--border-muted) !important;
 }
 
 .btn {
@@ -554,6 +554,17 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
 #order-standard_cart #creditCardInputFields div:has(> iframe) iframe {
     width: 100% !important;
     min-width: 100%;
+}
+
+/* Stripe (#stripeElements): zerar margin-left dos offsets (col-md-offset-*, offset-*) */
+#stripeElements [class*="offset-"],
+#stripeElements .col-md-offset-2,
+#stripeElements .col-md-offset-4,
+#stripeElements .stripe-cards-inputs.offset-md-2 {
+    margin-left: 0 !important;
+}
+#stripeElements .stripe-cards-inputs {
+    max-width: 100%;
 }
 
 /* Botão Validar Código: mesma cor do hover como estado normal */
