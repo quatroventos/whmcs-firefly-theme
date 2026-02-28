@@ -22,7 +22,7 @@
     <script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script>
 
 </head>
-<body>
+<body class="firefly-invoice-view">
 
     <div class="container-fluid invoice-container">
 
