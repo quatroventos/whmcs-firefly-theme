@@ -294,6 +294,33 @@ header .btn-entrar-header:hover,
     text-decoration: none;
 }
 
+/* Botão primary block: mesmo estilo do botão Entrar (verde Firefly, cantos assimétricos) */
+.btn.btn-primary.btn-block,
+body .btn.btn-primary.btn-block {
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #434e63 !important;
+    background-color: #03FF00 !important;
+    border-radius: 5px 30px 30px 5px;
+    padding: 14px 30px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+.btn.btn-primary.btn-block:hover,
+body .btn.btn-primary.btn-block:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+    text-decoration: none;
+}
+
 /* Remover menu #nav (navegação principal) */
 #nav {
     display: none !important;
@@ -342,6 +369,7 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     gap: 0;
     margin-bottom: 0;
     border-bottom: none;
+    background: #0d172a;
 }
 #frmProductDomain .domain-tabs .tab {
     flex: 1;
@@ -353,7 +381,7 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     color: #94a3b8;
     background: transparent;
     border: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: 1px solid transparent;
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
 }
