@@ -142,15 +142,15 @@
 
     {include file="$template/includes/generate-password.tpl"}
 
-    {* Remove cart-sidebar (Ações) da página do carrinho – elimina do DOM *}
+    {* Remove apenas o bloco cart-sidebar (Ações); esconde a coluna vazia com classe para não remover conteúdo *}
     <script>
     (function() {
         document.addEventListener('DOMContentLoaded', function() {
             var sidebar = document.querySelector('.cart-sidebar');
             if (sidebar) {
                 var col = sidebar.closest('[class*="col"]');
-                if (col) col.remove();
-                else sidebar.remove();
+                if (col) col.classList.add('cart-sidebar-column-hidden');
+                sidebar.remove();
             }
         });
     })();
@@ -160,66 +160,65 @@
     <script>
     (function() {
         function initDomainTabs() {
-            var form = document.getElementById('frmProductDomain');
-            if (!form) return;
-            var container = form.querySelector('.domain-selection-options');
-            if (!container || container.getAttribute('data-tabs-inited')) return;
-            var options = container.querySelectorAll('.option');
-            if (options.length < 2) return;
+            try {
+                var form = document.getElementById('frmProductDomain');
+                if (!form) return;
+                var container = form.querySelector('.domain-selection-options');
+                if (!container || container.getAttribute('data-tabs-inited')) return;
+                var options = container.querySelectorAll('.option');
+                if (options.length < 2) return;
 
-            var optRegister = options[0];
-            var optOwn = options[1];
-            var radioRegister = form.querySelector('input[name="domainoption"][value="register"]');
-            var radioOwn = form.querySelector('input[name="domainoption"][value="owndomain"]');
-            if (!radioRegister || !radioOwn) return;
+                var optRegister = options[0];
+                var optOwn = options[1];
+                var radioRegister = form.querySelector('input[name="domainoption"][value="register"]');
+                var radioOwn = form.querySelector('input[name="domainoption"][value="owndomain"]');
+                if (!radioRegister || !radioOwn) return;
 
-            container.setAttribute('data-tabs-inited', '1');
-            optRegister.classList.add('domain-tab-panel');
-            optOwn.classList.add('domain-tab-panel');
-            optRegister.setAttribute('data-option', 'register');
-            optOwn.setAttribute('data-option', 'owndomain');
+                container.setAttribute('data-tabs-inited', '1');
+                optRegister.classList.add('domain-tab-panel');
+                optOwn.classList.add('domain-tab-panel');
+                optRegister.setAttribute('data-option', 'register');
+                optOwn.setAttribute('data-option', 'owndomain');
 
-            var tabsWrap = document.createElement('div');
-            tabsWrap.className = 'domain-tabs';
-            var labelOwn = (optOwn.querySelector('label') || {}).textContent || 'Vou utilizar meu domínio atual';
-            var labelReg = (optRegister.querySelector('label') || {}).textContent || 'Registrar um novo domínio';
-            tabsWrap.innerHTML = '<button type="button" class="tab active" data-option="owndomain">' + (labelOwn.replace(/\s+/g, ' ').trim()) + '</button>' +
-                '<button type="button" class="tab" data-option="register">' + (labelReg.replace(/\s+/g, ' ').trim()) + '</button>';
-            container.insertBefore(tabsWrap, optRegister);
+                var tabsWrap = document.createElement('div');
+                tabsWrap.className = 'domain-tabs';
+                var labelOwn = (optOwn.querySelector('label') && optOwn.querySelector('label').textContent) ? optOwn.querySelector('label').textContent.replace(/\s+/g, ' ').trim() : 'Vou utilizar meu domínio atual';
+                var labelReg = (optRegister.querySelector('label') && optRegister.querySelector('label').textContent) ? optRegister.querySelector('label').textContent.replace(/\s+/g, ' ').trim() : 'Registrar um novo domínio';
+                tabsWrap.innerHTML = '<button type="button" class="tab active" data-option="owndomain">' + labelOwn + '</button><button type="button" class="tab" data-option="register">' + labelReg + '</button>';
+                container.insertBefore(tabsWrap, optRegister);
 
-            var panelsWrap = document.createElement('div');
-            panelsWrap.className = 'domain-tab-panels';
-            optRegister.parentNode.insertBefore(panelsWrap, optRegister);
-            panelsWrap.appendChild(optRegister);
-            panelsWrap.appendChild(optOwn);
+                var panelsWrap = document.createElement('div');
+                panelsWrap.className = 'domain-tab-panels';
+                var parent = optRegister.parentNode;
+                if (!parent) return;
+                parent.insertBefore(panelsWrap, optRegister);
+                panelsWrap.appendChild(optRegister);
+                panelsWrap.appendChild(optOwn);
 
-            function showOption(optionValue) {
-                var isOwn = optionValue === 'owndomain';
-                radioOwn.checked = isOwn;
-                radioRegister.checked = !isOwn;
-                optOwn.classList.toggle('active', isOwn);
-                optRegister.classList.toggle('active', !isOwn);
-                tabsWrap.querySelectorAll('.tab').forEach(function(t) {
-                    t.classList.toggle('active', t.getAttribute('data-option') === optionValue);
+                function showOption(optionValue) {
+                    var isOwn = optionValue === 'owndomain';
+                    radioOwn.checked = isOwn;
+                    radioRegister.checked = !isOwn;
+                    optOwn.classList.toggle('active', isOwn);
+                    optRegister.classList.toggle('active', !isOwn);
+                    var tabs = tabsWrap.querySelectorAll('.tab');
+                    for (var i = 0; i < tabs.length; i++) {
+                        tabs[i].classList.toggle('active', tabs[i].getAttribute('data-option') === optionValue);
+                    }
+                }
+                showOption('owndomain');
+
+                tabsWrap.addEventListener('click', function(e) {
+                    var tab = e.target.closest('.tab');
+                    if (tab) showOption(tab.getAttribute('data-option'));
                 });
-            }
-            showOption('owndomain');
-
-            tabsWrap.addEventListener('click', function(e) {
-                var tab = e.target.closest('.tab');
-                if (!tab) return;
-                showOption(tab.getAttribute('data-option'));
-            });
+            } catch (e) {}
         }
-        function runWhenReady() {
+        document.addEventListener('DOMContentLoaded', function() {
             initDomainTabs();
-            var form = document.getElementById('frmProductDomain');
-            if (form && !form.querySelector('.domain-tabs') && form.querySelector('.domain-selection-options')) {
-                setTimeout(initDomainTabs, 100);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', runWhenReady);
-        if (document.readyState === 'complete') runWhenReady();
+            setTimeout(initDomainTabs, 300);
+        });
+        if (document.readyState === 'complete') initDomainTabs();
     })();
     </script>
 

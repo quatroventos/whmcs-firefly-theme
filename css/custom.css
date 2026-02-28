@@ -316,8 +316,13 @@ body #order-standard_cart .cart-sidebar,
     display: none !important;
 }
 
-/* Coluna que contém o cart-sidebar: não ocupar espaço */
+/* Coluna que contém o cart-sidebar: não ocupar espaço (quando sidebar ainda no DOM) */
 body #order-standard_cart .row > [class*="col"]:has(.cart-sidebar) {
+    display: none !important;
+}
+
+/* Coluna vazia após JS remover o cart-sidebar: esconder (não remover a coluna do DOM) */
+body #order-standard_cart .cart-sidebar-column-hidden {
     display: none !important;
 }
 
