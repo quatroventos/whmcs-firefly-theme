@@ -570,6 +570,43 @@ body #order-standard_cart .cart-body .view-cart-items .item {
     display: none !important;
 }
 
+/* Carrinho (logado ou não): cards/panels da sidebar e da página sempre com o mesmo fundo do tema, nunca branco */
+#order-standard_cart .panel,
+#order-standard_cart .panel.card,
+#order-standard_cart .panel.panel-default,
+#order-standard_cart .sidebar-collapsed .card,
+#order-standard_cart .sidebar-collapsed .panel {
+    background-color: var(--bg) !important;
+    border-color: var(--border-muted) !important;
+    color: var(--text) !important;
+}
+#order-standard_cart .panel .panel-heading,
+#order-standard_cart .panel .card-header,
+#order-standard_cart .sidebar-collapsed .card-header {
+    background-color: var(--bg-lifted) !important;
+    border-color: var(--border-muted) !important;
+    color: var(--text) !important;
+}
+#order-standard_cart .panel .panel-body,
+#order-standard_cart .panel .card-body,
+#order-standard_cart .sidebar-collapsed .card-body {
+    background-color: var(--bg) !important;
+    border-color: var(--border-muted) !important;
+    color: var(--text) !important;
+}
+#order-standard_cart .panel .panel-title,
+#order-standard_cart .panel .card-title,
+#order-standard_cart .sidebar-collapsed .card-title {
+    color: var(--text) !important;
+}
+#order-standard_cart .panel .form-control,
+#order-standard_cart .sidebar-collapsed .form-control,
+#order-standard_cart .sidebar-collapsed .custom-select {
+    background-color: var(--bg-lifted) !important;
+    border-color: var(--border-muted) !important;
+    color: var(--text) !important;
+}
+
 /* Aba ativa do carrinho (view-cart-tabs): mesmo fundo dos cards */
 body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-expanded="true"] {
     background-color: var(--bg) !important;
@@ -1049,6 +1086,64 @@ body form textarea {
 .client-home-cards .card[class*="card-accent-"] .card-header .btn:hover {
     background-color: var(--grayscale-lifted) !important;
     color: var(--text-inverted) !important;
+}
+
+/* List-group nos cards da área do cliente (ex.: Produtos/Serviços ativos): fundo claro, conteúdo escuro */
+.client-home-cards .card .list-group {
+    background-color: #f8f9fa !important;
+    border-color: #dee2e6 !important;
+}
+.client-home-cards .card .list-group-item {
+    background-color: #fff !important;
+    color: #0D172A !important;
+    border-color: #dee2e6 !important;
+}
+.client-home-cards .card .list-group-item .div-service-name,
+.client-home-cards .card .list-group-item .font-weight-bold,
+.client-home-cards .card .list-group-item .text-domain,
+.client-home-cards .card .list-group-item .label {
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .btn,
+.client-home-cards .card .list-group-item .dropdown-item {
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .btn-default {
+    background-color: #f8f9fa !important;
+    border-color: #dee2e6 !important;
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .btn-default:hover {
+    background-color: #e9ecef !important;
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .btn-primary {
+    background-color: #03FF00 !important;
+    color: #434e63 !important;
+    border-color: #03FF00 !important;
+}
+.client-home-cards .card .list-group-item .btn-primary:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+}
+.client-home-cards .card .list-group-item .dropdown-menu {
+    background-color: #fff !important;
+    border-color: #dee2e6 !important;
+}
+.client-home-cards .card .list-group-item .dropdown-item {
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .dropdown-item:hover {
+    background-color: #f8f9fa !important;
+    color: #0D172A !important;
+}
+.client-home-cards .card .list-group-item .btn-view-details {
+    color: #0D172A !important;
+}
+
+/* Painel Sitejet Builder: ocultar */
+#sitejetPromoPanel {
+    display: none !important;
 }
 
 /* Todas as fontes em branco */
