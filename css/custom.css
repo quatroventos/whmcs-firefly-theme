@@ -308,7 +308,7 @@ body .btn.btn-primary.btn-block {
     color: #434e63 !important;
     background-color: #03FF00 !important;
     border-radius: 5px 30px 30px 5px;
-    padding: 14px 30px;
+    padding: 14px 30px !important;
     border: none;
     text-decoration: none;
     cursor: pointer;
@@ -419,6 +419,21 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 }
 #frmProductDomain .domain-selection-options .option > label:first-of-type {
     display: none;
+}
+
+/* Botão do formulário de domínio: mesmo padding do Entrar */
+body #order-standard_cart .domain-selection-options .btn {
+    padding: 14px 30px !important;
+}
+
+/* Campos domínio próprio: cantos internos retos (conectados) */
+#owndomainsld {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+#owndomaintld {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 /* Seletor de domínios: sem borda branca */
@@ -535,6 +550,10 @@ body .text-muted,
 body .modal-title,
 body .modal-body,
 body .modal-footer,
+.alert-warning {
+    background-color: #898989 !important;
+    border-color: #898989 !important;
+}
 body .alert,
 body .list-inline-item,
 body .copyright,
