@@ -447,6 +447,26 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
     border-color: var(--border-muted) var(--border-muted) transparent !important;
 }
 
+/**
+ * Firefly theme – Order form checkout two-column layout (firefly_cart).
+ * Applied only on desktop; on smaller viewports cards stack vertically.
+ */
+@media (min-width: 992px) {
+    #order-standard_cart #frmCheckout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    #order-standard_cart .checkout-card {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+}
+
 /* Botão Validar Código: mesma cor do hover como estado normal */
 button[name="validatepromo"].btn-default {
     color: #FFFFFF !important;
