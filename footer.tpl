@@ -60,6 +60,21 @@
         </div>
     </div>
 
+    {* Modal "aguarde" ao enviar pedido/pagamento no checkout *}
+    <div class="modal fade" id="modalOrderProcessing" tabindex="-1" role="dialog" aria-labelledby="modalOrderProcessingTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-order-processing">
+                <div class="modal-body text-center py-5 px-4">
+                    <div class="mb-4">
+                        <i class="fas fa-circle-notch fa-spin fa-4x text-white" aria-hidden="true"></i>
+                    </div>
+                    <h5 class="modal-title text-white mb-3" id="modalOrderProcessingTitle">Por favor aguarde</h5>
+                    <p class="text-white mb-0">Enquanto configuramos sua conta. Não feche esta janela &mdash; essa operação pode demorar alguns minutos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal system-modal fade" id="modalAjax" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -141,6 +156,40 @@
     {/if}
 
     {include file="$template/includes/generate-password.tpl"}
+
+    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout *}
+    <script>
+    (function() {
+        function initOrderProcessingModal() {
+            var cart = document.getElementById('order-standard_cart');
+            var form = document.getElementById('frmCheckout');
+            if (!cart || !form) return;
+            var modal = document.getElementById('modalOrderProcessing');
+            if (!modal) return;
+            var modalShown = false;
+            form.addEventListener('submit', function(e) {
+                if (modalShown) return;
+                var isDomainOnly = form.querySelector('#frmProductDomain') && !form.querySelector('input[name="checkout"], button[name="checkout"], input[value="1"][name="checkout"]');
+                if (form.id === 'frmProductDomain') return;
+                var btn = (e && e.submitter) || form.querySelector('button[type="submit"], input[type="submit"]');
+                var isCheckoutSubmit = !btn || btn.name === 'checkout' || btn.value === '1' && btn.name === 'checkout' || (btn.classList && (btn.classList.contains('btn-checkout') || btn.classList.contains('btn-primary')));
+                if (!isCheckoutSubmit && !form.querySelector('#paymentGatewaysContainer, #creditCardInputFields, [id*="payment"]')) return;
+                modalShown = true;
+                e.preventDefault();
+                if (typeof jQuery !== 'undefined' && jQuery(modal).modal) {
+                    jQuery(modal).modal('show');
+                }
+                setTimeout(function() {
+                    form.removeEventListener('submit', arguments.callee);
+                    form.submit();
+                }, 100);
+            }, false);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            initOrderProcessingModal();
+        });
+    })();
+    </script>
 
     {* Remove apenas o bloco cart-sidebar (Ações); esconde a coluna vazia com classe para não remover conteúdo *}
     <script>
