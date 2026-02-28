@@ -229,22 +229,25 @@ header.header .topbar {
     background-color: #0D172A !important;
 }
 
-/* Header: tipografia; largura fixa igual às demais telas via .container (max-width 1140px) */
+/* Header: altura fixa 100px, alinhamento vertical ao centro, largura fixa via .container */
 header.header {
     font-family: Rubik, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    min-height: 100px;
+    height: 100px;
     line-height: 28.8px;
     width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
-/* Linha do header: um único .container = mesma largura do restante do site */
+/* Linha do header: mesmo padding (mt-2 mb-2 no template) e alinhamento vertical ao centro */
 header.header .header-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 /* Topbar (notificações + Conectado como): à direita da logo; fundo já é o do header */
