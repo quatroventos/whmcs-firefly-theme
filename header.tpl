@@ -105,12 +105,6 @@
 
     {include file="$template/includes/network-issues-notifications.tpl"}
 
-    <nav class="master-breadcrumb" aria-label="breadcrumb">
-        <div class="container">
-            {include file="$template/includes/breadcrumb.tpl"}
-        </div>
-    </nav>
-
     {include file="$template/includes/validateuser.tpl"}
     {include file="$template/includes/verifyemail.tpl"}
 

@@ -257,7 +257,8 @@ header.header .logo-img {
     object-fit: contain;
 }
 
-/* Botão ENTRAR no header (estilo Firefly: verde, cantos assimétricos) */
+/* Botão ENTRAR no header (estilo Firefly: verde, cantos assimétricos) – alinhado à direita */
+header.header .btn.btn-entrar-header,
 header .btn-entrar-header,
 .btn-entrar-header {
     box-sizing: border-box;
@@ -268,7 +269,7 @@ header .btn-entrar-header,
     line-height: 16px;
     text-align: center;
     text-transform: uppercase;
-    color: rgb(67, 78, 99) !important;
+    color: #434e63 !important;
     background-color: #03FF00 !important;
     border-radius: 5px 30px 30px 5px;
     padding: 14px 30px;
@@ -276,11 +277,13 @@ header .btn-entrar-header,
     text-decoration: none;
     cursor: pointer;
     transition: opacity 0.2s ease, background-color 0.2s ease;
+    margin-left: auto;
 }
+header.header .btn.btn-entrar-header:hover,
 header .btn-entrar-header:hover,
 .btn-entrar-header:hover {
     background-color: #02cc00 !important;
-    color: rgb(67, 78, 99) !important;
+    color: #434e63 !important;
     text-decoration: none;
 }
 
@@ -292,6 +295,11 @@ header .btn-entrar-header:hover,
 /* Rodapé: mesma cor de fundo do site (#0D172A) */
 #footer.footer,
 footer.footer {
+    background-color: #0D172A !important;
+}
+
+/* Área principal: mesma cor de fundo do site (#0D172A) */
+section#main-body {
     background-color: #0D172A !important;
 }
 
