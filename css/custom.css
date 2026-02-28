@@ -426,7 +426,8 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     text-align: left !important;
 }
 body #order-standard_cart .sub-heading span {
-    background: none !important;
+    background: #0d172a;
+    padding: 0 20px 0 0;
 }
 
 /* Itens do carrinho: mesmo fundo e borda dos cards */
@@ -781,4 +782,13 @@ body .input-group-text {
 }
 body .form-control::placeholder {
     color: rgba(13, 23, 42, 0.5) !important;
+}
+
+/* Telefone: Brasil como padrão – esconder seletor de país */
+.intl-tel-input .flag-container,
+.intl-tel-input .country-list {
+    display: none !important;
+}
+.intl-tel-input input {
+    padding-left: 12px !important;
 }
