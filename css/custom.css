@@ -970,6 +970,33 @@ body form textarea {
     border-color: var(--border);
     color: var(--text);
 }
+
+/* Tiles da área do cliente (Serviços, Cotações, Ingressos, Faturas): fundo azul escuro, ícones brancos */
+.tiles .tile {
+    background-color: #0D172A !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+.tiles .tile i,
+.tiles .tile .fas,
+.tiles .tile .far {
+    color: #fff !important;
+}
+.tiles .tile .stat {
+    color: #fff !important;
+}
+.tiles .tile .title {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+.tiles .tile:hover {
+    background-color: #1e293b !important;
+}
+.tiles .tile:hover i,
+.tiles .tile:hover .fas,
+.tiles .tile:hover .far {
+    color: #fff !important;
+}
+
 .card-header {
     background-color: var(--bg-lifted);
     color: var(--text);
