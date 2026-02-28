@@ -1,109 +1,102 @@
 /* *****************************************************
     ** Firefly Host - Custom Stylesheet **
-    Cores do site: fundo azul escuro (#0A1C3C), texto branco,
-    botões/CTA verde limão. Tipografia Poppins.
+    Cores do site de referência (Elementor):
+    primary/text: #FFFFFF | secondary/accent: #03FF00 | cyan: #00F0FF
+    background: #0D172A | gray: #434E63 | Tipografia: Poppins, Rubik
 ***************************************************** */
 
-/* Firefly Host: azul escuro (header/hero/footer) + verde limão (CTAs) */
+/* Cores Firefly Host (conforme site ref) */
 :root {
-    --white: #fff;
+    --white: #FFFFFF;
 
-    /* Neutral shades - grays for content */
-    --neutral-50: #fafafa;
-    --neutral-100: #f4f4f5;
-    --neutral-200: #e4e4e7;
-    --neutral-300: #d4d4d8;
-    --neutral-400: #a1a1aa;
-    --neutral-500: #71717a;
-    --neutral-600: #52525b;
-    --neutral-700: #3f3f46;
-    --neutral-800: #27272a;
-    --neutral-900: #18181b;
-    --neutral-950: #09090b;
+    /* Neutros / cinza do site (#434E63) */
+    --neutral-50: #5a6578;
+    --neutral-100: #434E63;
+    --neutral-200: #3a4457;
+    --neutral-300: #303a4b;
+    --neutral-400: #272f3d;
+    --neutral-500: #1e252f;
+    --neutral-600: #151b24;
+    --neutral-700: #0f1420;
+    --neutral-800: #0D172A;
+    --neutral-900: #0a1120;
+    --neutral-950: #060b14;
 
-    /* Firefly primary - verde limão (CTA, botões "Ver planos", "Entrar") */
-    --primary-50: #ecfdf5;
-    --primary-100: #d1fae5;
-    --primary-200: #a7f3d0;
-    --primary-300: #6ee7b7;
-    --primary-400: #4ade80;
-    --primary-500: #22c55e;
-    --primary-600: #16a34a;
-    --primary-700: #15803d;
-    --primary-800: #166534;
-    --primary-900: #14532d;
-    --primary-950: #052e16;
+    /* Primary = verde CTA (#03FF00) */
+    --primary-50: #9fff9f;
+    --primary-100: #6bff6b;
+    --primary-200: #3dff3d;
+    --primary-300: #03FF00;
+    --primary-400: #02cc00;
+    --primary-500: #029900;
+    --primary-600: #016600;
+    --primary-700: #014d00;
+    --primary-800: #013300;
+    --primary-900: #001a00;
+    --primary-950: #000d00;
 
     /* Primary usage */
-    --primary: #22c55e;
-    --primary-lifted: #4ade80;
-    --primary-accented: #16a34a;
+    --primary: #03FF00;
+    --primary-lifted: #3dff3d;
+    --primary-accented: #02cc00;
 
-    /* Secondary colors */
-    --secondary: var(--neutral-500);
-    --secondary-lifted: var(--neutral-600);
-    --secondary-accented: var(--neutral-700);
+    /* Secondary */
+    --secondary: var(--neutral-100);
+    --secondary-lifted: var(--neutral-50);
+    --secondary-accented: var(--neutral-200);
 
-    /* Success colors */
+    /* Success / Info / Notice / Warning / Error (mantidos) */
     --success: #00a63e;
     --success-lifted: #008236;
     --success-accented: #016630;
-
-    /* Info colors */
     --info: #0ea5e9;
     --info-lifted: #0284c7;
     --info-accented: #0369a1;
-
-    /* Notice colors */
     --notice: #7f22fe;
     --notice-lifted: #7008e7;
     --notice-accented: #5d0ec0;
-
-    /* Warning colors */
     --warning: #f54a00;
     --warning-lifted: #ca3500;
     --warning-accented: #9f2d00;
-
-    /* Error colors */
     --error: #e7000b;
     --error-lifted: #c10007;
     --error-accented: #9f0712;
 
-    /* Grayscale - azul escuro header/footer (Firefly Host) */
-    --grayscale: #0A1C3C;
-    --grayscale-lifted: #0f2d52;
-    --grayscale-accented: #153d6b;
+    /* Grayscale = #434E63 (site ref) */
+    --grayscale: #434E63;
+    --grayscale-lifted: #5a6578;
+    --grayscale-accented: #6b7690;
 
     /* Neutral semantic */
-    --neutral: var(--neutral-500);
-    --neutral-lifted: var(--neutral-600);
-    --neutral-accented: var(--neutral-700);
+    --neutral: var(--neutral-100);
+    --neutral-lifted: var(--neutral-50);
+    --neutral-accented: var(--neutral-200);
 
-    /* Text - tema escuro: texto claro na área de conteúdo */
-    --text-inverted: var(--white);
-    --text-muted: rgba(255, 255, 255, 0.65);
+    /* Text = branco (#FFFFFF) */
+    --text-inverted: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.7);
     --text-lifted: rgba(255, 255, 255, 0.85);
-    --text-accented: rgba(255, 255, 255, 0.9);
-    --text: #e2e8f0;
+    --text-accented: rgba(255, 255, 255, 0.95);
+    --text: #FFFFFF;
 
-    /* Borders - visíveis em fundo escuro */
+    /* Borders */
     --border-muted: rgba(255, 255, 255, 0.12);
     --border: rgba(255, 255, 255, 0.2);
     --border-lifted: rgba(255, 255, 255, 0.28);
     --border-accented: rgba(255, 255, 255, 0.4);
 
-    /* Backgrounds - área de conteúdo escura (Firefly) */
-    --bg: #101F25;
-    --bg-muted: #0d1920;
-    --bg-lifted: #152530;
-    --bg-accented: #1a2d3a;
-    --bg-inverted: #0A1C3C;
+    /* Backgrounds - #0D172A (site ref bc99d68) */
+    --bg: #1a2332;
+    --bg-muted: #141c2a;
+    --bg-lifted: #434E63;
+    --bg-accented: #4e5a6e;
+    --bg-inverted: #0D172A;
 
-    /* Firefly cards (planos): fundo escuro, borda/ícones ciano, botão verde neon */
-    --firefly-card-bg: #101F25;
-    --firefly-page-bg: #0B171C;
-    --firefly-accent: #1AFEDF;
-    --firefly-cta: #11FF00;
+    /* Firefly cards: fundo escuro, accent ciano #00F0FF, CTA #03FF00 */
+    --firefly-card-bg: #1a2332;
+    --firefly-page-bg: #0D172A;
+    --firefly-accent: #00F0FF;
+    --firefly-cta: #03FF00;
 
     /* Additional colors */
     --yellow-200: #fef08a;
@@ -216,10 +209,29 @@
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Firefly Host: store com mesma cor dos CTAs (verde limão) */
+/* Firefly Host: store com mesma cor dos CTAs (#03FF00) */
 .dynamic-landing-page {
-    --primary-color: #22c55e;
-    --accent-color: #4ade80;
+    --primary-color: #03FF00;
+    --accent-color: #00F0FF;
+}
+
+/* Header: cor de fundo do site (#0D172A) – evita barra branca do Bootstrap */
+header.header,
+header.header .navbar,
+header.header .navbar-light,
+header.header .main-navbar-wrapper {
+    background-color: #0D172A !important;
+}
+
+/* Remover menu #nav (navegação principal) */
+#nav {
+    display: none !important;
+}
+
+/* Rodapé: mesma cor de fundo do site (#0D172A) */
+#footer.footer,
+footer.footer {
+    background-color: #0D172A !important;
 }
 
 /* Inputs e selects no tema escuro */
