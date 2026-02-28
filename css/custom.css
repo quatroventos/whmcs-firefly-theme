@@ -223,6 +223,31 @@ header.header .main-navbar-wrapper {
     background-color: #0D172A !important;
 }
 
+/* Header: tipografia e layout */
+header.header {
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 100px;
+    line-height: 28.8px;
+    margin-inline-start: 255px;
+    margin-inline-end: 255px;
+    max-width: 1170px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Alinhamento vertical ao centro dos elementos do header */
+header.header .navbar,
+header.header .navbar-light,
+header.header .main-navbar-wrapper,
+header.header .navbar .navbar-collapse,
+header.header .navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
 /* Logo: tamanho 157 x 39 px */
 header.header .logo-img {
     width: 157px !important;
@@ -235,23 +260,27 @@ header.header .logo-img {
 /* Botão ENTRAR no header (estilo Firefly: verde, cantos assimétricos) */
 header .btn-entrar-header,
 .btn-entrar-header {
-    font-family: "Poppins", Sans-serif;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.25px;
-    color: #1a202c !important;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(67, 78, 99) !important;
     background-color: #03FF00 !important;
     border-radius: 5px 30px 30px 5px;
     padding: 14px 30px;
     border: none;
     text-decoration: none;
+    cursor: pointer;
     transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 header .btn-entrar-header:hover,
 .btn-entrar-header:hover {
     background-color: #02cc00 !important;
-    color: #1a202c !important;
+    color: rgb(67, 78, 99) !important;
     text-decoration: none;
 }
 
