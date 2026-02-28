@@ -234,6 +234,17 @@ footer.footer {
     background-color: #0D172A !important;
 }
 
+/* Remover cart-sidebar (sidebar da página do carrinho) */
+body #order-standard_cart .cart-sidebar,
+.cart-sidebar {
+    display: none !important;
+}
+
+/* Coluna que contém o cart-sidebar: não ocupar espaço */
+body #order-standard_cart .row > [class*="col"]:has(.cart-sidebar) {
+    display: none !important;
+}
+
 /* Inputs e selects no tema escuro */
 .form-control,
 select.form-control,
