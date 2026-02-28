@@ -80,7 +80,7 @@
         <div class="navbar navbar-light">
             <div class="container mt-2 mb-2 d-flex align-items-center flex-wrap">
                 <a class="navbar-brand" href="{$WEB_ROOT}/index.php">
-                    <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img">
+                    <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img" width="507" height="125">
                 </a>
                 <ul class="navbar-nav ml-auto mr-2 align-items-center">
                     {include file="$template/includes/navbar.tpl" navbar=$secondaryNavbar rightDrop=true}
