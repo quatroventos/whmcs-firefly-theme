@@ -978,6 +978,73 @@ body .btn-default:hover {
     opacity: 0.8;
 }
 
+/* Modal Gerar senha: texto azul escuro, bordas nos inputs, botões no padrão do tema */
+#modalGeneratePassword .modal-header,
+#modalGeneratePassword .modal-body,
+#modalGeneratePassword .modal-footer {
+    background-color: #fff !important;
+    color: #0D172A !important;
+    border-color: #dee2e6;
+}
+#modalGeneratePassword .modal-title,
+#modalGeneratePassword .col-form-label,
+#modalGeneratePassword label,
+#modalGeneratePassword .modal-body,
+#modalGeneratePassword .modal-footer {
+    color: #0D172A !important;
+}
+#modalGeneratePassword .form-control,
+#modalGeneratePassword input[type="number"],
+#modalGeneratePassword input[type="text"] {
+    border: 1px solid #dee2e6 !important;
+    color: #0D172A !important;
+    background-color: #fff !important;
+    border-radius: 4px;
+}
+#modalGeneratePassword .form-control:focus {
+    border-color: #0D172A !important;
+    box-shadow: 0 0 0 0.2rem rgba(13, 23, 42, 0.15);
+}
+#modalGeneratePassword .alert.alert-danger {
+    background-color: #fff !important;
+    color: #e7000b !important;
+    border: 1px solid #e7000b;
+    text-align: left;
+}
+#modalGeneratePassword .btn-primary,
+#modalGeneratePassword #btnGeneratePasswordInsert {
+    font-family: Poppins, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #434e63 !important;
+    background-color: #03FF00 !important;
+    border: none !important;
+    border-radius: 5px 30px 30px 5px !important;
+    padding: 14px 30px !important;
+}
+#modalGeneratePassword .btn-primary:hover,
+#modalGeneratePassword #btnGeneratePasswordInsert:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+}
+#modalGeneratePassword .btn-default {
+    font-family: Poppins, sans-serif !important;
+    font-weight: 500 !important;
+    color: #0D172A !important;
+    background-color: #fff !important;
+    border: 1px solid #0D172A !important;
+    border-radius: 5px 30px 30px 5px !important;
+    padding: 10px 20px !important;
+}
+#modalGeneratePassword .btn-default:hover {
+    background-color: #0D172A !important;
+    color: #fff !important;
+    border-color: #0D172A !important;
+}
+#modalGeneratePassword .modal-footer .close {
+    color: #0D172A !important;
+}
+
 /* Modal "aguarde" ao processar pedido: border-radius 10, texto azul escuro, centralizado */
 #modalOrderProcessing .modal-content.modal-order-processing {
     border-radius: 10px !important;
@@ -1040,12 +1107,14 @@ body .btn-default:hover {
 }
 
 /* Erros do gateway de pagamento: fundo branco, texto vermelho, alinhado à esquerda */
-.alert.alert-danger.gateway-errors {
+.alert.alert-danger.gateway-errors,
+.alert.alert-danger.checkout-error-feedback {
     background-color: #fff !important;
     color: #e7000b !important;
     text-align: left !important;
 }
-.alert.alert-danger.gateway-errors * {
+.alert.alert-danger.gateway-errors *,
+.alert.alert-danger.checkout-error-feedback * {
     color: #e7000b !important;
 }
 

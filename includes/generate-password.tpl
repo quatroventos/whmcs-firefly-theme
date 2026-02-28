@@ -2,7 +2,7 @@
     <div class="modal fade" id="modalGeneratePassword">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header">
                     <h4 class="modal-title">
                         {lang key='generatePassword.title'}
                     </h4>
