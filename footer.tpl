@@ -161,28 +161,24 @@
     <script>
     (function() {
         function initOrderProcessingModal() {
-            var cart = document.getElementById('order-standard_cart');
             var form = document.getElementById('frmCheckout');
-            if (!cart || !form) return;
             var modal = document.getElementById('modalOrderProcessing');
-            if (!modal) return;
-            var modalShown = false;
-            form.addEventListener('submit', function(e) {
-                if (modalShown) return;
-                var isDomainOnly = form.querySelector('#frmProductDomain') && !form.querySelector('input[name="checkout"], button[name="checkout"], input[value="1"][name="checkout"]');
-                if (form.id === 'frmProductDomain') return;
-                var btn = (e && e.submitter) || form.querySelector('button[type="submit"], input[type="submit"]');
-                var isCheckoutSubmit = !btn || btn.name === 'checkout' || btn.value === '1' && btn.name === 'checkout' || (btn.classList && (btn.classList.contains('btn-checkout') || btn.classList.contains('btn-primary')));
-                if (!isCheckoutSubmit && !form.querySelector('#paymentGatewaysContainer, #creditCardInputFields, [id*="payment"]')) return;
-                modalShown = true;
+            if (!form || !modal) return;
+            var submitted = false;
+            form.addEventListener('submit', function handler(e) {
+                if (submitted) return;
+                var hasPayment = form.querySelector('#paymentGatewaysContainer, #creditCardInputFields, #paymentGatewayInput, [name="ccnumber"], [name="paymentmethod"]');
+                var hasCheckoutBtn = (e.submitter && (e.submitter.name === 'checkout' || (e.submitter.value === '1' && e.submitter.name === 'checkout') || /completar|pagar|checkout|pay/i.test((e.submitter.textContent || e.submitter.value || ''))));
+                if (!hasPayment && !hasCheckoutBtn) return;
+                submitted = true;
                 e.preventDefault();
                 if (typeof jQuery !== 'undefined' && jQuery(modal).modal) {
                     jQuery(modal).modal('show');
                 }
                 setTimeout(function() {
-                    form.removeEventListener('submit', arguments.callee);
+                    form.removeEventListener('submit', handler);
                     form.submit();
-                }, 100);
+                }, 150);
             }, false);
         }
         document.addEventListener('DOMContentLoaded', function() {

@@ -978,6 +978,25 @@ body .btn-default:hover {
     opacity: 0.8;
 }
 
+/* Modal "aguarde" ao processar pedido: fundo azul escuro do site, sem botão fechar */
+#modalOrderProcessing.modal .modal-order-processing.modal-content,
+#modalOrderProcessing .modal-content.modal-order-processing {
+    background-color: #0D172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+#modalOrderProcessing .modal-order-processing .modal-body {
+    background-color: #0D172A !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+#modalOrderProcessing .modal-order-processing .modal-title,
+#modalOrderProcessing .modal-order-processing .text-white {
+    color: #fff !important;
+}
+#modalOrderProcessing .modal-backdrop {
+    opacity: 0.85;
+}
+
 /* Alert warning: fundo e borda cinza */
 .alert-warning {
     background-color: #898989 !important;
@@ -999,9 +1018,15 @@ body .btn-default:hover {
     margin-right: 20px;
 }
 
-/* Formulários de login: borda 1px branca */
-.login-form .card,
-#containerExistingUserSignin {
+/* Formulários de login: borda 1px branca nos inputs; o card mantém a borda padrão */
+.login-form .form-control,
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"],
+#containerExistingUserSignin .form-control,
+#containerExistingUserSignin input[type="text"],
+#containerExistingUserSignin input[type="email"],
+#containerExistingUserSignin input[type="password"] {
     border: 1px solid #fff !important;
 }
 
