@@ -1,57 +1,43 @@
 /* *****************************************************
-
-    ** Custom Stylesheet **
-
-    Any custom styling you want to apply should be
-    defined here.
-
+    ** Firefly Host - Custom Stylesheet **
+    Cores do site: fundo azul escuro (#0A1C3C), texto branco,
+    botões/CTA verde limão. Tipografia Poppins.
 ***************************************************** */
 
-/* Custom CSS for Nexus Theme
- *
- * This file allows you to customize the theme colors and styles for the entire Nexus template.
- *
- * To customize colors:
- * - Replace the var() references with your own hex colors or other CSS values.
- * - For example, instead of --primary: #4b5563; use --primary: #your-color;
- * - You can also override any CSS properties here.
- */
-
+/* Firefly Host: azul escuro (header/hero/footer) + verde limão (CTAs) */
 :root {
     --white: #fff;
 
-    /* Neutral shades */
-    --neutral-50: #fbf9fa;
-    --neutral-100: #f4f5f7;
+    /* Neutral shades - grays for content */
+    --neutral-50: #fafafa;
+    --neutral-100: #f4f4f5;
     --neutral-200: #e4e4e7;
-    --neutral-300: #d0d5dd;
-    --neutral-400: #9ca3af;
-    --neutral-500: #6b7280;
-    --neutral-600: #4b5563;
-    --neutral-700: #374151;
-    --neutral-800: #1f2937;
-    --neutral-900: #111827;
-    --neutral-950: #030712;
+    --neutral-300: #d4d4d8;
+    --neutral-400: #a1a1aa;
+    --neutral-500: #71717a;
+    --neutral-600: #52525b;
+    --neutral-700: #3f3f46;
+    --neutral-800: #27272a;
+    --neutral-900: #18181b;
+    --neutral-950: #09090b;
 
-    /* Neutral shades */
-    /* define own pallet with brand colors */
-    --primary-50: var(--neutral-50);
-    --primary-100: var(--neutral-100);
-    --primary-200: var(--neutral-200);
-    --primary-300: var(--neutral-300);
-    --primary-400: var(--neutral-400);
-    --primary-500: var(--neutral-500);
-    --primary-600: var(--neutral-600);
-    --primary-700: var(--neutral-700);
-    --primary-800: var(--neutral-800);
-    --primary-900: var(--neutral-900);
-    --primary-950: var(--neutral-900);
+    /* Firefly primary - verde limão (CTA, botões "Ver planos", "Entrar") */
+    --primary-50: #ecfdf5;
+    --primary-100: #d1fae5;
+    --primary-200: #a7f3d0;
+    --primary-300: #6ee7b7;
+    --primary-400: #4ade80;
+    --primary-500: #22c55e;
+    --primary-600: #16a34a;
+    --primary-700: #15803d;
+    --primary-800: #166534;
+    --primary-900: #14532d;
+    --primary-950: #052e16;
 
-    /* Primary colors */
-    /* Use shades from comments if `primary` colors use other colors, then neutral */
-    --primary: var(--neutral-900);          /* var(--primary-600) */
-    --primary-lifted: var(--neutral-800);   /* var(--primary-700) */
-    --primary-accented: var(--neutral-700); /* var(--primary-800) */
+    /* Primary usage */
+    --primary: #22c55e;
+    --primary-lifted: #4ade80;
+    --primary-accented: #16a34a;
 
     /* Secondary colors */
     --secondary: var(--neutral-500);
@@ -64,9 +50,9 @@
     --success-accented: #016630;
 
     /* Info colors */
-    --info: #155dfc;
-    --info-lifted: #1447e6;
-    --info-accented: #193cb8;
+    --info: #0ea5e9;
+    --info-lifted: #0284c7;
+    --info-accented: #0369a1;
 
     /* Notice colors */
     --notice: #7f22fe;
@@ -83,45 +69,50 @@
     --error-lifted: #c10007;
     --error-accented: #9f0712;
 
-    /* Grayscale colors */
-    --grayscale: var(--neutral-900);
-    --grayscale-lifted: var(--neutral-800);
-    --grayscale-accented: var(--neutral-700);
+    /* Grayscale - azul escuro header/footer (Firefly Host) */
+    --grayscale: #0A1C3C;
+    --grayscale-lifted: #0f2d52;
+    --grayscale-accented: #153d6b;
 
-    /* Neutral colors */
+    /* Neutral semantic */
     --neutral: var(--neutral-500);
     --neutral-lifted: var(--neutral-600);
     --neutral-accented: var(--neutral-700);
 
-    /* Text neutral colors */
+    /* Text */
     --text-inverted: var(--white);
     --text-muted: var(--neutral-400);
     --text-lifted: var(--neutral-500);
     --text-accented: var(--neutral-600);
     --text: var(--neutral-900);
 
-    /* Border neutral colors */
+    /* Borders */
     --border-muted: var(--neutral-200);
     --border: var(--neutral-300);
     --border-lifted: var(--neutral-400);
     --border-accented: var(--neutral-600);
 
-    /* Background neutral colors */
+    /* Backgrounds */
     --bg: var(--white);
     --bg-muted: var(--neutral-50);
     --bg-lifted: var(--neutral-100);
     --bg-accented: var(--neutral-200);
-    --bg-inverted: var(--neutral-900);
+    --bg-inverted: #0A1C3C;
+
+    /* Firefly cards (planos): fundo escuro, borda/ícones ciano, botão verde neon */
+    --firefly-card-bg: #101F25;
+    --firefly-page-bg: #0B171C;
+    --firefly-accent: #1AFEDF;
+    --firefly-cta: #11FF00;
 
     /* Additional colors */
-    --yellow-200: #fff085;
-    --yellow-300: #ffdf20;
-    --teal-300: #46edd5;
-    --teal-400: #00d5be;
-    --emerald-300: #5ee9b5;
-    --pink-400: #fb64b6;
+    --yellow-200: #fef08a;
+    --yellow-300: #fde047;
+    --teal-300: #5eead4;
+    --teal-400: #2dd4bf;
+    --emerald-300: #6ee7b7;
+    --pink-400: #f472b6;
 
-    /* Additional custom properties */
     /* Font sizes */
     --text-xs: 0.625rem;
     --text-sm: 0.75rem;
@@ -133,12 +124,100 @@
     --outline-md: 2px;
     --outline-lg: 3px;
 
-    /* Rounding */
-    --rounding-sm: 0.25rem;
+    /* Rounding - Firefly style (slightly rounder) */
+    --rounding-sm: 0.375rem;
     --rounding-md: 0.5rem;
     --rounding-lg: 0.75rem;
+
+    /* Shadows - cards and buttons */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
 
     /* Other */
     --letter-spacing: 0em;
     --disabled-opacity: 25%;
+}
+
+/* Firefly Host: card shadows and transitions */
+.primary-content .card,
+.card {
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.primary-content .card:hover,
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Card selecionado (estado do centro): borda ciano com glow */
+.card.selected,
+.card.active,
+.card.highlight,
+.card--selected {
+    border: 2px solid var(--firefly-accent);
+    box-shadow: 0 0 12px var(--firefly-accent), 0 0 24px rgba(26, 254, 223, 0.25);
+}
+
+/* Bloco de cards no estilo Firefly (fundo escuro, texto branco, borda ciano) */
+.firefly-cards {
+    background-color: var(--firefly-page-bg);
+    padding: 2rem 0;
+}
+
+.firefly-cards .card {
+    background-color: var(--firefly-card-bg);
+    border: 1px solid var(--firefly-accent);
+    color: #fff;
+    border-radius: var(--rounding-lg);
+}
+
+.firefly-cards .card .card-title,
+.firefly-cards .card h1, .firefly-cards .card h2, .firefly-cards .card h3,
+.firefly-cards .card h4, .firefly-cards .card h5, .firefly-cards .card h6 {
+    color: #fff;
+}
+
+.firefly-cards .card .card-body,
+.firefly-cards .card p,
+.firefly-cards .card .text-muted {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.firefly-cards .card .text-muted {
+    color: var(--firefly-accent);
+}
+
+.firefly-cards .card .btn-primary {
+    background: var(--firefly-cta);
+    border-color: var(--firefly-cta);
+    color: #0B171C;
+}
+
+.firefly-cards .card .btn-primary:hover {
+    background: #2eff2e;
+    border-color: #2eff2e;
+    color: #0B171C;
+}
+
+.firefly-cards .card.selected,
+.firefly-cards .card.active,
+.firefly-cards .card.highlight {
+    border-width: 2px;
+    box-shadow: 0 0 12px var(--firefly-accent), 0 0 24px rgba(26, 254, 223, 0.3);
+}
+
+.btn {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Firefly Host: store com mesma cor dos CTAs (verde limão) */
+.dynamic-landing-page {
+    --primary-color: #22c55e;
+    --accent-color: #4ade80;
 }

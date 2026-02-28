@@ -1,8 +1,9 @@
 .btn-default {
   color: #333;
   background-color: #fff;
-  border-color: #ccc;
+  border-color: var(--border);
   border-radius: var(--rounding-md);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -11,7 +12,7 @@
   border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: white;
+  color: #fff;
   background-color: var(--grayscale-lifted);
   border-color: var(--grayscale-lifted);
 }
@@ -61,30 +62,37 @@ fieldset[disabled] .btn-default.focus {
   color: inherit;
 }
 
+/* Firefly Host: primary CTA = orange */
 .btn-primary {
-  background: var(--bg-inverted);
-  border-color: var(--grayscale);
+  background: var(--primary);
+  border-color: var(--primary);
   border-radius: var(--rounding-md);
   padding: 0.375rem 0.75rem;
-}
-
-.btn-danger {
-  border-radius: var(--rounding-md);
-}
-
-
-.btn-primary.disabled, .btn-primary:disabled {
-}
-
-#btnCompleteProductConfig {
-  width: 100%;
+  color: #fff;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  background: var(--grayscale-lifted);
-  border-color: var(--grayscale-lifted);
+  background: var(--primary-accented);
+  border-color: var(--primary-accented);
+  color: #fff;
+}
+
+.btn-danger {
+  border-radius: var(--rounding-md);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background: var(--neutral-400);
+  border-color: var(--neutral-400);
+}
+
+#btnCompleteProductConfig {
+  width: 100%;
 }
 
 .btn-link {
@@ -104,7 +112,8 @@ fieldset[disabled] .btn-default.focus {
 }
 
 #btnDomainContinue {
-  background: black;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 // Switch yes/no
@@ -138,9 +147,9 @@ fieldset[disabled] .btn-default.focus {
   border-radius: var(--rounding-md);
 
   &:hover {
-    color: white;
-    background-color: var(--bg-inverted);
-    border-color: var(--bg-inverted);
+    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
   }
 
   &:focus{
