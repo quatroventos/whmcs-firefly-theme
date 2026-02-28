@@ -454,7 +454,7 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
 @media (min-width: 992px) {
     #order-standard_cart #frmCheckout {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 1fr;
         gap: 1.5rem;
     }
 
@@ -482,6 +482,14 @@ button[name="validatepromo"].btn-default {
 }
 button[name="validatepromo"].btn-default:hover {
     color: #FFFFFF !important;
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
+}
+
+/* Botão "Gerar Senha": estado normal igual ao hover (cor sólida) */
+button.generate-password.btn-default,
+button.generate-password.btn-default:hover {
+    color: #fff !important;
     background-color: var(--grayscale-lifted) !important;
     border-color: var(--grayscale-lifted) !important;
 }
