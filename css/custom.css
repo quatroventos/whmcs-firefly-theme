@@ -1146,6 +1146,11 @@ body form textarea {
     display: none !important;
 }
 
+/* Oculto temporariamente */
+#cPanelPackagePanel {
+    display: none !important;
+}
+
 /* Todas as fontes em branco */
 body,
 body .primary-content,
