@@ -919,15 +919,28 @@ select.form-control option {
     border-color: var(--border);
 }
 
-/* Campo Descrição (Opcional): append sem borda, borda arredondada à direita como o form */
+/* Campo Descrição (Opcional): append alinhado ao form, sem borda, borda arredondada à direita */
+.fieldgroup-auxfields .input-group {
+    display: flex !important;
+    align-items: stretch !important;
+}
 .fieldgroup-auxfields .input-group .form-control {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+}
+.fieldgroup-auxfields .input-group-append {
+    display: flex !important;
+    align-items: stretch !important;
 }
 .fieldgroup-auxfields .input-group-append .input-group-text {
     border: none !important;
     border-top-right-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    align-self: stretch !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
 }
 
 /* Texto de formulários (labels, legendas, etc.) mesma cor do restante do site */
