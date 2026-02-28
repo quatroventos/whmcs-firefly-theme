@@ -223,19 +223,26 @@ header.header .main-navbar-wrapper {
     background-color: #0D172A !important;
 }
 
-/* Header: tipografia e layout */
+/* Header: tipografia e layout – navbar 100% de largura */
 header.header {
     font-family: Rubik, sans-serif;
     font-size: 16px;
     font-weight: 400;
     height: 100px;
     line-height: 28.8px;
-    margin-inline-start: 255px;
-    margin-inline-end: 255px;
-    max-width: 1170px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     position: relative;
     display: flex;
     align-items: center;
+}
+
+header.header .navbar,
+header.header .navbar-light {
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Alinhamento vertical ao centro dos elementos do header */
@@ -312,6 +319,65 @@ body #order-standard_cart .cart-sidebar,
 /* Coluna que contém o cart-sidebar: não ocupar espaço */
 body #order-standard_cart .row > [class*="col"]:has(.cart-sidebar) {
     display: none !important;
+}
+
+/* Carrinho: área do conteúdo com 100% de largura */
+#order-standard_cart .cart-body {
+    width: 100% !important;
+}
+
+/* Formulário domínio: abas lado a lado (Registrar | Usar meu domínio), padrão = Usar meu domínio */
+#frmProductDomain .domain-selection-options {
+    position: relative;
+}
+#frmProductDomain .domain-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border-muted, #4e5a6e);
+}
+#frmProductDomain .domain-tabs .tab {
+    flex: 1;
+    padding: 12px 16px;
+    text-align: center;
+    font-family: Rubik, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted, #94a3b8);
+    background: var(--bg-muted, #141c2a);
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+#frmProductDomain .domain-tabs .tab:hover {
+    color: var(--text, #e2e8f0);
+    background: var(--bg-lifted, #434e63);
+}
+#frmProductDomain .domain-tabs .tab.active {
+    color: var(--firefly-accent, #00F0FF);
+    background: var(--bg-lifted, #434e63);
+    border-bottom-color: var(--firefly-accent, #00F0FF);
+}
+#frmProductDomain .domain-tab-panels {
+    padding: 16px;
+    background: var(--bg-lifted, #434e63);
+    border: 1px solid var(--border-muted, #4e5a6e);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+#frmProductDomain .domain-selection-options .option.domain-tab-panel {
+    display: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+#frmProductDomain .domain-selection-options .option.domain-tab-panel.active {
+    display: block;
+}
+#frmProductDomain .domain-selection-options .option > label:first-of-type {
+    display: none;
 }
 
 /* Inputs e selects no tema escuro */
