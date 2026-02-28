@@ -435,11 +435,9 @@ body #order-standard_cart .cart-body .view-cart-items .item {
     border: 1px solid var(--border-muted) !important;
 }
 
-/* Desktop: sidebar secundária do carrinho com margem superior */
-@media (min-width: 992px) {
-    #order-standard_cart .secondary-cart-sidebar {
-        margin-top: 50px;
-    }
+/* Esconder o parágrafo "Configure as opções desejadas e prossiga para o pagamento" */
+#order-standard_cart .secondary-cart-body > p {
+    display: none !important;
 }
 
 /* Aba ativa do carrinho (view-cart-tabs): mesmo fundo dos cards */
@@ -714,6 +712,49 @@ body .btn-success {
 }
 body a:hover {
     color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Modais: fundo branco, texto escuro, botões legíveis */
+.modal .modal-content {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6;
+    color: #0D172A;
+}
+.modal .modal-header {
+    background-color: #ffffff !important;
+    color: #0D172A !important;
+    border-bottom: 1px solid #dee2e6;
+}
+.modal .modal-title {
+    color: #0D172A !important;
+}
+.modal .modal-body {
+    background-color: #ffffff !important;
+    color: #0D172A !important;
+}
+.modal .modal-footer {
+    background-color: #f8f9fa !important;
+    color: #0D172A !important;
+    border-top: 1px solid #dee2e6;
+}
+.modal .modal-footer .btn-default,
+.modal .modal-footer .btn-secondary {
+    background-color: #ffffff !important;
+    color: #0D172A !important;
+    border: 1px solid #0D172A !important;
+}
+.modal .modal-footer .btn-primary {
+    background-color: #03FF00 !important;
+    color: #434e63 !important;
+    border: none !important;
+}
+.modal .modal-footer .btn-primary:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+}
+.modal .modal-header .close {
+    color: #0D172A !important;
+    opacity: 0.8;
 }
 
 /* Alert warning: fundo e borda cinza */
