@@ -459,7 +459,7 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
     }
 
     #order-standard_cart .checkout-card {
-        background: #fff;
+        background: var(--firefly-card-bg);
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         padding: 1.5rem;
