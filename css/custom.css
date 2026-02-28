@@ -739,12 +739,24 @@ body #order-standard_cart .domain-selection-options .btn {
     box-sizing: border-box;
 }
 
-/* Form "usar meu domínio": tudo inline, alinhado na mesma linha */
+/* Form "usar meu domínio": ocupa toda a largura do card (sem centralizar com offset) */
 #domainowndomain > .row {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+/* Coluna do input (ex.: col-sm-8): cresce e preenche o espaço; remove offset */
+#domainowndomain > .row > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    padding-right: 0.5rem;
 }
 #domainowndomain > .row > .col-10 {
     flex: 1;
@@ -755,12 +767,15 @@ body #order-standard_cart .domain-selection-options .btn {
     flex-wrap: nowrap;
     align-items: stretch;
     gap: 0;
+    width: 100%;
 }
-#domainowndomain .domains-row > .col-10 {
+#domainowndomain .domains-row > .col-10,
+#domainowndomain .domains-row > .col-9 {
     flex: 1;
     min-width: 0;
 }
-#domainowndomain .domains-row > .col-1 {
+#domainowndomain .domains-row > .col-1,
+#domainowndomain .domains-row > .col-3 {
     flex: 0 0 auto;
     min-width: 80px;
 }
@@ -768,8 +783,9 @@ body #order-standard_cart .domain-selection-options .btn {
     display: flex;
     width: 100%;
 }
-#domainowndomain > .row > .col-2 {
-    flex: 0 0 auto;
+#domainowndomain > .row > .col-2,
+#domainowndomain > .row > div:last-child {
+    flex: 0 0 auto !important;
 }
 
 /* Seletor de domínios: sem borda branca */
