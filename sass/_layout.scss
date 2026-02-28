@@ -191,20 +191,20 @@ header.header {
 }
 
 .master-breadcrumb {
-    background-color: var(--bg-accented);
+    background-color: var(--bg-inverted);
 
     .breadcrumb {
-        background-color: var(--bg-accented);
+        background-color: transparent;
         margin: 0;
         padding: 9px 0;
         font-size: 0.9rem;
 
         a {
-            color: var(--text-lifted);
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .breadcrumb-item.active {
-            color: var(--text-accented);
+            color: #fff;
         }
     }
 }
@@ -387,7 +387,7 @@ h6:hover .show-on-hover {
 
     &:hover,
     &:active {
-        background-color: #fff;
+        background-color: var(--bg-lifted);
         color: var(--info);
         border-color: var(--border-lifted);
     }
@@ -398,7 +398,27 @@ h6:hover .show-on-hover {
         max-width: 700px;
     }
     .modal-header {
-        background-color: #eee;
+        background-color: var(--bg-lifted);
+        border-color: var(--border-muted);
+        color: var(--text);
+    }
+    .modal-content {
+        background-color: var(--bg);
+        border-color: var(--border);
+        color: var(--text);
+    }
+    .modal-body {
+        background-color: var(--bg);
+        color: var(--text);
+    }
+    .modal-footer {
+        background-color: var(--bg-lifted);
+        border-color: var(--border-muted);
+        color: var(--text);
+    }
+    .close {
+        color: var(--text);
+        opacity: 0.8;
     }
 }
 

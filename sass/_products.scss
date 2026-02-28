@@ -1,7 +1,7 @@
 body #order-standard_cart .products .product {
   padding: 1px 0 10px 0;
   margin: 0 0 20px 0;
-  background: white;
+  background: var(--bg);
   border-radius: var(--rounding-lg);
   border: 1px solid var(--border-muted);
 

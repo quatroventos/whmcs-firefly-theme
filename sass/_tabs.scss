@@ -17,7 +17,7 @@
 @include media-breakpoint-down(sm) {
   .responsive-tabs-sm {
     border-left: 1px solid #ddd;
-    background: #fff;
+    background: var(--bg);
     width: 90%;
     border-top: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -41,7 +41,7 @@
 
         &.active {
           border: 0;
-          background-color: #fff !important;
+          background-color: var(--bg) !important;
           font-weight: bold;
         }
       }
@@ -64,7 +64,7 @@
 
     .channel {
       float: left;
-      background: #fff;
+      background: var(--bg);
       width: 6px;
       height: 5px;
       border-right: 1px solid #ddd;

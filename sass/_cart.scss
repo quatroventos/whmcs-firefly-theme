@@ -199,7 +199,7 @@ body #order-standard_cart .cart-body {
   }
 
   .view-cart-empty {
-    background-color: white;
+    background-color: var(--bg);
     border-right: 1px solid var(--border-muted);
     border-left: 1px solid var(--border-muted);
     border-bottom: 1px solid var(--border-muted);
@@ -285,17 +285,19 @@ body #order-standard_cart .order-summary .btn-continue-shopping {
   margin-top: 12px;
 }
 
-// View Cart > Checkout Button
+// View Cart > Checkout Button (verde CTA Firefly)
 body #order-standard_cart .text-right .btn-checkout {
-  background: var(--bg-inverted);
-  border-color: var(--bg-inverted);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
   padding: 8px 16px;
   border-radius: var(--rounding-md);
   width: 100%;
 
   &:hover, &:focus {
-    background: var(--grayscale-lifted);
-    border-color: var(--grayscale-lifted);
+    background: var(--primary-accented);
+    border-color: var(--primary-accented);
+    color: #fff;
   }
 
     &:focus{
@@ -306,7 +308,7 @@ body #order-standard_cart .text-right .btn-checkout {
 body #order-standard_cart .sub-heading {
   span {
     color: var(--text);
-    background: #f8f9fa;
+    background: var(--bg-lifted);
   }
 }
 
@@ -355,7 +357,7 @@ body #order-standard_cart .cart-body .products .product {
     }
   }
 header {
-  background: white;
+  background: var(--bg);
   border-bottom: 1px solid var(--border-muted);
   margin: 0;
 }
@@ -367,13 +369,13 @@ header {
 
 // product > order now > choose domain
 body #order-standard_cart .domain-selection-options {
-  background: white;
+  background: var(--bg);
   border: 1px solid var(--border-muted);
   border-radius: 8px;
 
 
   .option {
-    background-color: var(--bg);
+    background-color: var(--bg-lifted);
     margin:0;
 
     .domain-input-group input::placeholder {
@@ -382,7 +384,7 @@ body #order-standard_cart .domain-selection-options {
   }
 
   .option-selected {
-    background: #f8f8f8;
+    background: var(--bg-accented);
   }
 
   .btn {
@@ -413,7 +415,7 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs  {
     border-bottom: 0;
 
     a[aria-expanded="true"] {
-      background-color: white;
+      background-color: var(--bg);
       border-bottom: 0;
       border-radius: 8px 8px 0 0 ;
     }
@@ -449,7 +451,7 @@ body #frmConfigureProduct {
 }
 
 body #frmConfigureProduct .form-control {
-  color: black;
+  color: var(--text);
 }
 
 body #order-standard_cart .field-help-text {
@@ -460,17 +462,17 @@ body #order-standard_cart .field-help-text {
 // transfer domain
 body #order-standard_cart .panel {
   .panel-heading {
-    background: white;
+    background: var(--bg);
     border-radius: 8px 8px 0 0;
   }
 
   .panel-footer {
-    background: white;
+    background: var(--bg);
     border-radius: 0 0 8px 8px;
   }
 
   label {
-    color: var(--bg-inverted);
+    color: var(--text);
     font-weight: 500;
   }
 
@@ -500,7 +502,7 @@ body #order-standard_cart {
         border-radius: 8px;
         padding-left: 8px;
         padding-right: 8px;
-        background: white;
+        background: var(--bg);
         color: var(--text);
         border: 1px solid var(--border-muted);
 
@@ -515,8 +517,9 @@ body #order-standard_cart {
     }
 
     .bg-white {
+      background: var(--bg) !important;
       border-radius: 8px ;
-      border: 1px solid var(--bg-muted);
+      border: 1px solid var(--border-muted);
       overflow: hidden;
 
       .tld-row {
@@ -539,11 +542,11 @@ body #order-standard_cart {
 
       .tld-column {
         border-radius: 8px 0 0 8px;
-        background-color: white;
+        background-color: var(--bg);
       }
 
       div {
-        background: white;
+        background: var(--bg);
         border-radius: 0;
         border-color: var(--border-lifted);
 
@@ -567,7 +570,7 @@ body #order-standard_cart {
 
       .tld-column {
         border-radius: 8px 0 0 0;
-        background-color: white;
+        background-color: var(--bg);
       }
 
       div {
@@ -587,7 +590,7 @@ body #order-standard_cart {
 
   .domain-promo-box {
     border-radius: 8px;
-    background: white;
+    background: var(--bg);
 
     .btn-warning{
       border-radius: 8px;

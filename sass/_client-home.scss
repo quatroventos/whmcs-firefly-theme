@@ -3,7 +3,7 @@
       font-size: 0.9em;
     }
     .card-header {
-        background-color: #fff;
+        background-color: var(--bg);
         border-bottom: 0;
         font-weight: bold;
 
@@ -265,7 +265,7 @@ body .primary-content .client-home-cards .card {
     border-radius: var(--rounding-md) var(--rounding-md) 0 0;
 
     .btn {
-      background: white;
+      background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: var(--rounding-sm);
@@ -274,7 +274,7 @@ body .primary-content .client-home-cards .card {
       &:hover {
         background: var(--grayscale-lifted);
         border-color: var(--grayscale-lifted);
-        color: white;
+        color: var(--text-inverted);
       }
     }
   }
@@ -284,7 +284,7 @@ body .primary-content .client-home-cards .card {
   }
 
   .card-footer {
-    background: white;
+    background: var(--bg);
     border-radius: 0 0 var(--rounding-md) var(--rounding-md);
 
     .btn-view-more {
@@ -333,7 +333,7 @@ body .list-group-item:first-child {
 
 // My Domains > Renew Domains
 body .secondary-cart-body #domainRenewals {
-  background-color: white;
+  background-color: var(--bg);
   border: 1px solid var(--border-muted);
   border-radius: var(--rounding-md);
 

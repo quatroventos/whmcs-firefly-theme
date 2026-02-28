@@ -15,7 +15,7 @@ html,body {
 section#main-body {
   margin: 0;
   padding: 20px 0;
-  background-color: var(--bg-lifted);
+  background-color: var(--firefly-page-bg, #0B171C);
   /* screen - header height - breadcrumbs height - footer height */
   min-height: calc(100vh - 146px - 40px - 140px);
 }
@@ -87,7 +87,7 @@ a {
 
   // Contacts
   &:has(form) {
-    background-color: white;
+    background-color: var(--bg);
     border: 1px solid var(--border-muted);
     color: var(--text);
   }
@@ -160,8 +160,8 @@ form[data-role="json-form"] .has-error .tooltip.top .tooltip-arrow {
 .continue-container {
   margin: 40px auto;
   padding: 20px;
-  background-color: #f6f6f6;
-  border: 1px solid #eee;
+  background-color: var(--bg-lifted);
+  border: 1px solid var(--border-muted);
   max-width: 500px;
 }
 
@@ -172,8 +172,8 @@ form[data-role="json-form"] .has-error .tooltip.top .tooltip-arrow {
 .invite-box {
   margin: 20px 0;
   padding: 20px;
-  background-color:#f6f6f6;
-  border:1px solid #eee;
+  background-color: var(--bg-lifted);
+  border: 1px solid var(--border-muted);
 }
 
 /**

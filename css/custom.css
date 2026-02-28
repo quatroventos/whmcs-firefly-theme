@@ -79,24 +79,24 @@
     --neutral-lifted: var(--neutral-600);
     --neutral-accented: var(--neutral-700);
 
-    /* Text */
+    /* Text - tema escuro: texto claro na área de conteúdo */
     --text-inverted: var(--white);
-    --text-muted: var(--neutral-400);
-    --text-lifted: var(--neutral-500);
-    --text-accented: var(--neutral-600);
-    --text: var(--neutral-900);
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --text-lifted: rgba(255, 255, 255, 0.85);
+    --text-accented: rgba(255, 255, 255, 0.9);
+    --text: #e2e8f0;
 
-    /* Borders */
-    --border-muted: var(--neutral-200);
-    --border: var(--neutral-300);
-    --border-lifted: var(--neutral-400);
-    --border-accented: var(--neutral-600);
+    /* Borders - visíveis em fundo escuro */
+    --border-muted: rgba(255, 255, 255, 0.12);
+    --border: rgba(255, 255, 255, 0.2);
+    --border-lifted: rgba(255, 255, 255, 0.28);
+    --border-accented: rgba(255, 255, 255, 0.4);
 
-    /* Backgrounds */
-    --bg: var(--white);
-    --bg-muted: var(--neutral-50);
-    --bg-lifted: var(--neutral-100);
-    --bg-accented: var(--neutral-200);
+    /* Backgrounds - área de conteúdo escura (Firefly) */
+    --bg: #101F25;
+    --bg-muted: #0d1920;
+    --bg-lifted: #152530;
+    --bg-accented: #1a2d3a;
     --bg-inverted: #0A1C3C;
 
     /* Firefly cards (planos): fundo escuro, borda/ícones ciano, botão verde neon */
@@ -220,4 +220,60 @@
 .dynamic-landing-page {
     --primary-color: #22c55e;
     --accent-color: #4ade80;
+}
+
+/* Inputs e selects no tema escuro */
+.form-control,
+select.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea.form-control {
+    background-color: var(--bg-lifted);
+    color: var(--text);
+    border-color: var(--border);
+}
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+.form-control:focus {
+    background-color: var(--bg-lifted);
+    color: var(--text);
+    border-color: var(--firefly-accent);
+}
+select.form-control option {
+    background: var(--bg);
+    color: var(--text);
+}
+.input-group-text {
+    background-color: var(--bg-accented);
+    color: var(--text);
+    border-color: var(--border);
+}
+.list-group-item {
+    background-color: var(--bg);
+    color: var(--text);
+    border-color: var(--border-muted);
+}
+.table {
+    color: var(--text);
+}
+.table td, .table th {
+    border-color: var(--border-muted);
+}
+.card {
+    background-color: var(--bg);
+    border-color: var(--border);
+    color: var(--text);
+}
+.card-header {
+    background-color: var(--bg-lifted);
+    color: var(--text);
+    border-color: var(--border-muted);
+}
+.card-footer {
+    background-color: var(--bg-lifted);
+    border-color: var(--border-muted);
+    color: var(--text);
 }

@@ -23,8 +23,8 @@
     .input-group-wrapper {
         margin: 15px 0;
         padding: 6px;
-        background-color: #fff;
-        border: 1px solid #ced4da;
+        background-color: var(--bg);
+        border: 1px solid var(--border);
         border-radius: var(--rounding-sm);
 
         .form-control {
@@ -64,9 +64,9 @@
         display: block;
         text-align: center;
         transition: all 0.3s ease;
-        color: #666;
+        color: var(--text-lifted);
         text-decoration: none;
-        background-color: #fff;
+        background-color: var(--bg);
         border-radius: var(--rounding-sm);
 
         .ico-container {
@@ -126,9 +126,10 @@ body #main-body {
         border-radius: var(--rounding-md);
         border: 1px solid var(--grayscale);
 
-        &:hover,  {
-            background-color: var(--bg-inverted);
-            color: white;
+        &:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-inverted);
         }
 
     }
