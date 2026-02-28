@@ -12,10 +12,13 @@
     {$headeroutput}
 
     <header id="header" class="header">
-        {if $loggedin}
-            <div class="topbar">
-                <div class="container">
-                    <div class="d-flex">
+        <div class="container header-row d-flex align-items-center flex-wrap mt-2 mb-2">
+            <a class="navbar-brand" href="https://fireflyhost.com.br" target="_blank" rel="noopener">
+                <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img" width="157" height="39">
+            </a>
+            {if $loggedin}
+                <div class="topbar d-flex align-items-center ml-auto">
+                    <div class="d-flex w-100 justify-content-end flex-wrap">
                         <div class="mr-auto">
                             <button type="button" class="btn" data-toggle="popover" id="accountNotifications" data-placement="bottom">
                                 <i class="far fa-flag"></i>
@@ -44,7 +47,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="ml-auto">
                             <div class="input-group active-client" role="group">
                                 <div class="input-group-prepend d-none d-md-inline">
@@ -74,23 +76,23 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        {/if}
-
-        <div class="navbar navbar-light">
-            <div class="container mt-2 mb-2 d-flex align-items-center flex-wrap">
-                <a class="navbar-brand" href="https://fireflyhost.com.br" target="_blank" rel="noopener">
-                    <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img" width="157" height="39">
-                </a>
-                {if !$loggedin}<a href="{$WEB_ROOT}/clientarea.php" class="btn btn-entrar-header">{lang key='login'}</a>{/if}
-                <ul class="navbar-nav toolbar">
-                    <li class="nav-item ml-2 d-xl-none">
+                <ul class="navbar-nav toolbar ml-2 d-xl-none">
+                    <li class="nav-item">
                         <button class="btn nav-link" type="button" data-toggle="collapse" data-target="#mainNavbar">
                             <span class="fas fa-bars fa-fw"></span>
                         </button>
                     </li>
                 </ul>
-            </div>
+            {else}
+                <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-entrar-header">{lang key='login'}</a>
+                <ul class="navbar-nav toolbar ml-2">
+                    <li class="nav-item d-xl-none">
+                        <button class="btn nav-link" type="button" data-toggle="collapse" data-target="#mainNavbar">
+                            <span class="fas fa-bars fa-fw"></span>
+                        </button>
+                    </li>
+                </ul>
+            {/if}
         </div>
         <div class="navbar navbar-expand-xl main-navbar-wrapper d-none">
             <div class="container">

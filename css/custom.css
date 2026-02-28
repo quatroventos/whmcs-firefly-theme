@@ -229,7 +229,7 @@ header.header .topbar {
     background-color: #0D172A !important;
 }
 
-/* Header: tipografia e layout – logo à esquerda, topbar (quando logado) ou Entrar à direita na mesma linha */
+/* Header: tipografia; largura fixa igual às demais telas via .container (max-width 1140px) */
 header.header {
     font-family: Rubik, sans-serif;
     font-size: 16px;
@@ -237,27 +237,21 @@ header.header {
     min-height: 100px;
     line-height: 28.8px;
     width: 100%;
-    max-width: 100%;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
     position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
 }
 
-/* Topbar (notificações + Conectado como): mesma linha que a logo, à direita; fundo azul escuro */
+/* Linha do header: um único .container = mesma largura do restante do site */
+header.header .header-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Topbar (notificações + Conectado como): à direita da logo; fundo já é o do header */
 header.header .topbar {
-    order: 2;
-    flex: 1 1 auto;
-    margin-left: auto;
     padding: 6px 0;
     color: rgba(255, 255, 255, 0.85);
-}
-header.header .topbar .container {
-    max-width: 100%;
-    justify-content: flex-end;
+    min-width: 0;
 }
 header.header .topbar .btn {
     color: rgba(255, 255, 255, 0.85);
@@ -269,16 +263,6 @@ header.header .topbar .active-client .input-group-text {
 }
 header.header .topbar .active-client .btn.btn-active-client span {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.85);
-}
-
-/* Navbar da logo: à esquerda; quando há topbar (logado) não ocupa 100% */
-header.header .navbar.navbar-light {
-    order: 1;
-    flex: 0 0 auto;
-    max-width: none;
-}
-header.header .topbar ~ .navbar.navbar-light {
-    width: auto;
 }
 
 header.header .navbar,
