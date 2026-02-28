@@ -1008,6 +1008,49 @@ body form textarea {
     color: var(--text);
 }
 
+/* Cards da área do cliente (Sitejet, promo, etc.): nenhum fundo branco – sempre padrão dos cards */
+.client-home-cards .card,
+.client-home-cards .card.card-accent-blue,
+.client-home-cards .card[class*="card-accent-"] {
+    background-color: var(--bg) !important;
+    border-color: var(--border-muted);
+    color: var(--text);
+}
+.client-home-cards .card .card-header,
+.client-home-cards .card .card-body,
+.client-home-cards .card .card-footer,
+.client-home-cards .card.card-accent-blue .card-header,
+.client-home-cards .card.card-accent-blue .card-body,
+.client-home-cards .card.card-accent-blue .card-footer,
+.client-home-cards .card[class*="card-accent-"] .card-header,
+.client-home-cards .card[class*="card-accent-"] .card-body,
+.client-home-cards .card[class*="card-accent-"] .card-footer {
+    background-color: var(--bg) !important;
+    border-color: var(--border-muted);
+    color: var(--text);
+}
+.client-home-cards .card .card-header,
+.client-home-cards .card.card-accent-blue .card-header,
+.client-home-cards .card[class*="card-accent-"] .card-header {
+    background-color: var(--bg-lifted) !important;
+}
+.client-home-cards .card .card-footer,
+.client-home-cards .card.card-accent-blue .card-footer,
+.client-home-cards .card[class*="card-accent-"] .card-footer {
+    background-color: var(--bg-lifted) !important;
+}
+.client-home-cards .card .card-header .btn,
+.client-home-cards .card[class*="card-accent-"] .card-header .btn {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    border-color: var(--border);
+}
+.client-home-cards .card .card-header .btn:hover,
+.client-home-cards .card[class*="card-accent-"] .card-header .btn:hover {
+    background-color: var(--grayscale-lifted) !important;
+    color: var(--text-inverted) !important;
+}
+
 /* Todas as fontes em branco */
 body,
 body .primary-content,
