@@ -201,6 +201,10 @@
                     radioRegister.checked = !isOwn;
                     optOwn.classList.toggle('active', isOwn);
                     optRegister.classList.toggle('active', !isOwn);
+                    var inputGroupOwn = optOwn.querySelector('.domain-input-group');
+                    var inputGroupReg = optRegister.querySelector('.domain-input-group');
+                    if (inputGroupOwn) inputGroupOwn.style.display = isOwn ? 'block' : 'none';
+                    if (inputGroupReg) inputGroupReg.style.display = isOwn ? 'none' : 'block';
                     var tabs = tabsWrap.querySelectorAll('.tab');
                     for (var i = 0; i < tabs.length; i++) {
                         tabs[i].classList.toggle('active', tabs[i].getAttribute('data-option') === optionValue);

@@ -381,6 +381,12 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 #frmProductDomain .domain-selection-options .option.domain-tab-panel.active {
     display: block;
 }
+#frmProductDomain .domain-selection-options .option.domain-tab-panel.active .domain-input-group {
+    display: block !important;
+}
+#frmProductDomain .domain-selection-options .option.domain-tab-panel:not(.active) .domain-input-group {
+    display: none !important;
+}
 #frmProductDomain .domain-selection-options .option > label:first-of-type {
     display: none;
 }
