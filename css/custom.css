@@ -351,19 +351,19 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     font-size: 15px;
     font-weight: 500;
     color: #94a3b8;
-    background: var(--bg-muted, #141c2a);
+    background: transparent;
     border: none;
     border-bottom: 3px solid transparent;
     cursor: pointer;
-    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    transition: color 0.2s, border-color 0.2s;
 }
 #frmProductDomain .domain-tabs .tab:hover {
     color: #cbd5e1;
-    background: var(--bg-lifted, #434e63);
+    background: transparent;
 }
 #frmProductDomain .domain-tabs .tab.active {
     color: #FFFFFF;
-    background: var(--bg-lifted, #434e63);
+    background: transparent;
     border-bottom-color: var(--firefly-accent, #00F0FF);
 }
 #frmProductDomain .domain-tab-panels {
@@ -413,6 +413,7 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 }
 
 /* Inputs e selects no tema escuro – texto na mesma cor do fundo do site (legível) */
+/* Inputs com fundo branco: fonte na cor do fundo do site (azul escuro #0D172A) */
 .form-control,
 select.form-control,
 input[type="text"],
@@ -420,25 +421,25 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 textarea.form-control {
-    background-color: var(--bg-lifted);
-    color: #FFFFFF !important;
+    background-color: #ffffff !important;
+    color: #0D172A !important;
     border-color: var(--border);
 }
 .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(13, 23, 42, 0.5);
 }
 .form-control:focus {
-    background-color: var(--bg-lifted);
-    color: #FFFFFF !important;
+    background-color: #ffffff !important;
+    color: #0D172A !important;
     border-color: var(--firefly-accent);
 }
 select.form-control option {
-    background: var(--bg);
-    color: #FFFFFF;
+    background: #ffffff;
+    color: #0D172A;
 }
 .input-group-text {
-    background-color: var(--bg-accented);
-    color: #FFFFFF !important;
+    background-color: #ffffff !important;
+    color: #0D172A !important;
     border-color: var(--border);
 }
 
@@ -492,7 +493,6 @@ body p,
 body span,
 body h1, body h2, body h3, body h4, body h5, body h6,
 body label,
-body .form-control,
 body .breadcrumb,
 body .breadcrumb a,
 body .nav-link,
@@ -504,7 +504,6 @@ body .table td,
 body .table th,
 body a,
 body .text-muted,
-body .input-group-text,
 body .modal-title,
 body .modal-body,
 body .modal-footer,
@@ -521,6 +520,17 @@ body .btn-success {
 body a:hover {
     color: rgba(255, 255, 255, 0.9) !important;
 }
+/* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
+body .form-control,
+body input[type="text"],
+body input[type="email"],
+body input[type="password"],
+body input[type="number"],
+body textarea.form-control,
+body .input-group-text {
+    color: #0D172A !important;
+    background-color: #ffffff !important;
+}
 body .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(13, 23, 42, 0.5) !important;
 }
