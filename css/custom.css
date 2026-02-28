@@ -352,6 +352,37 @@ body .btn.btn-primary.btn-block:hover {
     text-decoration: none;
 }
 
+/* Botão Enviar Pagamento (frmPayment): mesmo estilo do botão Entrar (verde, Poppins) */
+#frmPayment #btnSubmit,
+#frmPayment .btn.btn-primary#btnSubmit {
+    box-sizing: border-box !important;
+    font-family: Poppins, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.25px !important;
+    line-height: 16px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    color: #434e63 !important;
+    background-color: #03FF00 !important;
+    border-radius: 5px 30px 30px 5px !important;
+    padding: 14px 30px !important;
+    border: none !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: opacity 0.2s ease, background-color 0.2s ease !important;
+}
+#frmPayment #btnSubmit:hover,
+#frmPayment .btn.btn-primary#btnSubmit:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+    text-decoration: none !important;
+}
+#frmPayment #btnSubmit .pay-text,
+#frmPayment #btnSubmit .click-text {
+    color: #434e63 !important;
+}
+
 /* Botão Continuar, Checkout, Completar Pedido (e primary/success lg): mesmo estilo do botão Entrar */
 #btnCompleteProductConfig,
 #btnCompleteOrder,
@@ -1250,14 +1281,20 @@ body.firefly-invoice-view .panel-body {
     color: #000 !important;
 }
 body.firefly-invoice-view .table {
-    color: #000 !important;
+    color: #0D172A !important;
     border-color: #dee2e6 !important;
     background-color: #fff !important;
 }
 body.firefly-invoice-view .table thead td,
+body.firefly-invoice-view .table th,
+body.firefly-invoice-view .table td,
+body.firefly-invoice-view .table tbody td,
+body.firefly-invoice-view .table strong {
+    color: #0D172A !important;
+}
+body.firefly-invoice-view .table thead td,
 body.firefly-invoice-view .table th {
     background-color: #f8f9fa !important;
-    color: #000 !important;
     border-color: #dee2e6 !important;
 }
 body.firefly-invoice-view .table tbody tr {
@@ -1270,8 +1307,11 @@ body.firefly-invoice-view .table td {
 }
 body.firefly-invoice-view td.total-row {
     background-color: #f8f9fa !important;
-    color: #000 !important;
+    color: #0D172A !important;
     font-weight: 600;
+}
+body.firefly-invoice-view td.total-row strong {
+    color: #0D172A !important;
 }
 body.firefly-invoice-view .card-header.bg-success.text-white {
     background-color: #d4edda !important;
@@ -1290,6 +1330,7 @@ body.firefly-invoice-view .btn-default {
     color: #fff !important;
     border-radius: 5px 30px 30px 5px;
     font-weight: 600;
+    text-transform: uppercase !important;
 }
 body.firefly-invoice-view .btn-default:hover {
     background-color: #1e293b !important;
@@ -1308,6 +1349,7 @@ body.firefly-invoice-view #btnInvoiceAddCreditApply {
     font-size: 16px !important;
     font-weight: 700 !important;
     padding: 14px 30px !important;
+    text-transform: uppercase !important;
 }
 body.firefly-invoice-view .payment-btn-container .btn-primary:hover,
 body.firefly-invoice-view .payment-btn-container .btn-success:hover,
@@ -1322,6 +1364,7 @@ body.firefly-invoice-view .btn-success:not(.payment-btn-container .btn-success) 
     color: #fff !important;
     border-radius: 5px 30px 30px 5px;
     font-weight: 600;
+    text-transform: uppercase !important;
 }
 body.firefly-invoice-view .btn-primary:not(.payment-btn-container .btn-primary):hover,
 body.firefly-invoice-view .btn-success:not(.payment-btn-container .btn-success):hover {
