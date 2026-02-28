@@ -166,6 +166,18 @@
     })();
     </script>
 
+    {* Esconder seletor de gateway quando há apenas um método de pagamento *}
+    <script>
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var container = document.getElementById('paymentGatewaysContainer');
+            if (!container) return;
+            var radios = container.querySelectorAll('input[name="paymentmethod"]');
+            if (radios.length === 1) container.style.display = 'none';
+        });
+    })();
+    </script>
+
     {* Formulário domínio: abas lado a lado, padrão = Usar meu domínio *}
     <script>
     (function() {
