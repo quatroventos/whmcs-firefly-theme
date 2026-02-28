@@ -64,12 +64,12 @@
     <div class="modal fade" id="modalOrderProcessing" tabindex="-1" role="dialog" aria-labelledby="modalOrderProcessingTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-order-processing">
-                <div class="modal-body text-center py-5 px-4">
+                <div class="modal-body modal-order-processing-body">
                     <div class="mb-4">
-                        <i class="fas fa-circle-notch fa-spin fa-4x text-white" aria-hidden="true"></i>
+                        <i class="fas fa-circle-notch fa-spin fa-4x modal-order-processing-spinner" aria-hidden="true"></i>
                     </div>
-                    <h5 class="modal-title text-white mb-3" id="modalOrderProcessingTitle">Por favor aguarde</h5>
-                    <p class="text-white mb-0">Enquanto configuramos sua conta. Não feche esta janela &mdash; essa operação pode demorar alguns minutos.</p>
+                    <h5 class="modal-title mb-3" id="modalOrderProcessingTitle">Por favor aguarde</h5>
+                    <p class="mb-0">Enquanto configuramos sua conta. Não feche esta janela &mdash; essa operação pode demorar alguns minutos.</p>
                 </div>
             </div>
         </div>
@@ -157,9 +157,14 @@
 
     {include file="$template/includes/generate-password.tpl"}
 
-    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout *}
+    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout; some no retorno do JS (submitReset/showCheckoutError) *}
     <script>
     (function() {
+        function hideOrderProcessingModal() {
+            if (typeof jQuery !== 'undefined') {
+                jQuery('#modalOrderProcessing').modal('hide');
+            }
+        }
         function initOrderProcessingModal() {
             var form = document.getElementById('frmCheckout');
             var modal = document.getElementById('modalOrderProcessing');
@@ -181,8 +186,40 @@
                 }, 150);
             }, false);
         }
+        function hookPaymentReset() {
+            if (window.WHMCS && WHMCS.payment && WHMCS.payment.event && WHMCS.payment.event.display) {
+                var display = WHMCS.payment.event.display;
+                if (display.submitReset) {
+                    var origSubmitReset = display.submitReset;
+                    display.submitReset = function(source) {
+                        origSubmitReset.apply(this, arguments);
+                        if (source === 'checkout') hideOrderProcessingModal();
+                    };
+                }
+                if (display.errorShow) {
+                    var origErrorShow = display.errorShow;
+                    display.errorShow = function(errorMessage, source) {
+                        origErrorShow.apply(this, arguments);
+                        if (source === 'checkout') hideOrderProcessingModal();
+                    };
+                }
+                return true;
+            }
+            return false;
+        }
+        function hookShowCheckoutError() {
+            if (typeof showCheckoutError !== 'function') return false;
+            var orig = showCheckoutError;
+            window.showCheckoutError = function(errorMessage, container) {
+                orig(errorMessage, container);
+                hideOrderProcessingModal();
+            };
+            return true;
+        }
         document.addEventListener('DOMContentLoaded', function() {
             initOrderProcessingModal();
+            if (!hookPaymentReset()) setTimeout(hookPaymentReset, 300);
+            if (!hookShowCheckoutError()) setTimeout(hookShowCheckoutError, 300);
         });
     })();
     </script>

@@ -978,20 +978,29 @@ body .btn-default:hover {
     opacity: 0.8;
 }
 
-/* Modal "aguarde" ao processar pedido: fundo azul escuro do site, sem botão fechar */
-#modalOrderProcessing.modal .modal-order-processing.modal-content,
+/* Modal "aguarde" ao processar pedido: border-radius 10, texto azul escuro, centralizado */
 #modalOrderProcessing .modal-content.modal-order-processing {
-    background-color: #0D172A !important;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
+    border-radius: 10px !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(13, 23, 42, 0.15);
+    color: #0D172A !important;
 }
-#modalOrderProcessing .modal-order-processing .modal-body {
-    background-color: #0D172A !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+#modalOrderProcessing .modal-order-processing-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 2rem 1.5rem !important;
+    background-color: #fff !important;
+    color: #0D172A !important;
 }
 #modalOrderProcessing .modal-order-processing .modal-title,
-#modalOrderProcessing .modal-order-processing .text-white {
-    color: #fff !important;
+#modalOrderProcessing .modal-order-processing-body p {
+    color: #0D172A !important;
+}
+#modalOrderProcessing .modal-order-processing-spinner {
+    color: #0D172A !important;
 }
 #modalOrderProcessing .modal-backdrop {
     opacity: 0.85;
