@@ -300,3 +300,48 @@ select.form-control option {
     border-color: var(--border-muted);
     color: var(--text);
 }
+
+/* Todas as fontes em branco */
+body,
+body .primary-content,
+body .card,
+body .card-body,
+body .card-title,
+body .card-header,
+body .card-footer,
+body p,
+body span,
+body h1, body h2, body h3, body h4, body h5, body h6,
+body label,
+body .form-control,
+body .breadcrumb,
+body .breadcrumb a,
+body .nav-link,
+body .dropdown-item,
+body .dropdown-item a,
+body .list-group-item,
+body .table,
+body .table td,
+body .table th,
+body a:not(.btn-primary):not(.btn-success),
+body .text-muted,
+body .input-group-text,
+body .modal-title,
+body .modal-body,
+body .modal-footer,
+body .alert,
+body .list-inline-item,
+body .copyright,
+body footer .nav-link,
+body .btn-default,
+body .navbar a,
+body .btn-primary,
+body .btn-success {
+    color: #FFFFFF !important;
+}
+body a:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+body .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
