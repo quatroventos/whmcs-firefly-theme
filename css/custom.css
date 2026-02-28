@@ -1141,34 +1141,6 @@ body .btn-default:hover {
     color: #0D172A !important;
 }
 
-/* Modal "aguarde" ao processar pedido: border-radius 10, texto azul escuro, centralizado */
-#modalOrderProcessing .modal-content.modal-order-processing {
-    border-radius: 10px !important;
-    background-color: #fff !important;
-    border: 1px solid rgba(13, 23, 42, 0.15);
-    color: #0D172A !important;
-}
-#modalOrderProcessing .modal-order-processing-body {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 2rem 1.5rem !important;
-    background-color: #fff !important;
-    color: #0D172A !important;
-}
-#modalOrderProcessing .modal-order-processing .modal-title,
-#modalOrderProcessing .modal-order-processing-body p {
-    color: #0D172A !important;
-}
-#modalOrderProcessing .modal-order-processing-spinner {
-    color: #0D172A !important;
-}
-#modalOrderProcessing .modal-backdrop {
-    opacity: 0.85;
-}
-
 /* Alert warning: fundo e borda cinza */
 .alert-warning {
     background-color: #898989 !important;

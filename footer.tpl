@@ -60,21 +60,6 @@
         </div>
     </div>
 
-    {* Modal "aguarde" ao enviar pedido/pagamento no checkout *}
-    <div class="modal fade" id="modalOrderProcessing" tabindex="-1" role="dialog" aria-labelledby="modalOrderProcessingTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content modal-order-processing">
-                <div class="modal-body modal-order-processing-body">
-                    <div class="mb-4">
-                        <i class="fas fa-circle-notch fa-spin fa-4x modal-order-processing-spinner" aria-hidden="true"></i>
-                    </div>
-                    <h5 class="modal-title mb-3" id="modalOrderProcessingTitle">Por favor aguarde</h5>
-                    <p class="mb-0">Enquanto configuramos sua conta. Não feche esta janela &mdash; essa operação pode demorar alguns minutos.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal system-modal fade" id="modalAjax" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -156,110 +141,6 @@
     {/if}
 
     {include file="$template/includes/generate-password.tpl"}
-
-    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout; some no retorno do JS ou quando aparece erro *}
-    <script>
-    (function() {
-        function hideOrderProcessingModal() {
-            if (typeof jQuery !== 'undefined') {
-                jQuery('#modalOrderProcessing').modal('hide');
-            }
-        }
-        function initOrderProcessingModal() {
-            var form = document.getElementById('frmCheckout');
-            var modal = document.getElementById('modalOrderProcessing');
-            if (!form || !modal) return;
-            var submitted = false;
-            form.addEventListener('submit', function handler(e) {
-                if (submitted) return;
-                var hasPayment = form.querySelector('#paymentGatewaysContainer, #creditCardInputFields, #paymentGatewayInput, [name="ccnumber"], [name="paymentmethod"]');
-                var hasCheckoutBtn = (e.submitter && (e.submitter.name === 'checkout' || (e.submitter.value === '1' && e.submitter.name === 'checkout') || /completar|pagar|checkout|pay/i.test((e.submitter.textContent || e.submitter.value || ''))));
-                if (!hasPayment && !hasCheckoutBtn) return;
-                submitted = true;
-                e.preventDefault();
-                if (typeof jQuery !== 'undefined' && jQuery(modal).modal) {
-                    jQuery(modal).modal('show');
-                }
-                setTimeout(function() {
-                    form.removeEventListener('submit', handler);
-                    form.submit();
-                }, 150);
-            }, false);
-        }
-        function hookPaymentReset() {
-            if (window.WHMCS && WHMCS.payment && WHMCS.payment.event && WHMCS.payment.event.display) {
-                var display = WHMCS.payment.event.display;
-                if (display.submitReset) {
-                    var origSubmitReset = display.submitReset;
-                    display.submitReset = function(source) {
-                        origSubmitReset.apply(this, arguments);
-                        if (source === 'checkout') hideOrderProcessingModal();
-                    };
-                }
-                if (display.errorShow) {
-                    var origErrorShow = display.errorShow;
-                    display.errorShow = function(errorMessage, source) {
-                        origErrorShow.apply(this, arguments);
-                        if (source === 'checkout') hideOrderProcessingModal();
-                    };
-                }
-                return true;
-            }
-            return false;
-        }
-        function hookShowCheckoutError() {
-            if (typeof showCheckoutError !== 'function') return false;
-            var orig = showCheckoutError;
-            window.showCheckoutError = function(errorMessage, container) {
-                orig(errorMessage, container);
-                hideOrderProcessingModal();
-            };
-            return true;
-        }
-        function watchForGatewayErrorAndHideModal() {
-            var sel = '.gateway-errors, .checkout-error-feedback, .alert-danger';
-            var nodes = document.querySelectorAll(sel);
-            if (!nodes.length) return;
-            nodes.forEach(function(el) {
-                if (el._orderModalWatcher) return;
-                el._orderModalWatcher = true;
-                var obs = new MutationObserver(function() {
-                    var hasContent = (el.textContent || '').trim().length > 0;
-                    var visible = el.offsetParent !== null || (window.getComputedStyle(el).display !== 'none' && window.getComputedStyle(el).visibility !== 'hidden');
-                    if (hasContent && visible) hideOrderProcessingModal();
-                });
-                obs.observe(el, { childList: true, subtree: true, characterData: true });
-            });
-        }
-        function watchForButtonReenable() {
-            var btn = document.getElementById('btnCompleteOrder');
-            if (!btn || btn._orderModalWatcher) return;
-            btn._orderModalWatcher = true;
-            var obs = new MutationObserver(function() {
-                if (!btn.disabled) hideOrderProcessingModal();
-            });
-            obs.observe(btn, { attributes: true, attributeFilter: ['disabled', 'class'] });
-            setInterval(function() {
-                if (!btn.disabled && document.getElementById('modalOrderProcessing') && jQuery('#modalOrderProcessing').hasClass('show')) hideOrderProcessingModal();
-            }, 500);
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            initOrderProcessingModal();
-            if (!hookPaymentReset()) {
-                setTimeout(hookPaymentReset, 300);
-                setTimeout(hookPaymentReset, 800);
-                setTimeout(hookPaymentReset, 1500);
-            }
-            if (!hookShowCheckoutError()) {
-                setTimeout(hookShowCheckoutError, 300);
-                setTimeout(hookShowCheckoutError, 800);
-            }
-            setTimeout(watchForGatewayErrorAndHideModal, 200);
-            setTimeout(watchForGatewayErrorAndHideModal, 1000);
-            setTimeout(watchForButtonReenable, 500);
-        });
-    })();
-    </script>
 
     {* Remove apenas o bloco cart-sidebar (Ações); esconde a coluna vazia com classe para não remover conteúdo *}
     <script>
