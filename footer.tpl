@@ -248,6 +248,47 @@
     })();
     </script>
 
+    {* Checkout: botões "Já registrado?" / "Criar uma nova conta" – lado a lado, toggle form, padrão = nova conta *}
+    <script>
+    (function() {
+        function initCheckoutAlreadyRegistered() {
+            var btnExisting = document.getElementById('btnAlreadyRegistered');
+            var btnNew = document.getElementById('btnNewUserSignup');
+            var containerNew = document.getElementById('containerNewUserSignup');
+            var containerExisting = document.getElementById('containerExistingUserSignin');
+            var inputCustType = document.getElementById('inputCustType');
+            if (!btnExisting || !btnNew || !containerNew || !containerExisting) return;
+
+            btnExisting.classList.remove('w-hidden');
+            btnNew.classList.remove('w-hidden');
+
+            function showNewUser() {
+                containerNew.style.display = '';
+                containerExisting.style.display = 'none';
+                btnNew.classList.add('active');
+                btnExisting.classList.remove('active');
+                if (inputCustType) inputCustType.value = 'new';
+            }
+            function showExistingUser() {
+                containerExisting.style.display = '';
+                containerNew.style.display = 'none';
+                btnExisting.classList.add('active');
+                btnNew.classList.remove('active');
+                if (inputCustType) inputCustType.value = 'existing';
+            }
+
+            showNewUser();
+
+            btnExisting.addEventListener('click', function() { showExistingUser(); });
+            btnNew.addEventListener('click', function() { showNewUser(); });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initCheckoutAlreadyRegistered, 150);
+        });
+        if (document.readyState === 'complete') setTimeout(initCheckoutAlreadyRegistered, 150);
+    })();
+    </script>
+
     {$footeroutput}
 
 </body>

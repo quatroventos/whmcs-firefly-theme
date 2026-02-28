@@ -358,7 +358,21 @@ body .btn.btn-primary.btn-block:hover {
     text-decoration: none;
 }
 
-/* Botões "Já registrado?" e "Criar uma nova conta": fundo dos cards, texto branco no estilo Entrar */
+/* Container "Já registrado?" / "Criar uma nova conta": lado a lado, centralizado */
+.already-registered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+/* Ambos os botões sempre visíveis (sobrescreve .w-hidden) */
+.already-registered #btnAlreadyRegistered,
+.already-registered #btnNewUserSignup {
+    display: inline-block !important;
+}
+
+/* Botões "Já registrado?" e "Criar uma nova conta": fundo dos cards, texto branco */
 #btnAlreadyRegistered,
 #btnNewUserSignup {
     box-sizing: border-box;
@@ -372,11 +386,17 @@ body .btn.btn-primary.btn-block:hover {
     color: #FFFFFF !important;
     background-color: var(--bg) !important;
     border: 1px solid var(--border-muted) !important;
-    border-radius: 5px 30px 30px 5px;
     padding: 14px 30px !important;
     text-decoration: none;
     cursor: pointer;
     transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+/* Border radius: esquerda só no botão esquerdo, direita só no direito (segmento) */
+#btnAlreadyRegistered {
+    border-radius: 30px 0 0 30px;
+}
+#btnNewUserSignup {
+    border-radius: 0 30px 30px 0;
 }
 #btnAlreadyRegistered:hover,
 #btnNewUserSignup:hover {
@@ -384,6 +404,13 @@ body .btn.btn-primary.btn-block:hover {
     color: #FFFFFF !important;
     border-color: var(--border-muted) !important;
     text-decoration: none;
+}
+/* Estado ativo = mesma cor do hover */
+#btnAlreadyRegistered.active,
+#btnNewUserSignup.active {
+    background-color: var(--bg-lifted) !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-muted) !important;
 }
 
 /* Remover menu #nav (navegação principal) */
@@ -564,6 +591,16 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
     margin-left: 0 !important;
 }
 #stripeElements .stripe-cards-inputs {
+    max-width: 100%;
+}
+
+/* Nome do cartão (descrição): zerar margin do container */
+#inputDescriptionContainer,
+#creditCardInputFields #inputDescriptionContainer,
+#paymentGatewayInput #inputDescriptionContainer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin: 0 !important;
     max-width: 100%;
 }
 
@@ -892,8 +929,24 @@ body a:hover {
     border-color: #898989 !important;
 }
 
+/* Checkout mensagem de segurança: centralizar verticalmente, fundo verde segurança */
+.alert.alert-warning.checkout-security-msg,
+.checkout-security-msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    background-color: #0d6b2c !important;
+    border-color: #0a5522 !important;
+    color: #fff !important;
+}
+
 /* Total a pagar hoje: accent ciano do tema, fonte escura */
 #totalDueToday.alert-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.5rem;
     background-color: var(--firefly-accent) !important;
     border-color: var(--firefly-accent) !important;
     color: #0D172A !important;
@@ -901,6 +954,10 @@ body a:hover {
 #totalDueToday.alert-success strong,
 #totalDueToday.alert-success #totalCartPrice {
     color: #0D172A !important;
+}
+#totalDueToday.alert-success #totalCartPrice {
+    font-size: 25px !important;
+    width: auto;
 }
 /* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
 body .form-control,
