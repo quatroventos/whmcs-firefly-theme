@@ -157,7 +157,7 @@
 
     {include file="$template/includes/generate-password.tpl"}
 
-    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout; some no retorno do JS (submitReset/showCheckoutError) *}
+    {* Modal "aguarde" ao clicar para pagar / completar pedido no checkout; some no retorno do JS ou quando aparece erro *}
     <script>
     (function() {
         function hideOrderProcessingModal() {
@@ -216,10 +216,47 @@
             };
             return true;
         }
+        function watchForGatewayErrorAndHideModal() {
+            var sel = '.gateway-errors, .checkout-error-feedback, .alert-danger';
+            var nodes = document.querySelectorAll(sel);
+            if (!nodes.length) return;
+            nodes.forEach(function(el) {
+                if (el._orderModalWatcher) return;
+                el._orderModalWatcher = true;
+                var obs = new MutationObserver(function() {
+                    var hasContent = (el.textContent || '').trim().length > 0;
+                    var visible = el.offsetParent !== null || (window.getComputedStyle(el).display !== 'none' && window.getComputedStyle(el).visibility !== 'hidden');
+                    if (hasContent && visible) hideOrderProcessingModal();
+                });
+                obs.observe(el, { childList: true, subtree: true, characterData: true });
+            });
+        }
+        function watchForButtonReenable() {
+            var btn = document.getElementById('btnCompleteOrder');
+            if (!btn || btn._orderModalWatcher) return;
+            btn._orderModalWatcher = true;
+            var obs = new MutationObserver(function() {
+                if (!btn.disabled) hideOrderProcessingModal();
+            });
+            obs.observe(btn, { attributes: true, attributeFilter: ['disabled', 'class'] });
+            setInterval(function() {
+                if (!btn.disabled && document.getElementById('modalOrderProcessing') && jQuery('#modalOrderProcessing').hasClass('show')) hideOrderProcessingModal();
+            }, 500);
+        }
         document.addEventListener('DOMContentLoaded', function() {
             initOrderProcessingModal();
-            if (!hookPaymentReset()) setTimeout(hookPaymentReset, 300);
-            if (!hookShowCheckoutError()) setTimeout(hookShowCheckoutError, 300);
+            if (!hookPaymentReset()) {
+                setTimeout(hookPaymentReset, 300);
+                setTimeout(hookPaymentReset, 800);
+                setTimeout(hookPaymentReset, 1500);
+            }
+            if (!hookShowCheckoutError()) {
+                setTimeout(hookShowCheckoutError, 300);
+                setTimeout(hookShowCheckoutError, 800);
+            }
+            setTimeout(watchForGatewayErrorAndHideModal, 200);
+            setTimeout(watchForGatewayErrorAndHideModal, 1000);
+            setTimeout(watchForButtonReenable, 500);
         });
     })();
     </script>
