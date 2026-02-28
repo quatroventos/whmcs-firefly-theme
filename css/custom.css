@@ -449,6 +449,39 @@ body #order-standard_cart .domain-selection-options .btn {
     box-sizing: border-box;
 }
 
+/* Form "usar meu domínio": tudo inline, alinhado na mesma linha */
+#domainowndomain > .row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+}
+#domainowndomain > .row > .col-10 {
+    flex: 1;
+    min-width: 0;
+}
+#domainowndomain .domains-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+}
+#domainowndomain .domains-row > .col-10 {
+    flex: 1;
+    min-width: 0;
+}
+#domainowndomain .domains-row > .col-1 {
+    flex: 0 0 auto;
+    min-width: 80px;
+}
+#domainowndomain .domains-row .input-group {
+    display: flex;
+    width: 100%;
+}
+#domainowndomain > .row > .col-2 {
+    flex: 0 0 auto;
+}
+
 /* Seletor de domínios: sem borda branca */
 #frmProductDomain .domain-input-group .form-control,
 #frmProductDomain .domain-input-group input,
