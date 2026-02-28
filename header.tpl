@@ -82,7 +82,7 @@
                 <a class="navbar-brand" href="https://fireflyhost.com.br" target="_blank" rel="noopener">
                     <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img" width="157" height="39">
                 </a>
-                <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-entrar-header">{lang key='login'}</a>
+                {if !$loggedin}<a href="{$WEB_ROOT}/clientarea.php" class="btn btn-entrar-header">{lang key='login'}</a>{/if}
                 <ul class="navbar-nav toolbar">
                     <li class="nav-item ml-2 d-xl-none">
                         <button class="btn nav-link" type="button" data-toggle="collapse" data-target="#mainNavbar">

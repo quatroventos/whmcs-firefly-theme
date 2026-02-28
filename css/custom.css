@@ -224,16 +224,17 @@
 header.header,
 header.header .navbar,
 header.header .navbar-light,
-header.header .main-navbar-wrapper {
+header.header .main-navbar-wrapper,
+header.header .topbar {
     background-color: #0D172A !important;
 }
 
-/* Header: tipografia e layout – navbar 100% de largura */
+/* Header: tipografia e layout – logo à esquerda, topbar (quando logado) ou Entrar à direita na mesma linha */
 header.header {
     font-family: Rubik, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    height: 100px;
+    min-height: 100px;
     line-height: 28.8px;
     width: 100%;
     max-width: 100%;
@@ -241,7 +242,43 @@ header.header {
     margin-inline-end: 0;
     position: relative;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+}
+
+/* Topbar (notificações + Conectado como): mesma linha que a logo, à direita; fundo azul escuro */
+header.header .topbar {
+    order: 2;
+    flex: 1 1 auto;
+    margin-left: auto;
+    padding: 6px 0;
+    color: rgba(255, 255, 255, 0.85);
+}
+header.header .topbar .container {
+    max-width: 100%;
+    justify-content: flex-end;
+}
+header.header .topbar .btn {
+    color: rgba(255, 255, 255, 0.85);
+}
+header.header .topbar .active-client .input-group-text {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    border: 0;
+}
+header.header .topbar .active-client .btn.btn-active-client span {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.85);
+}
+
+/* Navbar da logo: à esquerda; quando há topbar (logado) não ocupa 100% */
+header.header .navbar.navbar-light {
+    order: 1;
+    flex: 0 0 auto;
+    max-width: none;
+}
+header.header .topbar ~ .navbar.navbar-light {
+    width: auto;
 }
 
 header.header .navbar,
@@ -604,6 +641,11 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
     max-width: 100%;
 }
 
+#newCardSaveSettings {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* Botão Validar Código: mesma cor do hover como estado normal */
 button[name="validatepromo"].btn-default {
     color: #FFFFFF !important;
@@ -880,6 +922,16 @@ body a:hover {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
+/* btn-default: estado normal = cor do hover (cinza) */
+body .btn-default {
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
+}
+body .btn-default:hover {
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
+}
+
 /* Modais: fundo branco, texto escuro, botões legíveis */
 .modal .modal-content {
     background-color: #ffffff !important;
@@ -939,6 +991,35 @@ body a:hover {
     background-color: #0d6b2c !important;
     border-color: #0a5522 !important;
     color: #fff !important;
+}
+.checkout-security-msg .fas.fa-lock {
+    margin-right: 20px;
+}
+
+/* Formulários de login: borda 1px branca */
+.login-form .card,
+#containerExistingUserSignin {
+    border: 1px solid #fff !important;
+}
+
+/* Erros do gateway de pagamento: fundo branco, texto vermelho, alinhado à esquerda */
+.alert.alert-danger.gateway-errors {
+    background-color: #fff !important;
+    color: #e7000b !important;
+    text-align: left !important;
+}
+.alert.alert-danger.gateway-errors * {
+    color: #e7000b !important;
+}
+
+/* Confirmação do pedido: accent do tema, fonte azul escuro */
+.alert.alert-info.order-confirmation {
+    background-color: var(--firefly-accent) !important;
+    border-color: var(--firefly-accent) !important;
+    color: #0D172A !important;
+}
+.alert.alert-info.order-confirmation * {
+    color: #0D172A !important;
 }
 
 /* Total a pagar hoje: accent ciano do tema, fonte escura */
