@@ -78,11 +78,13 @@
         {/if}
 
         <div class="navbar navbar-light">
-            <div class="container mt-2 mb-2">
+            <div class="container mt-2 mb-2 d-flex align-items-center flex-wrap">
                 <a class="navbar-brand" href="{$WEB_ROOT}/index.php">
                     <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img">
                 </a>
-
+                <ul class="navbar-nav ml-auto mr-2 align-items-center">
+                    {include file="$template/includes/navbar.tpl" navbar=$secondaryNavbar rightDrop=true}
+                </ul>
                 <ul class="navbar-nav toolbar">
                     <li class="nav-item ml-2 d-xl-none">
                         <button class="btn nav-link" type="button" data-toggle="collapse" data-target="#mainNavbar">
@@ -92,14 +94,11 @@
                 </ul>
             </div>
         </div>
-        <div class="navbar navbar-expand-xl main-navbar-wrapper">
+        <div class="navbar navbar-expand-xl main-navbar-wrapper d-none">
             <div class="container">
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul id="nav" class="navbar-nav mr-auto">
                         {include file="$template/includes/navbar.tpl" navbar=$primaryNavbar}
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        {include file="$template/includes/navbar.tpl" navbar=$secondaryNavbar rightDrop=true}
                     </ul>
                 </div>
             </div>
