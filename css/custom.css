@@ -459,11 +459,18 @@ body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-
     }
 
     #order-standard_cart .checkout-card {
-        background: var(--firefly-card-bg);
+        background: none;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         padding: 1.5rem;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    #order-standard_cart .checkout-card-left {
+        background: none;
+        padding: 0;
+        border: none;
+        box-shadow: none;
     }
 }
 
