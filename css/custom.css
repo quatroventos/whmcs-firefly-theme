@@ -334,12 +334,14 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 /* Formulário domínio: abas lado a lado (Registrar | Usar meu domínio), padrão = Usar meu domínio */
 #frmProductDomain .domain-selection-options {
     position: relative;
+    border: none !important;
+    box-shadow: none;
 }
 #frmProductDomain .domain-tabs {
     display: flex;
     gap: 0;
     margin-bottom: 0;
-    border-bottom: 1px solid var(--border-muted, #4e5a6e);
+    border-bottom: none;
 }
 #frmProductDomain .domain-tabs .tab {
     flex: 1;
@@ -348,7 +350,7 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     font-family: Rubik, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: var(--text-muted, #94a3b8);
+    color: #94a3b8;
     background: var(--bg-muted, #141c2a);
     border: none;
     border-bottom: 3px solid transparent;
@@ -356,18 +358,18 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
 #frmProductDomain .domain-tabs .tab:hover {
-    color: var(--text, #e2e8f0);
+    color: #cbd5e1;
     background: var(--bg-lifted, #434e63);
 }
 #frmProductDomain .domain-tabs .tab.active {
-    color: var(--firefly-accent, #00F0FF);
+    color: #FFFFFF;
     background: var(--bg-lifted, #434e63);
     border-bottom-color: var(--firefly-accent, #00F0FF);
 }
 #frmProductDomain .domain-tab-panels {
     padding: 16px;
-    background: var(--bg-lifted, #434e63);
-    border: 1px solid var(--border-muted, #4e5a6e);
+    background: var(--firefly-page-bg, #0D172A);
+    border: none;
     border-top: none;
     border-radius: 0 0 8px 8px;
 }
@@ -391,7 +393,26 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     display: none;
 }
 
-/* Inputs e selects no tema escuro */
+/* Seletor de domínios: sem borda branca */
+#frmProductDomain .domain-input-group .form-control,
+#frmProductDomain .domain-input-group input,
+#frmProductDomain .domain-input-group textarea,
+#frmProductDomain .domain-input-group .input-group-text,
+#frmProductDomain .domain-input-group .input-group,
+#frmProductDomain .domain-input-group .btn-group,
+#frmProductDomain .domain-input-group .multiselect,
+#frmProductDomain .domain-input-group .dropdown-toggle,
+#frmProductDomain textarea#message {
+    border: none !important;
+    box-shadow: none !important;
+}
+#frmProductDomain .domain-input-group .input-group .form-control:focus,
+#frmProductDomain .domain-input-group .form-control:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Inputs e selects no tema escuro – texto na mesma cor do fundo do site (legível) */
 .form-control,
 select.form-control,
 input[type="text"],
@@ -400,25 +421,37 @@ input[type="password"],
 input[type="number"],
 textarea.form-control {
     background-color: var(--bg-lifted);
-    color: var(--text);
+    color: #FFFFFF !important;
     border-color: var(--border);
 }
 .form-control::placeholder {
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.65);
 }
 .form-control:focus {
     background-color: var(--bg-lifted);
-    color: var(--text);
+    color: #FFFFFF !important;
     border-color: var(--firefly-accent);
 }
 select.form-control option {
     background: var(--bg);
-    color: var(--text);
+    color: #FFFFFF;
 }
 .input-group-text {
     background-color: var(--bg-accented);
-    color: var(--text);
+    color: #FFFFFF !important;
     border-color: var(--border);
+}
+
+/* Texto de formulários (labels, legendas, etc.) mesma cor do restante do site */
+form label,
+form .form-group label,
+form .form-check-label,
+form legend,
+form .input-group-text,
+#frmProductDomain label,
+#frmProductDomain .domain-selection-options .option label,
+body form textarea {
+    color: #FFFFFF !important;
 }
 .list-group-item {
     background-color: var(--bg);
