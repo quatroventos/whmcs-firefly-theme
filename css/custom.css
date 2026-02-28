@@ -223,6 +223,15 @@ header.header .main-navbar-wrapper {
     background-color: #0D172A !important;
 }
 
+/* Logo: tamanho 157 x 39 px */
+header.header .logo-img {
+    width: 157px !important;
+    height: 39px !important;
+    max-width: 157px !important;
+    max-height: 39px !important;
+    object-fit: contain;
+}
+
 /* Remover menu #nav (navegação principal) */
 #nav {
     display: none !important;
@@ -323,7 +332,7 @@ body .list-group-item,
 body .table,
 body .table td,
 body .table th,
-body a:not(.btn-primary):not(.btn-success),
+body a,
 body .text-muted,
 body .input-group-text,
 body .modal-title,
