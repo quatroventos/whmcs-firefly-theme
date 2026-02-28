@@ -321,6 +321,65 @@ body .btn.btn-primary.btn-block:hover {
     text-decoration: none;
 }
 
+/* Botão Continuar, Checkout, Completar Pedido (e primary/success lg): mesmo estilo do botão Entrar */
+#btnCompleteProductConfig,
+#btnCompleteOrder,
+.btn.btn-primary.btn-lg,
+.btn.btn-success.btn-lg.btn-checkout {
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #434e63 !important;
+    background-color: #03FF00 !important;
+    border-radius: 5px 30px 30px 5px;
+    padding: 14px 30px !important;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+#btnCompleteProductConfig:hover,
+#btnCompleteOrder:hover,
+.btn.btn-primary.btn-lg:hover,
+.btn.btn-success.btn-lg.btn-checkout:hover {
+    background-color: #02cc00 !important;
+    color: #434e63 !important;
+    text-decoration: none;
+}
+
+/* Botões "Já registrado?" e "Criar uma nova conta": fundo dos cards, texto branco no estilo Entrar */
+#btnAlreadyRegistered,
+#btnNewUserSignup {
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    background-color: var(--bg) !important;
+    border: 1px solid var(--border-muted) !important;
+    border-radius: 5px 30px 30px 5px;
+    padding: 14px 30px !important;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+#btnAlreadyRegistered:hover,
+#btnNewUserSignup:hover {
+    background-color: var(--bg-lifted) !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-muted) !important;
+    text-decoration: none;
+}
+
 /* Remover menu #nav (navegação principal) */
 #nav {
     display: none !important;
@@ -361,6 +420,44 @@ body #order-standard_cart .cart-sidebar-column-hidden {
 /* Carrinho: área do conteúdo com 100% de largura */
 #order-standard_cart .cart-body {
     width: 100% !important;
+}
+
+#order-standard_cart .sub-heading {
+    text-align: left !important;
+}
+body #order-standard_cart .sub-heading span {
+    background: none !important;
+}
+
+/* Itens do carrinho: mesmo fundo e borda dos cards */
+body #order-standard_cart .cart-body .view-cart-items .item {
+    background-color: var(--bg) !important;
+    border: 1px solid var(--border-muted) !important;
+}
+
+/* Desktop: sidebar secundária do carrinho com margem superior */
+@media (min-width: 992px) {
+    #order-standard_cart .secondary-cart-sidebar {
+        margin-top: 50px;
+    }
+}
+
+/* Aba ativa do carrinho (view-cart-tabs): mesmo fundo dos cards */
+body #order-standard_cart .secondary-cart-body .view-cart-tabs .nav-tabs a[aria-expanded="true"] {
+    background-color: var(--bg) !important;
+    border-color: var(--border-muted) var(--border-muted) transparent !important;
+}
+
+/* Botão Validar Código: mesma cor do hover como estado normal */
+button[name="validatepromo"].btn-default {
+    color: #FFFFFF !important;
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
+}
+button[name="validatepromo"].btn-default:hover {
+    color: #FFFFFF !important;
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
 }
 
 /* Formulário domínio: abas lado a lado (Registrar | Usar meu domínio), padrão = Usar meu domínio */
@@ -623,6 +720,12 @@ body a:hover {
 .alert-warning {
     background-color: #898989 !important;
     border-color: #898989 !important;
+}
+
+/* Total a pagar hoje: verde um pouco mais escuro */
+#totalDueToday.alert-success {
+    background-color: #1a6b2a !important;
+    border-color: #165a24 !important;
 }
 /* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
 body .form-control,

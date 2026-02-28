@@ -156,6 +156,16 @@
     })();
     </script>
 
+    {* Link "Continuar Comprando" aponta para a página principal do site *}
+    <script>
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var link = document.getElementById('continueShopping') || document.querySelector('.btn-continue-shopping');
+            if (link) link.setAttribute('href', 'https://fireflyhost.com.br');
+        });
+    })();
+    </script>
+
     {* Formulário domínio: abas lado a lado, padrão = Usar meu domínio *}
     <script>
     (function() {
