@@ -248,6 +248,8 @@ header.header .header-row {
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 /* Topbar (notificações + Conectado como): à direita da logo; fundo já é o do header */
@@ -1146,6 +1148,17 @@ body .btn-default:hover {
     font-size: 25px !important;
     width: auto;
 }
+
+/* Resumo da fatura (invoiceIdSummary): alert saldo devido = accent de fundo, fonte escura */
+#invoiceIdSummary .alert.alert-success.text-center.m-0 {
+    background-color: var(--firefly-accent, #00F0FF) !important;
+    border-color: var(--firefly-accent, #00F0FF) !important;
+    color: #0D172A !important;
+}
+#invoiceIdSummary .alert.alert-success.text-center.m-0 * {
+    color: #0D172A !important;
+}
+
 /* Inputs (fundo branco): texto e placeholder na cor do fundo do site (#0D172A) */
 body .form-control,
 body input[type="text"],
@@ -1170,10 +1183,10 @@ body .form-control::placeholder {
     padding-left: 12px !important;
 }
 
-/* ========== Página Ver Fatura (viewinvoice.php) – mesmo layout do restante do site ========== */
+/* ========== Página Ver Fatura (viewinvoice.php) – visual de invoice: fundo claro, texto preto, tabelas claras ========== */
 body.firefly-invoice-view {
-    background-color: #0D172A !important;
-    color: rgba(255, 255, 255, 0.9);
+    background-color: #f5f5f5 !important;
+    color: #000 !important;
     font-family: Rubik, sans-serif;
 }
 body.firefly-invoice-view .invoice-container {
@@ -1189,131 +1202,159 @@ body.firefly-invoice-view .invoice-col,
 body.firefly-invoice-view address,
 body.firefly-invoice-view .small-text,
 body.firefly-invoice-view strong {
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: #000 !important;
 }
 body.firefly-invoice-view hr {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: #dee2e6 !important;
 }
-body.firefly-invoice-view .invoice-status .draft { color: #94a3b8 !important; }
-body.firefly-invoice-view .invoice-status .unpaid { color: #f87171 !important; }
-body.firefly-invoice-view .invoice-status .paid { color: #03FF00 !important; }
-body.firefly-invoice-view .invoice-status .refunded { color: #00F0FF !important; }
-body.firefly-invoice-view .invoice-status .cancelled { color: #94a3b8 !important; }
-body.firefly-invoice-view .invoice-status .collections { color: #fbbf24 !important; }
+body.firefly-invoice-view .invoice-status .draft { color: #6c757d !important; }
+body.firefly-invoice-view .invoice-status .unpaid { color: #c00 !important; }
+body.firefly-invoice-view .invoice-status .paid { color: #0a6b0a !important; }
+body.firefly-invoice-view .invoice-status .refunded { color: #0d6efd !important; }
+body.firefly-invoice-view .invoice-status .cancelled { color: #6c757d !important; }
+body.firefly-invoice-view .invoice-status .collections { color: #856404 !important; }
 body.firefly-invoice-view a {
-    color: #00F0FF !important;
+    color: #0D172A !important;
 }
 body.firefly-invoice-view a:hover {
     color: #03FF00 !important;
 }
 body.firefly-invoice-view .card,
 body.firefly-invoice-view .panel {
-    background-color: var(--bg, #1e293b) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    background-color: #fff !important;
+    border: 1px solid #dee2e6 !important;
+    color: #000 !important;
 }
 body.firefly-invoice-view .card-header,
 body.firefly-invoice-view .card-title,
 body.firefly-invoice-view .card-subtitle,
 body.firefly-invoice-view .panel-heading {
-    background-color: rgba(13, 23, 42, 0.6) !important;
-    color: #fff !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: #f8f9fa !important;
+    color: #000 !important;
+    border-color: #dee2e6 !important;
 }
 body.firefly-invoice-view .card.bg-default .card-header {
-    background-color: rgba(13, 23, 42, 0.6) !important;
+    background-color: #f8f9fa !important;
+    color: #000 !important;
 }
-body.firefly-invoice-view .card-title.py-1.px-2.text-white.mb-0.font-weight-bold.bg-info,
+body.firefly-invoice-view .card-title.py-1.px-2.mb-0.font-weight-bold.bg-info,
 body.firefly-invoice-view .card .card-title.bg-info {
-    background-color: rgba(0, 240, 255, 0.2) !important;
-    color: #fff !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: #e7f6f8 !important;
+    color: #0D172A !important;
+    border-color: #dee2e6 !important;
 }
 body.firefly-invoice-view .card-body,
 body.firefly-invoice-view .card-text,
 body.firefly-invoice-view .panel-body {
-    background-color: var(--bg, #1e293b) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    background-color: #fff !important;
+    color: #000 !important;
 }
 body.firefly-invoice-view .table {
-    color: rgba(255, 255, 255, 0.95) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #000 !important;
+    border-color: #dee2e6 !important;
+    background-color: #fff !important;
 }
 body.firefly-invoice-view .table thead td,
 body.firefly-invoice-view .table th {
-    background-color: rgba(13, 23, 42, 0.8) !important;
-    color: #fff !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: #f8f9fa !important;
+    color: #000 !important;
+    border-color: #dee2e6 !important;
 }
 body.firefly-invoice-view .table tbody tr {
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #dee2e6 !important;
+    background-color: #fff !important;
 }
 body.firefly-invoice-view .table td {
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #dee2e6 !important;
+    background-color: #fff !important;
 }
 body.firefly-invoice-view td.total-row {
-    background-color: rgba(13, 23, 42, 0.9) !important;
-    color: #fff !important;
+    background-color: #f8f9fa !important;
+    color: #000 !important;
     font-weight: 600;
 }
 body.firefly-invoice-view .card-header.bg-success.text-white {
-    background-color: rgba(3, 255, 0, 0.25) !important;
-    color: #0D172A !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    border-color: #dee2e6 !important;
 }
 body.firefly-invoice-view .form-control,
 body.firefly-invoice-view .custom-select {
     background-color: #fff !important;
     color: #0D172A !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid #ced4da !important;
 }
 body.firefly-invoice-view .btn-default {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background-color: #0D172A !important;
+    border: 1px solid #0D172A !important;
     color: #fff !important;
+    border-radius: 5px 30px 30px 5px;
+    font-weight: 600;
 }
 body.firefly-invoice-view .btn-default:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: #1e293b !important;
+    border-color: #1e293b !important;
     color: #fff !important;
 }
-body.firefly-invoice-view .btn-primary,
-body.firefly-invoice-view .btn-success {
+body.firefly-invoice-view .payment-btn-container .btn-primary,
+body.firefly-invoice-view .payment-btn-container .btn-success,
+body.firefly-invoice-view .payment-btn-container input[type="submit"],
+body.firefly-invoice-view #btnInvoiceAddCreditApply {
     background-color: #03FF00 !important;
     color: #434e63 !important;
     border: none !important;
-    border-radius: 5px 30px 30px 5px;
-    font-weight: 700;
+    border-radius: 5px 30px 30px 5px !important;
+    font-family: Poppins, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    padding: 14px 30px !important;
 }
-body.firefly-invoice-view .btn-primary:hover,
-body.firefly-invoice-view .btn-success:hover {
+body.firefly-invoice-view .payment-btn-container .btn-primary:hover,
+body.firefly-invoice-view .payment-btn-container .btn-success:hover,
+body.firefly-invoice-view .payment-btn-container input[type="submit"]:hover,
+body.firefly-invoice-view #btnInvoiceAddCreditApply:hover {
     background-color: #02cc00 !important;
     color: #434e63 !important;
+}
+body.firefly-invoice-view .btn-primary:not(.payment-btn-container .btn-primary),
+body.firefly-invoice-view .btn-success:not(.payment-btn-container .btn-success) {
+    background-color: #0D172A !important;
+    color: #fff !important;
+    border-radius: 5px 30px 30px 5px;
+    font-weight: 600;
+}
+body.firefly-invoice-view .btn-primary:not(.payment-btn-container .btn-primary):hover,
+body.firefly-invoice-view .btn-success:not(.payment-btn-container .btn-success):hover {
+    background-color: #1e293b !important;
+    color: #fff !important;
 }
 body.firefly-invoice-view .alert,
 body.firefly-invoice-view .panel-danger .panel-heading,
 body.firefly-invoice-view .panel-success .panel-heading,
 body.firefly-invoice-view .panel-info .panel-heading {
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid transparent !important;
 }
 body.firefly-invoice-view .alert-danger,
 body.firefly-invoice-view .panel-danger .panel-heading {
-    background-color: rgba(231, 0, 11, 0.2) !important;
-    color: #f87171 !important;
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+    border-color: #f5c6cb !important;
 }
 body.firefly-invoice-view .alert-success,
 body.firefly-invoice-view .panel-success .panel-heading {
-    background-color: rgba(3, 255, 0, 0.15) !important;
-    color: #fff !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    border-color: #c3e6cb !important;
 }
 body.firefly-invoice-view .alert-info,
 body.firefly-invoice-view .panel-info .panel-heading {
-    background-color: rgba(0, 240, 255, 0.15) !important;
-    color: #fff !important;
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+    border-color: #bee5eb !important;
 }
 body.firefly-invoice-view .text-center.d-print-none p a {
-    color: #00F0FF !important;
+    color: #0D172A !important;
 }
 body.firefly-invoice-view .invoice-header img {
     max-width: 100%;
-    filter: brightness(0) invert(1);
 }
