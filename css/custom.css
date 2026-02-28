@@ -232,6 +232,29 @@ header.header .logo-img {
     object-fit: contain;
 }
 
+/* Botão ENTRAR no header (estilo Firefly: verde, cantos assimétricos) */
+header .btn-entrar-header,
+.btn-entrar-header {
+    font-family: "Poppins", Sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    color: #1a202c !important;
+    background-color: #03FF00 !important;
+    border-radius: 5px 30px 30px 5px;
+    padding: 14px 30px;
+    border: none;
+    text-decoration: none;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+header .btn-entrar-header:hover,
+.btn-entrar-header:hover {
+    background-color: #02cc00 !important;
+    color: #1a202c !important;
+    text-decoration: none;
+}
+
 /* Remover menu #nav (navegação principal) */
 #nav {
     display: none !important;
