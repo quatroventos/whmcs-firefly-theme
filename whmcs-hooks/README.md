@@ -1,0 +1,50 @@
+# Hooks do tema Firefly (WHMCS)
+
+Instruções para usar os hooks incluídos no tema Firefly na sua instalação WHMCS.
+
+## FireflyUnifiedSidebar – Sidebar unificada
+
+Uma única sidebar na área do cliente em **todas as páginas**, controlada por um array de configuração. Para mostrar/ocultar itens ou alterar textos e links, basta editar esse array no ficheiro do hook.
+
+### Instalação
+
+1. Copie o ficheiro **`FireflyUnifiedSidebar.php`** para a pasta de hooks do WHMCS:
+   - **Destino:** `includes/hooks/` da sua instalação WHMCS  
+   - Exemplo: se o WHMCS está em `/var/www/whmcs/`, o ficheiro deve ficar em `/var/www/whmcs/includes/hooks/FireflyUnifiedSidebar.php`.
+
+2. Não é necessário ativar nada: o WHMCS carrega automaticamente todos os ficheiros `.php` dentro de `includes/hooks/`.
+
+### Configuração
+
+Abra `FireflyUnifiedSidebar.php` e edite o array **`$GLOBALS['FIREFLY_SIDEBAR_PANELS']`** no topo do ficheiro.
+
+- **Mostrar/ocultar um painel:** altere `'visible' => true` para `'visible' => false` (ou o contrário).
+- **Alterar texto do painel:** altere o valor de `'label'`.
+- **Alterar ordem:** altere o valor de `'order'` (número menor = painel mais acima).
+- **Ícone (Font Awesome):** altere `'icon'` (ex.: `'fas fa-user'`).
+- **Itens dentro do painel:** edite o array `'children'`. Cada filho tem:
+  - `'label'` – texto do link
+  - `'uri'` – URL (ex.: `'clientarea.php?action=invoices'`)
+  - `'icon'` – opcional
+
+Exemplo para ocultar “Downloads” e mudar o texto de “Faturas”:
+
+```php
+'invoices' => [
+    'visible' => true,
+    'order'   => 40,
+    'label'   => 'Faturas e Pagamentos',  // texto alterado
+    ...
+],
+'downloads' => [
+    'visible' => false,  // painel oculto
+    ...
+],
+```
+
+### Documentação WHMCS
+
+- [Client Area Sidebars](https://docs.whmcs.com/9-0/customization/client-area-customization/client-area-sidebars/)  
+- [Menu and Sidebar Context](https://docs.whmcs.com/9-0/customization/client-area-customization/menu-and-sidebar-context/)
+
+Compatível com **WHMCS 9.x**.

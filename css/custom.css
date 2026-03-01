@@ -334,6 +334,12 @@ header.header .navbar .navbar-nav {
     align-items: center;
 }
 
+/* Navbar brand (logo): 15px padding esquerda/direita quando logado */
+header.header .header-row.container-fluid .navbar-brand {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* Logo: tamanho 157 x 39 px */
 header.header .logo-img {
     width: 157px !important;
@@ -1075,6 +1081,12 @@ body form textarea {
     background-color: var(--bg);
     border-color: var(--border);
     color: var(--text);
+}
+
+/* Row dos tiles da área do cliente (Serviços, Domínios, Cotações, etc.): bordas 10% arredondadas */
+.client-home-tiles-row {
+    border-radius: 10%;
+    overflow: hidden;
 }
 
 /* Tiles da área do cliente (Serviços, Cotações, Ingressos, Faturas): fundo azul escuro, ícones brancos */

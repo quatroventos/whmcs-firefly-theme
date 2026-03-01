@@ -1,7 +1,7 @@
 {include file="$template/includes/flashmessage.tpl"}
 
 <div class="tiles mb-4">
-    <div class="row no-gutters">
+    <div class="row no-gutters client-home-tiles-row">
         <div class="col-6 col-xl-3">
             <a href="clientarea.php?action=services" class="tile">
                 <i class="fas fa-cube"></i>

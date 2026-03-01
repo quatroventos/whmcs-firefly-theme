@@ -130,7 +130,7 @@
             <div class="row">
 
             {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
-                <div class="col-lg-4 col-xl-3">
+                <div class="col-2">
                     <div class="sidebar">
                         {include file="$template/includes/sidebar.tpl" sidebar=$primarySidebar}
                     </div>
@@ -141,4 +141,4 @@
                     {/if}
                 </div>
             {/if}
-            <div class="{if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}col-lg-8 col-xl-9{else}col-12{/if} primary-content">
+            <div class="{if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}col-10{else}col-12{/if} primary-content">
