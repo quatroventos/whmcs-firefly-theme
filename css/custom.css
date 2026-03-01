@@ -559,6 +559,62 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     display: none !important;
 }
 
+/* ========== Sidebar unificada (client area): sem cards, menu contínuo por secções ========== */
+.sidebar .card-sidebar {
+    margin-bottom: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.sidebar .card-sidebar .card-header {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border-muted) !important;
+    border-radius: 0 !important;
+    padding: 10px 0 8px 0 !important;
+    margin-bottom: 0 !important;
+}
+.sidebar .card-sidebar .card-header .card-title {
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted) !important;
+}
+.sidebar .card-sidebar .card-header .card-title .fa,
+.sidebar .card-sidebar .card-header .card-title .fas {
+    font-size: 0.75rem;
+    margin-right: 0.35rem;
+}
+.sidebar .card-sidebar .collapsable-card-body {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+.sidebar .card-sidebar .list-group {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 1rem !important;
+}
+.sidebar .card-sidebar .list-group:last-child {
+    border-radius: 0 !important;
+}
+.sidebar .card-sidebar .list-group-item {
+    padding: 6px 0 6px 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+.sidebar .card-sidebar .list-group-item:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+.sidebar .card-sidebar .list-group-item.active,
+.sidebar .card-sidebar .list-group-item.active:hover,
+.sidebar .card-sidebar .list-group-item.active:focus {
+    background: rgba(3, 255, 0, 0.12) !important;
+    color: var(--primary) !important;
+}
+
 /* Carrinho: área do conteúdo com 100% de largura */
 #order-standard_cart .cart-body {
     width: 100% !important;
