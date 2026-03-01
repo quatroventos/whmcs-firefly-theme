@@ -12,7 +12,7 @@
     {$headeroutput}
 
     <header id="header" class="header">
-        <div class="container header-row d-flex align-items-center flex-wrap mt-2 mb-2">
+        <div class="{if $loggedin && !$inShoppingCart}container-fluid{else}container{/if} header-row d-flex align-items-center flex-wrap mt-2 mb-2">
             <a class="navbar-brand" href="https://fireflyhost.com.br" target="_blank" rel="noopener">
                 <img src="https://fireflyhost-wordpress.fpix6w.easypanel.host/wp-content/uploads/2026/01/logo-firefly.svg" alt="{$companyname}" class="logo-img" width="157" height="39">
             </a>
@@ -103,7 +103,7 @@
             {/if}
         </div>
         <div class="navbar navbar-expand-xl main-navbar-wrapper d-none">
-            <div class="container">
+            <div class="{if $loggedin && !$inShoppingCart}container-fluid{else}container{/if}">
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul id="nav" class="navbar-nav mr-auto">
                         {include file="$template/includes/navbar.tpl" navbar=$primaryNavbar}
@@ -126,7 +126,7 @@
     {/if}
 
     <section id="main-body">
-        <div class="{if !$skipMainBodyContainer}container{/if}">
+        <div class="{if $skipMainBodyContainer}{else}{if $loggedin && !$inShoppingCart}container-fluid{else}container{/if}{/if}">
             <div class="row">
 
             {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
