@@ -1430,8 +1430,16 @@ body .btn-default:hover {
 #theme-content.theme-light #main-body:has(.sidebar) .btn-success {
     background-color: #0d172a !important;
     border-color: var(--grayscale-lifted) !important;
-    color: white !important;
+    color: #ffffff !important;
     border-radius: 10px !important;
+}
+#main-body:has(.sidebar) .btn *,
+#main-body:has(.sidebar) .btn a,
+#main-body:has(.sidebar) .btn i,
+#theme-content.theme-light #main-body:has(.sidebar) .btn *,
+#theme-content.theme-light #main-body:has(.sidebar) .btn a,
+#theme-content.theme-light #main-body:has(.sidebar) .btn i {
+    color: #ffffff !important;
 }
 #main-body:has(.sidebar) .btn:hover,
 #main-body:has(.sidebar) .btn-default:hover,
@@ -1443,7 +1451,15 @@ body .btn-default:hover {
 #theme-content.theme-light #main-body:has(.sidebar) .btn-success:hover {
     background-color: #1e293b !important;
     border-color: var(--grayscale-lifted) !important;
-    color: white !important;
+    color: #ffffff !important;
+}
+#main-body:has(.sidebar) .btn:hover *,
+#main-body:has(.sidebar) .btn:hover a,
+#main-body:has(.sidebar) .btn:hover i,
+#theme-content.theme-light #main-body:has(.sidebar) .btn:hover *,
+#theme-content.theme-light #main-body:has(.sidebar) .btn:hover a,
+#theme-content.theme-light #main-body:has(.sidebar) .btn:hover i {
+    color: #ffffff !important;
 }
 
 /* Modais: fundo branco, texto escuro, botões legíveis */
@@ -1873,4 +1889,9 @@ body.firefly-invoice-view .invoice-header img {
 #sitejetPromoPanel {display:none}
 [data-identifier="sitejet"] {
   display: none !important;
+}
+
+.sidebar{
+    border-radius: 10px !important;
+    overflow: hidden !important;
 }
