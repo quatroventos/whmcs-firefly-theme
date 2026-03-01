@@ -214,14 +214,6 @@
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Área logada: todos os botões (sidebar presente) – fundo #0d172a, borda, texto branco, border-radius 10px */
-#main-body:has(.sidebar) .btn {
-    background-color: #0d172a !important;
-    border-color: var(--grayscale-lifted) !important;
-    color: white !important;
-    border-radius: 10px !important;
-}
-
 /* Firefly Host: store com mesma cor dos CTAs (#03FF00) */
 .dynamic-landing-page {
     --primary-color: #03FF00;
@@ -1425,6 +1417,33 @@ body .btn-default {
 body .btn-default:hover {
     background-color: var(--grayscale-lifted) !important;
     border-color: var(--grayscale-lifted) !important;
+}
+
+/* Área logada: forçar estilo dos botões (fundo #0d172a, borda, branco, 10px radius) – depois das regras gerais */
+#main-body:has(.sidebar) .btn,
+#main-body:has(.sidebar) .btn-default,
+#main-body:has(.sidebar) .btn-primary,
+#main-body:has(.sidebar) .btn-success,
+#theme-content.theme-light #main-body:has(.sidebar) .btn,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-default,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-primary,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-success {
+    background-color: #0d172a !important;
+    border-color: var(--grayscale-lifted) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+#main-body:has(.sidebar) .btn:hover,
+#main-body:has(.sidebar) .btn-default:hover,
+#main-body:has(.sidebar) .btn-primary:hover,
+#main-body:has(.sidebar) .btn-success:hover,
+#theme-content.theme-light #main-body:has(.sidebar) .btn:hover,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-default:hover,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-primary:hover,
+#theme-content.theme-light #main-body:has(.sidebar) .btn-success:hover {
+    background-color: #1e293b !important;
+    border-color: var(--grayscale-lifted) !important;
+    color: white !important;
 }
 
 /* Modais: fundo branco, texto escuro, botões legíveis */
