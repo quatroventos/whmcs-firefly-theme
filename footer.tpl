@@ -50,6 +50,8 @@
         </div>
     </footer>
 
+    </div><!-- #theme-content -->
+
     <div id="fullpage-overlay" class="w-hidden">
         <div class="outer-wrapper">
             <div class="inner-wrapper">
@@ -286,6 +288,54 @@
             setTimeout(initCheckoutAlreadyRegistered, 150);
         });
         if (document.readyState === 'complete') setTimeout(initCheckoutAlreadyRegistered, 150);
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var STORAGE_KEY = 'firefly-theme';
+        function getTheme() {
+            try {
+                return localStorage.getItem(STORAGE_KEY) || 'dark';
+            } catch (e) { return 'dark'; }
+        }
+        function setTheme(value) {
+            try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+        }
+        function applyTheme(isLight) {
+            var wrap = document.getElementById('theme-content');
+            if (!wrap) return;
+            if (isLight) {
+                wrap.classList.add('theme-light');
+            } else {
+                wrap.classList.remove('theme-light');
+            }
+            var iconLight = document.querySelectorAll('.theme-icon-light');
+            var iconDark = document.querySelectorAll('.theme-icon-dark');
+            for (var i = 0; i < iconLight.length; i++) {
+                iconLight[i].classList.toggle('d-none', !isLight);
+            }
+            for (var i = 0; i < iconDark.length; i++) {
+                iconDark[i].classList.toggle('d-none', isLight);
+            }
+        }
+        function initTheme() {
+            var theme = getTheme();
+            applyTheme(theme === 'light');
+        }
+        function toggleTheme() {
+            var wrap = document.getElementById('theme-content');
+            if (!wrap) return;
+            var isLight = wrap.classList.contains('theme-light');
+            isLight = !isLight;
+            setTheme(isLight ? 'light' : 'dark');
+            applyTheme(isLight);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            var btn = document.getElementById('theme-toggle');
+            if (btn) btn.addEventListener('click', toggleTheme);
+        });
     })();
     </script>
 

@@ -19,6 +19,10 @@
             {if $loggedin}
                 <div class="topbar d-flex align-items-center ml-auto">
                     <div class="d-flex w-100 justify-content-end flex-wrap">
+                        <button type="button" class="btn btn-theme-toggle mr-2" id="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
+                            <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                            <i class="fas fa-moon theme-icon-dark d-none" aria-hidden="true"></i>
+                        </button>
                         <div class="mr-auto">
                             <button type="button" class="btn" data-toggle="popover" id="accountNotifications" data-placement="bottom">
                                 <i class="far fa-flag"></i>
@@ -84,6 +88,10 @@
                     </li>
                 </ul>
             {else}
+                <button type="button" class="btn btn-theme-toggle mr-2" id="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
+                    <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                    <i class="fas fa-moon theme-icon-dark d-none" aria-hidden="true"></i>
+                </button>
                 <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-entrar-header">{lang key='login'}</a>
                 <ul class="navbar-nav toolbar ml-2">
                     <li class="nav-item d-xl-none">
@@ -105,6 +113,7 @@
         </div>
     </header>
 
+    <div id="theme-content">
     {include file="$template/includes/network-issues-notifications.tpl"}
 
     {include file="$template/includes/validateuser.tpl"}

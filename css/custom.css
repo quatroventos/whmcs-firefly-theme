@@ -261,6 +261,19 @@ header.header .topbar {
 header.header .topbar .btn {
     color: rgba(255, 255, 255, 0.85);
 }
+
+/* Botão alternar tema (no header, sempre visível) */
+header .btn-theme-toggle,
+header.header .topbar .btn-theme-toggle {
+    color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+header .btn-theme-toggle:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
 header.header .topbar .active-client .input-group-text {
     color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
@@ -1153,6 +1166,139 @@ body form textarea {
     background: var(--bg) !important;
     color: #fff !important;
     border-color: var(--border-muted) !important;
+}
+
+/* ========== Tema claro (abaixo do header) ========== */
+#theme-content.theme-light {
+    /* Variáveis para modo claro: mesmos tons, fundo claro */
+    --bg: #ffffff;
+    --bg-muted: #f8f9fa;
+    --bg-lifted: #e9ecef;
+    --bg-accented: #dee2e6;
+    --bg-inverted: #0D172A;
+    --firefly-card-bg: #f8f9fa;
+    --firefly-page-bg: #ffffff;
+    --text: #0D172A;
+    --text-muted: rgba(13, 23, 42, 0.7);
+    --text-lifted: rgba(13, 23, 42, 0.85);
+    --text-accented: rgba(13, 23, 42, 0.95);
+    --text-inverted: #0D172A;
+    --border-muted: rgba(0, 0, 0, 0.1);
+    --border: rgba(0, 0, 0, 0.18);
+    --border-lifted: rgba(0, 0, 0, 0.25);
+    --border-accented: rgba(0, 0, 0, 0.35);
+    --neutral: #434E63;
+    --grayscale: #434E63;
+    --grayscale-lifted: #5a6578;
+    --grayscale-accented: #3a4457;
+    background-color: #ffffff !important;
+}
+#theme-content.theme-light section#main-body {
+    background-color: #ffffff !important;
+}
+#theme-content.theme-light #footer.footer,
+#theme-content.theme-light footer.footer {
+    background-color: #f8f9fa !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* Override "Todas as fontes em branco" dentro do tema claro */
+#theme-content.theme-light,
+#theme-content.theme-light .primary-content,
+#theme-content.theme-light .card,
+#theme-content.theme-light .card-body,
+#theme-content.theme-light .card-title,
+#theme-content.theme-light .card-header,
+#theme-content.theme-light .card-footer,
+#theme-content.theme-light p,
+#theme-content.theme-light span,
+#theme-content.theme-light h1,
+#theme-content.theme-light h2,
+#theme-content.theme-light h3,
+#theme-content.theme-light h4,
+#theme-content.theme-light h5,
+#theme-content.theme-light h6,
+#theme-content.theme-light label,
+#theme-content.theme-light .breadcrumb,
+#theme-content.theme-light .breadcrumb a,
+#theme-content.theme-light .nav-link,
+#theme-content.theme-light .dropdown-item,
+#theme-content.theme-light .dropdown-item a,
+#theme-content.theme-light .list-group-item,
+#theme-content.theme-light .table,
+#theme-content.theme-light .table td,
+#theme-content.theme-light .table th,
+#theme-content.theme-light a,
+#theme-content.theme-light .text-muted,
+#theme-content.theme-light .list-inline-item,
+#theme-content.theme-light .copyright,
+#theme-content.theme-light footer .nav-link,
+#theme-content.theme-light .btn-default,
+#theme-content.theme-light .btn-primary,
+#theme-content.theme-light .btn-success {
+    color: #0D172A !important;
+}
+#theme-content.theme-light a:hover {
+    color: #02cc00 !important;
+}
+#theme-content.theme-light .text-muted {
+    color: rgba(13, 23, 42, 0.7) !important;
+}
+/* Cards e fundos no tema claro */
+#theme-content.theme-light .card,
+#theme-content.theme-light .card-body,
+#theme-content.theme-light .card-header,
+#theme-content.theme-light .card-footer,
+#theme-content.theme-light .panel,
+#theme-content.theme-light .panel-body,
+#theme-content.theme-light .panel-heading {
+    background-color: var(--firefly-card-bg) !important;
+    border-color: var(--border-muted) !important;
+    color: #0D172A !important;
+}
+#theme-content.theme-light .card-header {
+    background-color: #e9ecef !important;
+    border-bottom-color: var(--border-muted) !important;
+}
+#theme-content.theme-light .list-group-item {
+    background-color: #ffffff !important;
+    border-color: var(--border-muted) !important;
+}
+#theme-content.theme-light .table td,
+#theme-content.theme-light .table th {
+    border-color: var(--border-muted) !important;
+}
+#theme-content.theme-light .btn-default {
+    background-color: var(--grayscale-lifted) !important;
+    border-color: var(--grayscale-lifted) !important;
+    color: #0D172A !important;
+}
+#theme-content.theme-light .btn-default:hover {
+    background-color: var(--grayscale-accented) !important;
+    border-color: var(--grayscale-accented) !important;
+    color: #0D172A !important;
+}
+#theme-content.theme-light .btn-primary,
+#theme-content.theme-light .btn-success {
+    color: #0D172A !important;
+}
+#theme-content.theme-light .form-control,
+#theme-content.theme-light .custom-select,
+#theme-content.theme-light textarea {
+    background-color: #ffffff !important;
+    color: #0D172A !important;
+    border-color: var(--border-muted) !important;
+}
+#theme-content.theme-light .usage-dial,
+#theme-content.theme-light #diskUsage .usage-dial,
+#theme-content.theme-light #bandwidthUsage .usage-dial {
+    background: #f8f9fa !important;
+    color: #0D172A !important;
+    border-color: var(--border-muted) !important;
+}
+/* Sub-heading / primary-bg-color no tema claro */
+#theme-content.theme-light .sub-heading span.primary-bg-color {
+    color: #0D172A !important;
+    background: transparent !important;
 }
 
 /* Todas as fontes em branco */
