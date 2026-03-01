@@ -113,7 +113,7 @@
         </div>
     </header>
 
-    <div id="theme-content"{if $loggedin} data-default-theme="light"{/if}>
+    <div id="theme-content"{if $loggedin} data-default-theme="light"{else} data-force-theme="dark"{/if}>
     {include file="$template/includes/network-issues-notifications.tpl"}
 
     {include file="$template/includes/validateuser.tpl"}

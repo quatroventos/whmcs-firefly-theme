@@ -296,9 +296,10 @@
         var STORAGE_KEY = 'firefly-theme';
         function getTheme() {
             try {
+                var wrap = document.getElementById('theme-content');
+                if (wrap && wrap.getAttribute('data-force-theme') === 'dark') return 'dark';
                 var stored = localStorage.getItem(STORAGE_KEY);
                 if (stored) return stored;
-                var wrap = document.getElementById('theme-content');
                 if (wrap && wrap.getAttribute('data-default-theme') === 'light') return 'light';
                 return 'dark';
             } catch (e) { return 'dark'; }

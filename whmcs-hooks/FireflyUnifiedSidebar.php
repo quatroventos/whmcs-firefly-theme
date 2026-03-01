@@ -25,21 +25,9 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Minha Conta',
         'icon'    => 'fas fa-user',
         'children' => [
-            ['label' => 'Detalhes da Conta', 'uri' => 'clientarea.php'],
-            ['label' => 'Contatos', 'uri' => 'clientarea.php?action=contacts'],
-            ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw'],
-            ['label' => 'Segurança', 'uri' => 'clientarea.php?action=security'],
-            ['label' => 'Métodos de Pagamento', 'uri' => 'index.php?rp=/account/paymentmethods'],
+            ['label' => 'Painel da Conta', 'uri' => 'clientarea.php'],
+            ['label' => 'Meus Serviços', 'uri' => 'clientarea.php?action=products'],   
             ['label' => 'Contas de utilizador', 'uri' => 'index.php?rp=/account/users'],
-        ],
-    ],
-    'services' => [
-        'visible' => true,
-        'order'   => 20,
-        'label'   => 'Serviços',
-        'icon'    => 'fas fa-cube',
-        'children' => [
-            ['label' => 'Meus Serviços', 'uri' => 'clientarea.php?action=products'],
         ],
     ],
     'domains' => [
@@ -54,10 +42,11 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
     'invoices' => [
         'visible' => true,
         'order'   => 40,
-        'label'   => 'Faturas',
+        'label'   => 'Financeiro',
         'icon'    => 'fas fa-file-invoice',
         'children' => [
             ['label' => 'Ver Faturas', 'uri' => 'clientarea.php?action=invoices'],
+            ['label' => 'Métodos de Pagamento', 'uri' => 'index.php?rp=/account/paymentmethods'],
         ],
     ],
     'support' => [
@@ -66,20 +55,25 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Suporte',
         'icon'    => 'fas fa-ticket-alt',
         'children' => [
-            ['label' => 'Tickets', 'uri' => 'supporttickets.php'],
+            ['label' => 'Meus Tickets de Suporte', 'uri' => 'supporttickets.php'],
             ['label' => 'Abrir Ticket', 'uri' => 'submitticket.php'],
-            ['label' => 'Base de Conhecimento', 'uri' => 'knowledgebase.php'],
+            ['label' => 'Anúncios', 'uri' => 'index.php?rp=/announcements'],
+            ['label' => 'Base de Conhecimento', 'uri' => 'index.php?rp=/knowledgebase'],
+            ['label' => 'Downloads', 'uri' => 'index.php?rp=/download'],
+            ['label' => 'Status da Rede', 'uri' => 'serverstatus.php'],
         ],
     ],
-    'downloads' => [
+    'user' => [
         'visible' => true,
         'order'   => 60,
-        'label'   => 'Downloads',
+        'label'   => 'Meus dados',
         'icon'    => 'fas fa-download',
         'children' => [
-            ['label' => 'Downloads', 'uri' => 'downloads.php'],
+            ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw'],
         ],
     ],
+
+    
 ];
 
 add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {
@@ -151,12 +145,9 @@ add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {
     }
 });
 
-// Na página de login esvaziar também a secondary sidebar (senão a coluna do menu ainda aparece)
+// Esvaziar sempre a secondary sidebar (menu contextual da página) – fica só o menu unificado da primary
 add_hook('ClientAreaSecondarySidebar', 1, function (MenuItem $secondarySidebar) {
-    $rp = isset($_GET['rp']) ? trim((string) $_GET['rp'], "/ \t\n\r\0\x0B") : '';
-    if ($rp === 'login') {
-        foreach ($secondarySidebar->getChildren() as $child) {
-            $secondarySidebar->removeChild($child->getName());
-        }
+    foreach ($secondarySidebar->getChildren() as $child) {
+        $secondarySidebar->removeChild($child->getName());
     }
 });
