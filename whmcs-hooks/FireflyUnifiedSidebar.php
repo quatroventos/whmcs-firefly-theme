@@ -28,7 +28,9 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
             ['label' => 'Detalhes da Conta', 'uri' => 'clientarea.php'],
             ['label' => 'Contatos', 'uri' => 'clientarea.php?action=contacts'],
             ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw'],
+            ['label' => 'Segurança', 'uri' => 'clientarea.php?action=security'],
             ['label' => 'Métodos de Pagamento', 'uri' => 'index.php?rp=/account/paymentmethods'],
+            ['label' => 'Contas de utilizador', 'uri' => 'index.php?rp=/account/users'],
         ],
     ],
     'services' => [

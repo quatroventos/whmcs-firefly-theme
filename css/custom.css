@@ -263,16 +263,22 @@ header.header .topbar .btn {
 }
 
 /* Botão alternar tema (no header, sempre visível) */
-header .btn-theme-toggle,
-header.header .topbar .btn-theme-toggle {
+/* Switch tema claro/escuro no header (área logada): ícones + Bootstrap custom-switch */
+header .theme-toggle-switch-wrapper .theme-toggle-icon {
     color: rgba(255, 255, 255, 0.9);
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.25);
+    font-size: 1rem;
 }
-header .btn-theme-toggle:hover {
-    color: #fff;
+header .theme-toggle-switch-wrapper .custom-switch .custom-control-label {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+header .theme-toggle-switch-wrapper .custom-switch .custom-control-input:checked ~ .custom-control-label {
+    background-color: rgba(3, 255, 0, 0.5);
+    border-color: rgba(3, 255, 0, 0.7);
+}
+header .theme-toggle-switch-wrapper .custom-switch .custom-control-label::before {
+    background-color: #fff;
     border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.08);
 }
 header.header .topbar .active-client .input-group-text {
     color: rgba(255, 255, 255, 0.9);
@@ -1460,6 +1466,30 @@ body .btn-default:hover {
 #theme-content.theme-light #main-body:has(.sidebar) .btn:hover a,
 #theme-content.theme-light #main-body:has(.sidebar) .btn:hover i {
     color: #ffffff !important;
+}
+
+/* Grupos de botões (btn-group): bordas arredondadas só à esquerda no primeiro e à direita no último, sem gap */
+.btn-group > .btn:first-child {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.btn-group > .btn:last-child:not(:first-child) {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.btn-group > .btn-group:last-child > .btn {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.btn-group > .btn:not(:first-child):not(:last-child),
+.btn-group > .btn-group:not(:last-child) > .btn {
+    border-radius: 0 !important;
 }
 
 /* Modais: fundo branco, texto escuro, botões legíveis */
