@@ -214,6 +214,14 @@
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Área logada: todos os botões (sidebar presente) – fundo #0d172a, borda, texto branco, border-radius 10px */
+#main-body:has(.sidebar) .btn {
+    background-color: #0d172a !important;
+    border-color: var(--grayscale-lifted) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
 /* Firefly Host: store com mesma cor dos CTAs (#03FF00) */
 .dynamic-landing-page {
     --primary-color: #03FF00;
@@ -1085,7 +1093,7 @@ body form textarea {
 
 /* Row dos tiles da área do cliente (Serviços, Domínios, Cotações, etc.): bordas 10% arredondadas */
 .client-home-tiles-row {
-    border-radius: 10%;
+    border-radius: 10px;
     overflow: hidden;
 }
 
