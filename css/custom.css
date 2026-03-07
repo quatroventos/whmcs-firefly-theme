@@ -1129,6 +1129,10 @@ body form textarea {
     border-radius: 10px;
     overflow: hidden;
 }
+/* Cols com flex para o tile preencher a altura e alinhar a barra (evitar “torta”) */
+.client-home-tiles-row > div {
+    display: flex;
+}
 .client-home-tiles-row > div:first-child .tile {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -1138,8 +1142,14 @@ body form textarea {
     border-bottom-right-radius: 10px;
 }
 
-/* Tiles da área do cliente: fundo azul escuro, ícones e números na metade do tamanho */
+/* Tiles da área do cliente: fundo azul escuro, mesma altura, ícone/stat/title/highlight alinhados */
 .tiles .tile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex: 1 !important;
+    min-height: 100% !important;
     background-color: #0D172A !important;
     border-color: rgba(255, 255, 255, 0.12) !important;
     color: rgba(255, 255, 255, 0.95) !important;
@@ -1148,8 +1158,10 @@ body form textarea {
 .tiles .tile .ph,
 .tiles .tile .fas,
 .tiles .tile .far {
+    position: static !important;
     color: #fff !important;
     font-size: 1.25rem !important;
+    margin-bottom: 0.25rem;
 }
 .tiles .tile .stat {
     color: #fff !important;
@@ -1158,6 +1170,9 @@ body form textarea {
 }
 .tiles .tile .title {
     color: rgba(255, 255, 255, 0.9) !important;
+}
+.tiles .tile .highlight {
+    margin-top: auto;
 }
 .tiles .tile:hover {
     background-color: #1e293b !important;
