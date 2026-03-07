@@ -25,9 +25,9 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Minha Conta',
         'icon'    => 'fas fa-user',
         'children' => [
-            ['label' => 'Painel da Conta', 'uri' => 'clientarea.php'],
-            ['label' => 'Meus Serviços', 'uri' => 'clientarea.php?action=products'],   
-            ['label' => 'Contas de utilizador', 'uri' => 'index.php?rp=/account/users'],
+            ['label' => 'Painel da Conta', 'uri' => 'clientarea.php', 'icon' => 'fas fa-tachometer-alt'],
+            ['label' => 'Meus Serviços', 'uri' => 'clientarea.php?action=products', 'icon' => 'fas fa-cube'],
+            ['label' => 'Contas de utilizador', 'uri' => 'index.php?rp=/account/users', 'icon' => 'fas fa-users'],
         ],
     ],
     'domains' => [
@@ -36,7 +36,7 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Domínios',
         'icon'    => 'fas fa-globe',
         'children' => [
-            ['label' => 'Meus Domínios', 'uri' => 'clientarea.php?action=domains'],
+            ['label' => 'Meus Domínios', 'uri' => 'clientarea.php?action=domains', 'icon' => 'fas fa-globe'],
         ],
     ],
     'invoices' => [
@@ -45,8 +45,8 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Financeiro',
         'icon'    => 'fas fa-file-invoice',
         'children' => [
-            ['label' => 'Ver Faturas', 'uri' => 'clientarea.php?action=invoices'],
-            ['label' => 'Métodos de Pagamento', 'uri' => 'index.php?rp=/account/paymentmethods'],
+            ['label' => 'Ver Faturas', 'uri' => 'clientarea.php?action=invoices', 'icon' => 'fas fa-file-invoice'],
+            ['label' => 'Métodos de Pagamento', 'uri' => 'index.php?rp=/account/paymentmethods', 'icon' => 'fas fa-credit-card'],
         ],
     ],
     'support' => [
@@ -55,21 +55,22 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'label'   => 'Suporte',
         'icon'    => 'fas fa-ticket-alt',
         'children' => [
-            ['label' => 'Meus Tickets de Suporte', 'uri' => 'supporttickets.php'],
-            ['label' => 'Abrir Ticket', 'uri' => 'submitticket.php'],
-            ['label' => 'Anúncios', 'uri' => 'index.php?rp=/announcements'],
-            ['label' => 'Base de Conhecimento', 'uri' => 'index.php?rp=/knowledgebase'],
-            ['label' => 'Downloads', 'uri' => 'index.php?rp=/download'],
-            ['label' => 'Status da Rede', 'uri' => 'serverstatus.php'],
+            ['label' => 'Meus Tickets de Suporte', 'uri' => 'supporttickets.php', 'icon' => 'fas fa-ticket-alt'],
+            ['label' => 'Abrir Ticket', 'uri' => 'submitticket.php', 'icon' => 'fas fa-comments'],
+            ['label' => 'Anúncios', 'uri' => 'index.php?rp=/announcements', 'icon' => 'fas fa-list'],
+            ['label' => 'Base de Conhecimento', 'uri' => 'index.php?rp=/knowledgebase', 'icon' => 'fas fa-info-circle'],
+            ['label' => 'Downloads', 'uri' => 'index.php?rp=/download', 'icon' => 'fas fa-download'],
+            ['label' => 'Status da Rede', 'uri' => 'serverstatus.php', 'icon' => 'fas fa-server'],
         ],
     ],
     'user' => [
         'visible' => true,
         'order'   => 60,
         'label'   => 'Meus dados',
-        'icon'    => 'fas fa-download',
+        'icon'    => 'fas fa-user-cog',
         'children' => [
-            ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw'],
+            ['label' => 'Alterar Dados', 'uri' => 'clientarea.php?action=details', 'icon' => 'fas fa-address-card'],
+            ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw', 'icon' => 'fas fa-key'],
         ],
     ],
 
@@ -77,9 +78,10 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
 ];
 
 add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {
-    // Na página de login não mostrar o menu (sidebar)
+    // Na página de login ou de registo não mostrar o menu (sidebar)
     $rp = isset($_GET['rp']) ? trim((string) $_GET['rp'], "/ \t\n\r\0\x0B") : '';
-    if ($rp === 'login') {
+    $isRegister = ($rp === 'register') || (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'register') !== false);
+    if ($rp === 'login' || $isRegister) {
         foreach ($primarySidebar->getChildren() as $child) {
             $primarySidebar->removeChild($child->getName());
         }

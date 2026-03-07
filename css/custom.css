@@ -600,7 +600,7 @@ body #order-standard_cart .cart-sidebar-column-hidden {
     margin-right: 0.35rem;
 }
 .sidebar .card-sidebar .collapsable-card-body {
-    padding: 0 !important;
+    padding: 10px 0 0 20px !important;
     background: transparent !important;
     border: none !important;
 }
@@ -1334,7 +1334,7 @@ body form textarea {
     border-bottom-color: var(--border-muted) !important;
 }
 #theme-content.theme-light .list-group-item {
-    background-color: #ffffff !important;
+    background-color: transparent !important;
     border-color: var(--border-muted) !important;
 }
 #theme-content.theme-light .table td,
