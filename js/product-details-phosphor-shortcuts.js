@@ -5,7 +5,7 @@
 (function() {
     var map = [
         { keys: ['contas de email', 'email accounts'], icon: 'ph-envelope' },
-        { keys: ['encaminhadores', 'forwarders'], icon: 'ph-arrow-bend-right' },
+        { keys: ['encaminhadores', 'forwarders', 'forwarder', 'encaminhador'], icon: 'ph-share-network' },
         { keys: ['auto-resposta', 'autoresponder'], icon: 'ph-chat-circle-dots' },
         { keys: ['gerenciador de arquivos', 'file manager'], icon: 'ph-folder-open' },
         { keys: ['backup', 'cópia de segurança'], icon: 'ph-clock-counter-clockwise' },
@@ -44,7 +44,7 @@
                 var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, .fa, .icon');
                 var phIcon = iconForText(text);
                 var ph = document.createElement('i');
-                ph.className = 'ph ' + phIcon + ' product-shortcut-phosphor-icon';
+                ph.className = 'ph-thin ph ' + phIcon + ' product-shortcut-phosphor-icon';
                 ph.setAttribute('aria-hidden', 'true');
                 if (icon) {
                     icon.parentNode.replaceChild(ph, icon);
