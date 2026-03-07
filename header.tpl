@@ -19,6 +19,7 @@
             {if $loggedin}
                 <div class="topbar d-flex align-items-center ml-auto">
                     <div class="d-flex w-100 justify-content-end flex-wrap">
+                        {* Switch tema claro/escuro – desativado; ativar depois
                         <div class="d-flex align-items-center theme-toggle-switch-wrapper mr-2">
                             <i class="fas fa-sun theme-icon-light theme-toggle-icon" aria-hidden="true"></i>
                             <label class="custom-control custom-switch mb-0 mx-2" for="theme-toggle-input" title="Alternar tema claro/escuro">
@@ -27,6 +28,7 @@
                             </label>
                             <i class="fas fa-moon theme-icon-dark theme-toggle-icon d-none" aria-hidden="true"></i>
                         </div>
+                        *}
                         <div class="mr-auto">
                             <button type="button" class="btn" data-toggle="popover" id="accountNotifications" data-placement="bottom">
                                 <i class="far fa-flag"></i>
