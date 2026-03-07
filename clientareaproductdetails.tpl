@@ -385,33 +385,33 @@
                     {/if}
                     {if $lastupdate}
                         <div class="tab-pane fade text-center" role="tabpanel" id="resourceusage">
-                            <div class="row">
+                            <div class="row cpanel-usage-stats">
                                 <div class="col-sm-10 offset-sm-1">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <h4>{lang key='diskSpace'}</h4>
-                                            <input type="text" value="{$diskpercent|substr:0:-1}" class="dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
+                                            <div class="usage-bar-wrap" aria-hidden="true">
+                                                <div class="usage-bar-track">
+                                                    <div class="usage-bar-fill usage-bar-fill-disk" style="width: {if substr($diskpercent, 0, -1) > 100}100{else}{$diskpercent|substr:0:-1}{/if}%;"></div>
+                                                </div>
+                                                <div class="usage-bar-value">{$diskpercent|substr:0:-1}%</div>
+                                            </div>
                                             <p>{$diskusage}MB / {$disklimit}MB</p>
                                         </div>
                                         <div class="col-sm-6">
                                             <h4>{lang key='bandwidth'}</h4>
-                                            <input type="text" value="{$bwpercent|substr:0:-1}" class="dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
+                                            <div class="usage-bar-wrap" aria-hidden="true">
+                                                <div class="usage-bar-track">
+                                                    <div class="usage-bar-fill usage-bar-fill-bw" style="width: {if substr($bwpercent, 0, -1) > 100}100{else}{$bwpercent|substr:0:-1}{/if}%;"></div>
+                                                </div>
+                                                <div class="usage-bar-value">{$bwpercent|substr:0:-1}%</div>
+                                            </div>
                                             <p>{$bwusage}MB / {$bwlimit}MB</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <p class="text-muted mb-0">{lang key='clientarealastupdated'}: {$lastupdate}</p>
-                            <script src="{$BASE_PATH_JS}/jquery.knob.js"></script>
-                            <script>
-                                jQuery(function() {
-                                    jQuery(".dial-usage").knob({
-                                        'format': function(v) {
-                                            alert(v);
-                                        }
-                                    });
-                                });
-                            </script>
                         </div>
 
                     {/if}

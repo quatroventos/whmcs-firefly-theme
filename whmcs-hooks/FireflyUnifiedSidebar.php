@@ -71,10 +71,12 @@ $GLOBALS['FIREFLY_SIDEBAR_PANELS'] = [
         'children' => [
             ['label' => 'Alterar Dados', 'uri' => 'clientarea.php?action=details', 'icon' => 'fas fa-address-card'],
             ['label' => 'Alterar Senha', 'uri' => 'clientarea.php?action=changepw', 'icon' => 'fas fa-key'],
+            ['label' => 'Pedir cancelamento', 'uri' => 'clientarea.php?action=products', 'icon' => 'fas fa-ban'],
+            ['label' => 'Sair', 'uri' => 'logout.php', 'icon' => 'fas fa-sign-out-alt'],
         ],
     ],
 
-    
+
 ];
 
 add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {

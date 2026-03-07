@@ -1325,39 +1325,55 @@ body form textarea {
 }
 
 /* Estatísticas de uso (cPanel): barras em vez de círculos, verde do botão Entrar (#03FF00) */
+#cPanelUsagePanel .usage-bar-wrap,
 .cpanel-usage-stats .usage-bar-wrap {
     max-width: 320px;
     margin: 0 auto 0.5rem;
+    display: block;
 }
+#cPanelUsagePanel .usage-bar-track,
 .cpanel-usage-stats .usage-bar-track {
+    display: block;
     height: 16px;
-    background: var(--bg-lifted);
+    min-height: 16px;
+    background: #434E63;
     border-radius: 8px;
     overflow: hidden;
 }
+#cPanelUsagePanel .usage-bar-fill,
+#cPanelUsagePanel .usage-bar-fill-disk,
+#cPanelUsagePanel .usage-bar-fill-bw,
 .cpanel-usage-stats .usage-bar-fill,
 .cpanel-usage-stats .usage-bar-fill-disk,
 .cpanel-usage-stats .usage-bar-fill-bw {
+    display: block;
     height: 100%;
-    min-width: 0;
+    min-height: 16px;
+    min-width: 2px;
     border-radius: 8px;
-    background: #03FF00;
+    background: #03FF00 !important;
     transition: width 0.3s ease;
 }
+#cPanelUsagePanel .usage-bar-value,
 .cpanel-usage-stats .usage-bar-value {
     font-size: 1rem;
     font-weight: 600;
     margin-top: 0.35rem;
     color: var(--text);
 }
+#theme-content.theme-light #cPanelUsagePanel .usage-bar-track,
 #theme-content.theme-light .cpanel-usage-stats .usage-bar-track {
-    background: var(--border-muted);
+    background: #e2e8f0;
 }
+#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill,
+#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill-disk,
+#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill-bw,
 #theme-content.theme-light .cpanel-usage-stats .usage-bar-fill,
 #theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-disk,
 #theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-bw {
-    background: #03FF00;
+    background: #03FF00 !important;
 }
+#theme-content.theme-light #cPanelUsagePanel .usage-bar-value,
 #theme-content.theme-light .cpanel-usage-stats .usage-bar-value {
     color: #0D172A;
 }
