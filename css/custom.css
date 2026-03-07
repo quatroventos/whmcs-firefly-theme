@@ -1337,6 +1337,11 @@ body form textarea {
     background-color: transparent !important;
     border-color: var(--border-muted) !important;
 }
+/* Sidebar no tema claro: forçar fundo transparente nos itens (evita override de theme.css) */
+#theme-content.theme-light .sidebar .card-sidebar .list-group-item {
+    background-color: transparent !important;
+    background: transparent !important;
+}
 #theme-content.theme-light .table td,
 #theme-content.theme-light .table th {
     border-color: var(--border-muted) !important;
