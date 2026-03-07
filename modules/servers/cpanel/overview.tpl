@@ -197,15 +197,25 @@
                     <div class="col-md-6" id="diskUsage">
                         <strong>{lang key='diskUsage'}</strong>
                         <br /><br />
-                        <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="#444" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
-                        <br /><br />
+                        <div class="usage-bar-wrap" aria-hidden="true">
+                            <div class="usage-bar-track">
+                                <div class="usage-bar-fill usage-bar-fill-disk" style="width: {if substr($diskpercent, 0, -1) > 100}100{else}{$diskpercent|substr:0:-1}{/if}%;"></div>
+                            </div>
+                            <div class="usage-bar-value">{$diskpercent|substr:0:-1}%</div>
+                        </div>
+                        <br />
                         {$diskusage} M / {$disklimit} M
                     </div>
                     <div class="col-md-6" id="bandwidthUsage">
                         <strong>{lang key='bandwidthUsage'}</strong>
                         <br /><br />
-                        <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="#d9534f" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="100" data-height="80" />
-                        <br /><br />
+                        <div class="usage-bar-wrap" aria-hidden="true">
+                            <div class="usage-bar-track">
+                                <div class="usage-bar-fill usage-bar-fill-bw" style="width: {if substr($bwpercent, 0, -1) > 100}100{else}{$bwpercent|substr:0:-1}{/if}%;"></div>
+                            </div>
+                            <div class="usage-bar-value">{$bwpercent|substr:0:-1}%</div>
+                        </div>
+                        <br />
                         {$bwusage} M / {$bwlimit} M
                     </div>
                 </div>
@@ -242,17 +252,6 @@
                         {lang key='usageLastUpdated'} {$lastupdate}
                     </div>
                 {/if}
-
-                <script src="{$BASE_PATH_JS}/jquery.knob.js"></script>
-                <script type="text/javascript">
-                jQuery(function() {
-                    jQuery(".usage-dial").knob({
-                        'format': function (value) {
-                            return value + '%';
-                        }
-                    });
-                });
-                </script>
 
             </div>
         </div>

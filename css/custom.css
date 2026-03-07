@@ -1114,9 +1114,8 @@ body form textarea {
     color: var(--text);
 }
 
-/* Tiles 100% da largura da tela (escapar do container) */
+/* Tiles da área do cliente */
 .tiles {
-    width: 100vw;
     position: relative;
 }
 
@@ -1138,14 +1137,17 @@ body form textarea {
     border-bottom-right-radius: 10px;
 }
 
-/* Tiles da área do cliente: fundo azul escuro, mesma altura, ícone/stat/title/highlight alinhados */
+/* Tiles: ícone ao lado do texto, ícones maiores */
 .tiles .tile {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    text-align: center !important;
+    text-align: left !important;
     flex: 1 !important;
     min-height: 100% !important;
+    gap: 0.75rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     background-color: #0D172A !important;
     border-color: rgba(255, 255, 255, 0.12) !important;
     color: rgba(255, 255, 255, 0.95) !important;
@@ -1156,19 +1158,20 @@ body form textarea {
 .tiles .tile .far {
     position: static !important;
     color: #fff !important;
-    font-size: 1.25rem !important;
-    margin-bottom: 0.25rem;
+    font-size: 2.25rem !important;
+    flex-shrink: 0 !important;
 }
 .tiles .tile .stat {
     color: #fff !important;
     font-size: 20px !important;
-    line-height: 1;
+    line-height: 1.2;
 }
 .tiles .tile .title {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 .tiles .tile .highlight {
-    margin-top: auto;
+    margin-top: 0 !important;
+    margin-left: auto !important;
 }
 .tiles .tile:hover {
     background-color: #1e293b !important;
@@ -1319,6 +1322,44 @@ body form textarea {
     background: var(--bg) !important;
     color: #fff !important;
     border-color: var(--border-muted) !important;
+}
+
+/* Estatísticas de uso (cPanel): barras em vez de círculos, verde do botão Entrar (#03FF00) */
+.cpanel-usage-stats .usage-bar-wrap {
+    max-width: 320px;
+    margin: 0 auto 0.5rem;
+}
+.cpanel-usage-stats .usage-bar-track {
+    height: 16px;
+    background: var(--bg-lifted);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.cpanel-usage-stats .usage-bar-fill,
+.cpanel-usage-stats .usage-bar-fill-disk,
+.cpanel-usage-stats .usage-bar-fill-bw {
+    height: 100%;
+    min-width: 0;
+    border-radius: 8px;
+    background: #03FF00;
+    transition: width 0.3s ease;
+}
+.cpanel-usage-stats .usage-bar-value {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
+    color: var(--text);
+}
+#theme-content.theme-light .cpanel-usage-stats .usage-bar-track {
+    background: var(--border-muted);
+}
+#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill,
+#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-disk,
+#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-bw {
+    background: #03FF00;
+}
+#theme-content.theme-light .cpanel-usage-stats .usage-bar-value {
+    color: #0D172A;
 }
 
 /* ========== Tema claro (abaixo do header) ========== */

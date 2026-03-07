@@ -2,7 +2,7 @@
 
 <div class="tiles mb-4">
     <div class="row no-gutters client-home-tiles-row">
-        <div class="col-6 col-xl-3">
+        <div class="col-6 col-xl-4">
             <a href="clientarea.php?action=services" class="tile">
                 <i class="ph ph-cube" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.productsnumactive}</div>
@@ -11,7 +11,7 @@
             </a>
         </div>
         {if $clientsstats.numdomains || $registerdomainenabled || $transferdomainenabled}
-            <div class="col-6 col-xl-3">
+            <div class="col-6 col-xl-4">
                 <a href="clientarea.php?action=domains" class="tile">
                     <i class="ph ph-globe" aria-hidden="true"></i>
                     <div class="stat">{$clientsstats.numactivedomains}</div>
@@ -20,7 +20,7 @@
                 </a>
             </div>
         {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
-            <div class="col-6 col-xl-3">
+            <div class="col-6 col-xl-4">
                 <a href="affiliates.php" class="tile">
                     <i class="ph ph-shopping-cart" aria-hidden="true"></i>
                     <div class="stat">{$clientsstats.numaffiliatesignups}</div>
@@ -29,7 +29,7 @@
                 </a>
             </div>
         {/if}
-        <div class="col-6 col-xl-3">
+        <div class="col-6 col-xl-4">
             <a href="supporttickets.php" class="tile">
                 <i class="ph ph-chat-circle-dots" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.numactivetickets}</div>
@@ -37,7 +37,7 @@
                 <div class="highlight bg-color-red"></div>
             </a>
         </div>
-        <div class="col-6 col-xl-3">
+        <div class="col-6 col-xl-4">
             <a href="clientarea.php?action=invoices" class="tile">
                 <i class="ph ph-credit-card" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.numunpaidinvoices}</div>
