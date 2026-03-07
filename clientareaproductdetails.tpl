@@ -531,3 +531,6 @@
 
     </div>
 </div>
+
+{* Substituir ícones dos Atalhos rápidos (cPanel) por Phosphor *}
+<script src="{$WEB_ROOT}/templates/{$template}/js/product-details-phosphor-shortcuts.js"></script>

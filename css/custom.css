@@ -148,6 +148,21 @@
     box-shadow: var(--shadow-md);
 }
 
+/* Títulos dos cards (todas as páginas, incluindo detalhes do produto): 16px como nas demais */
+.primary-content .card .card-title,
+.primary-content .card-header .card-title,
+.primary-content .card h3.card-title {
+    font-size: 16px !important;
+}
+
+/* Atalhos rápidos (cPanel): ícones Phosphor no grid de shortcuts */
+.primary-content .product-shortcut-phosphor-icon,
+#tabOverview .product-shortcut-phosphor-icon {
+    font-size: 2rem;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
 /* Card selecionado (estado do centro): borda ciano com glow */
 .card.selected,
 .card.active,
@@ -1089,25 +1104,47 @@ body form textarea {
     color: var(--text);
 }
 
-/* Row dos tiles da área do cliente (Serviços, Domínios, Cotações, etc.): bordas 10% arredondadas */
+/* Tiles 100% da largura da tela (escapar do container) */
+.tiles {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Row dos tiles: bordas à esquerda; última caixa com cantos direitos arredondados */
 .client-home-tiles-row {
     border-radius: 10px;
     overflow: hidden;
 }
+.client-home-tiles-row > div:first-child .tile {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.client-home-tiles-row > div:last-child .tile {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
-/* Tiles da área do cliente (Serviços, Cotações, Ingressos, Faturas): fundo azul escuro, ícones brancos */
+/* Tiles da área do cliente: fundo azul escuro, ícones e números na metade do tamanho */
 .tiles .tile {
     background-color: #0D172A !important;
     border-color: rgba(255, 255, 255, 0.12) !important;
     color: rgba(255, 255, 255, 0.95) !important;
 }
 .tiles .tile i,
+.tiles .tile .ph,
 .tiles .tile .fas,
 .tiles .tile .far {
     color: #fff !important;
+    font-size: 1.25rem !important;
 }
 .tiles .tile .stat {
     color: #fff !important;
+    font-size: 20px !important;
+    line-height: 1;
 }
 .tiles .tile .title {
     color: rgba(255, 255, 255, 0.9) !important;
@@ -1116,6 +1153,7 @@ body form textarea {
     background-color: #1e293b !important;
 }
 .tiles .tile:hover i,
+.tiles .tile:hover .ph,
 .tiles .tile:hover .fas,
 .tiles .tile:hover .far {
     color: #fff !important;
