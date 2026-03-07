@@ -1497,6 +1497,28 @@ body .btn-default:hover {
     border-radius: 0 !important;
 }
 
+/* Grupo botão + dropdown (ex.: “Faça login no cPanel” + seta): sem separação, aspecto único */
+.btn-group > .btn-group {
+    margin-left: 0 !important;
+}
+.btn-group > .btn + .btn-group,
+.btn-group > .btn-group:last-child {
+    margin-left: -1px !important;
+}
+.btn-group > .btn-group > .btn.dropdown-toggle {
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    min-width: 2rem;
+}
+.btn-group > .btn-group > .btn.dropdown-toggle .caret {
+    margin-left: 0;
+}
+.btn-group.btn-group-sm > .btn-group > .btn.dropdown-toggle {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+}
+
 /* Modais: fundo branco, texto escuro, botões legíveis */
 .modal .modal-content {
     background-color: #ffffff !important;
