@@ -76,7 +76,7 @@
                                 </div>
                             {/if}
                             {if $item->hasIcon()}<i class="{$item->getIcon()}"></i>&nbsp;{/if}
-                            {$item->getLabel()}
+                            {$item->getLabel()|replace:'Ultímas':'Últimas'}
                             {if $item->hasBadge()}&nbsp;<span class="badge">{$item->getBadge()}</span>{/if}
                         </h3>
                     </div>
