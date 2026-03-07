@@ -1191,6 +1191,26 @@ body form textarea {
 .client-home-cards .card .list-group-item .label {
     color: #0D172A !important;
 }
+
+/* Status “Ativo”: círculo verde luminoso */
+.label.label-success {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    min-width: 2.25rem !important;
+    min-height: 2.25rem !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background-color: #00e676 !important;
+    color: #fff !important;
+    font-size: 0.625rem !important;
+    font-weight: 600;
+    line-height: 1;
+    overflow: hidden;
+}
+
 .client-home-cards .card .list-group-item .btn,
 .client-home-cards .card .list-group-item .dropdown-item {
     color: #0D172A !important;
@@ -1517,6 +1537,28 @@ body .btn-default:hover {
 .btn-group.btn-group-sm > .btn-group > .btn.dropdown-toggle {
     padding-left: 0.4rem !important;
     padding-right: 0.4rem !important;
+}
+
+/* Botões cPanel / Webmail: dois botões cinza, ícone + texto */
+.div-service-login-buttons {
+    gap: 0.5rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.div-service-login-buttons .btn-service-login {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.div-service-login-buttons .btn-service-icon {
+    margin-right: 0.35rem;
+    flex-shrink: 0;
+}
+.div-service-login-buttons .btn-service-icon.ph {
+    font-size: 1.1rem;
+}
+.div-service-login-buttons .btn-service-icon img {
+    vertical-align: middle;
 }
 
 /* Modais: fundo branco, texto escuro, botões legíveis */

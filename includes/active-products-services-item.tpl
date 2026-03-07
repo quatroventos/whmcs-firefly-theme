@@ -58,8 +58,9 @@
             </div>
             {/foreach}
             {if $primaryServiceBtn}
-                <div class="btn-group btn-group-sm btn-group-secondary" role="group">
-                    <button class="btn btn-default btn-sm btn-custom-action{if !$primaryServiceBtn['active']} disabled{/if}"
+                <div class="div-service-login-buttons d-flex flex-wrap">
+                    <button type="button"
+                            class="btn btn-secondary btn-sm btn-custom-action btn-service-login{if !$primaryServiceBtn['active']} disabled{/if}"
                             data-serviceid="{$primaryServiceBtn['serviceid']}"
                             data-identifier="{$primaryServiceBtn['identifier']}"
                             data-active="{$primaryServiceBtn['active']}"
@@ -68,42 +69,38 @@
                         <span class="loading" style="display: none;">
                             <i class="fas fa-spinner fa-spin"></i>
                         </span>
-                        {$primaryServiceBtn['display']}
+                        {if $primaryServiceBtn['identifier']|lower == 'cpanel'}
+                            <i class="ph ph-squares-four btn-service-icon" aria-hidden="true"></i>
+                            <span class="btn-service-label">Acessar Painel</span>
+                        {else}
+                            <i class="ph ph-squares-four btn-service-icon" aria-hidden="true"></i>
+                            <span class="btn-service-label">{$primaryServiceBtn['display']}</span>
+                        {/if}
                     </button>
                     {if $secondaryButtons}
-                        <div class="btn-group btn-group-sm" role="group">
+                        {foreach $secondaryButtons as $secondaryButton}
                             <button type="button"
-                                    class="btn btn-sm btn-default dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
+                                    class="btn btn-secondary btn-sm btn-custom-action btn-service-login{if !$secondaryButton['active']} disabled{/if}"
+                                    data-serviceid="{$secondaryButton['serviceid']}"
+                                    data-identifier="{$secondaryButton['identifier']}"
+                                    data-active="{$secondaryButton['active']}"
+                                    {if !$secondaryButton['active']}disabled="disabled"{/if}
                             >
-                                <span class="caret"></span>
+                                <span class="loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                                {if $secondaryButton['identifier']|lower == 'webmail'}
+                                    <i class="ph ph-envelope btn-service-icon" aria-hidden="true"></i>
+                                    <span class="btn-service-label">Acessar E-mails</span>
+                                {else}
+                                    <i class="ph ph-envelope btn-service-icon" aria-hidden="true"></i>
+                                    <span class="btn-service-label">{$secondaryButton['display']}</span>
+                                {/if}
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                {foreach $secondaryButtons as $secondaryButton}
-                                    <li class="dropdown-item btn-custom-action{if !$secondaryButton['active']} disabled{/if}"
-                                        data-serviceid="{$secondaryButton['serviceid']}"
-                                        data-identifier="{$secondaryButton['identifier']}"
-                                        data-active="{$secondaryButton['active']}"
-                                        {if !$secondaryButton['active']}disabled="disabled"{/if}
-                                    >
-                                        <span class="loading" style="display: none;">
-                                            <i class="fas fa-spinner fa-spin"></i>
-                                        </span>
-                                        {$secondaryButton['display']}
-                                    </li>
-                                {/foreach}
-                            </ul>
-                        </div>
+                        {/foreach}
                     {/if}
                 </div>
             {/if}
         {/if}
-        <button class="btn btn-default btn-sm btn-view-details">
-            <i aria-hidden="true" class="far fa-info-circle" title="{lang key="clientareaviewdetails"}"></i>
-            <span class="sr-only">{lang key="clientareaviewdetails"}</span>
-            <span>{lang key="clientareaviewdetails"}</span>
-        </button>
     </div>
 </div>

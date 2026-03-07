@@ -4,7 +4,7 @@
     <div class="row no-gutters client-home-tiles-row">
         <div class="col-6 col-xl-3">
             <a href="clientarea.php?action=services" class="tile">
-                <i class="fas fa-cube"></i>
+                <i class="ph ph-cube" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.productsnumactive}</div>
                 <div class="title">{lang key='navservices'}</div>
                 <div class="highlight bg-color-blue"></div>
@@ -13,7 +13,7 @@
         {if $clientsstats.numdomains || $registerdomainenabled || $transferdomainenabled}
             <div class="col-6 col-xl-3">
                 <a href="clientarea.php?action=domains" class="tile">
-                    <i class="fas fa-globe"></i>
+                    <i class="ph ph-globe" aria-hidden="true"></i>
                     <div class="stat">{$clientsstats.numactivedomains}</div>
                     <div class="title">{lang key='navdomains'}</div>
                     <div class="highlight bg-color-green"></div>
@@ -22,33 +22,24 @@
         {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
             <div class="col-6 col-xl-3">
                 <a href="affiliates.php" class="tile">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="ph ph-shopping-cart" aria-hidden="true"></i>
                     <div class="stat">{$clientsstats.numaffiliatesignups}</div>
                     <div class="title">{lang key='affiliatessignups'}</div>
-                    <div class="highlight bg-color-green"></div>
-                </a>
-            </div>
-        {else}
-            <div class="col-6 col-xl-3">
-                <a href="clientarea.php?action=quotes" class="tile">
-                    <i class="far fa-file-alt"></i>
-                    <div class="stat">{$clientsstats.numquotes}</div>
-                    <div class="title">{lang key='quotes'}</div>
                     <div class="highlight bg-color-green"></div>
                 </a>
             </div>
         {/if}
         <div class="col-6 col-xl-3">
             <a href="supporttickets.php" class="tile">
-                <i class="fas fa-comments"></i>
+                <i class="ph ph-chat-circle-dots" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.numactivetickets}</div>
-                <div class="title">{lang key='navtickets'}</div>
+                <div class="title">Chamados</div>
                 <div class="highlight bg-color-red"></div>
             </a>
         </div>
         <div class="col-6 col-xl-3">
             <a href="clientarea.php?action=invoices" class="tile">
-                <i class="fas fa-credit-card"></i>
+                <i class="ph ph-credit-card" aria-hidden="true"></i>
                 <div class="stat">{$clientsstats.numunpaidinvoices}</div>
                 <div class="title">{lang key='navinvoices'}</div>
                 <div class="highlight bg-color-gold"></div>
