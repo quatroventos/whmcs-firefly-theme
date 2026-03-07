@@ -1324,57 +1324,46 @@ body form textarea {
     border-color: var(--border-muted) !important;
 }
 
-/* Estatísticas de uso (cPanel): barras em vez de círculos, verde do botão Entrar (#03FF00) */
-#cPanelUsagePanel .usage-bar-wrap,
-.cpanel-usage-stats .usage-bar-wrap {
+/* Estatísticas de uso (cPanel): barras em vez de círculos, verde do botão Entrar (#03FF00) – aplica em qualquer contexto */
+.usage-bar-wrap {
     max-width: 320px;
     margin: 0 auto 0.5rem;
-    display: block;
+    display: block !important;
 }
-#cPanelUsagePanel .usage-bar-track,
-.cpanel-usage-stats .usage-bar-track {
-    display: block;
-    height: 16px;
-    min-height: 16px;
-    background: #434E63;
+.usage-bar-track {
+    display: block !important;
+    height: 16px !important;
+    min-height: 16px !important;
+    background: #434E63 !important;
     border-radius: 8px;
     overflow: hidden;
 }
-#cPanelUsagePanel .usage-bar-fill,
-#cPanelUsagePanel .usage-bar-fill-disk,
-#cPanelUsagePanel .usage-bar-fill-bw,
-.cpanel-usage-stats .usage-bar-fill,
-.cpanel-usage-stats .usage-bar-fill-disk,
-.cpanel-usage-stats .usage-bar-fill-bw {
-    display: block;
-    height: 100%;
-    min-height: 16px;
-    min-width: 2px;
+.usage-bar-fill,
+.usage-bar-fill-disk,
+.usage-bar-fill-bw {
+    display: block !important;
+    height: 100% !important;
+    min-height: 16px !important;
+    min-width: 2px !important;
     border-radius: 8px;
     background: #03FF00 !important;
     transition: width 0.3s ease;
 }
-#cPanelUsagePanel .usage-bar-value,
-.cpanel-usage-stats .usage-bar-value {
+.usage-bar-value {
     font-size: 1rem;
     font-weight: 600;
     margin-top: 0.35rem;
     color: var(--text);
 }
-#theme-content.theme-light #cPanelUsagePanel .usage-bar-track,
-#theme-content.theme-light .cpanel-usage-stats .usage-bar-track {
-    background: #e2e8f0;
+#cPanelUsagePanel .usage-bar-wrap,
+.cpanel-usage-stats .usage-bar-wrap {
+    max-width: 320px;
+    margin: 0 auto 0.5rem;
 }
-#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill,
-#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill-disk,
-#theme-content.theme-light #cPanelUsagePanel .usage-bar-fill-bw,
-#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill,
-#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-disk,
-#theme-content.theme-light .cpanel-usage-stats .usage-bar-fill-bw {
-    background: #03FF00 !important;
+#theme-content.theme-light .usage-bar-track {
+    background: #e2e8f0 !important;
 }
-#theme-content.theme-light #cPanelUsagePanel .usage-bar-value,
-#theme-content.theme-light .cpanel-usage-stats .usage-bar-value {
+#theme-content.theme-light .usage-bar-value {
     color: #0D172A;
 }
 
