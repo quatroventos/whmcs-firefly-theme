@@ -41,12 +41,13 @@
             var links = cards[c].querySelectorAll('a');
             for (var i = 0; i < links.length; i++) {
                 var a = links[i];
+                if (a.querySelector('.product-shortcut-phosphor-icon')) continue;
                 var text = (a.textContent || '').trim().replace(/\s+/g, ' ');
                 if (text.length < 2) continue;
-                var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, i.ph, .fa, .icon');
+                var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, i.ph, i.ph-thin, .fa, .icon');
                 var phIcon = iconForText(text);
                 var ph = document.createElement('i');
-                ph.className = 'ph-thin ph ' + phIcon + ' product-shortcut-phosphor-icon';
+                ph.className = 'ph-thin ' + phIcon + ' product-shortcut-phosphor-icon';
                 ph.setAttribute('aria-hidden', 'true');
                 if (icon) {
                     icon.parentNode.replaceChild(ph, icon);
