@@ -432,7 +432,7 @@
                 {/if}
                 <div class="col-md-3 col-sm-4 col-xs-6 col-6" id="cPanelAccelerateWP">
                     <a href="clientarea.php?action=productdetails&amp;id={$serviceid}&amp;dosinglesignon=1&amp;app=LiteSpeed_Accelerate" target="_blank" class="d-block mb-3">
-                        <i class="fas fa-tachometer-alt fa-3x mb-2" aria-hidden="true"></i>
+                        <i class="fas fa-rocket fa-3x mb-2" aria-hidden="true"></i>
                         <span>Accelerate WP</span>
                     </a>
                 </div>
