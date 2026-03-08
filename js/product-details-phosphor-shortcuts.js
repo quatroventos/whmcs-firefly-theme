@@ -44,7 +44,15 @@
                 var text = (a.textContent || '').trim().replace(/\s+/g, ' ');
                 if (text.length < 2) continue;
                 var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, .fa, .icon');
-                var phIcon = iconForText(text);
+                var phIcon;
+                var parent = a.closest('[id]');
+                if (parent && parent.id === 'cPanelAccelerateWP') {
+                    phIcon = 'ph-rocket-launch';
+                } else if (parent && parent.id === 'cPanelImunify') {
+                    phIcon = 'ph-shield-check';
+                } else {
+                    phIcon = iconForText(text);
+                }
                 var ph = document.createElement('i');
                 ph.className = 'ph-thin ph ' + phIcon + ' product-shortcut-phosphor-icon';
                 ph.setAttribute('aria-hidden', 'true');
