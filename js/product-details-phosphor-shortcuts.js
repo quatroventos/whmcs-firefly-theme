@@ -45,10 +45,10 @@
                 if (text.length < 2) continue;
                 var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, .fa, .icon');
                 var phIcon;
-                var parent = a.closest('[id]');
-                if (parent && parent.id === 'cPanelAccelerateWP') {
+                var href = (a.getAttribute('href') || a.href || '').toLowerCase();
+                if (href.indexOf('litespeed_accelerate') !== -1) {
                     phIcon = 'ph-rocket-launch';
-                } else if (parent && parent.id === 'cPanelImunify') {
+                } else if (href.indexOf('imunify360') !== -1) {
                     phIcon = 'ph-shield-check';
                 } else {
                     phIcon = iconForText(text);
