@@ -97,6 +97,24 @@
                         <div class="cpanel-package-details">
                             <em>{$groupname|escape}</em>
                             <h4 style="margin:0;">{$product|escape}</h4>
+                            {if isset($cpanelStatsHasData) && $cpanelStatsHasData}
+                                <div class="cpanel-sidebar-stats-wrap mt-3 mb-3 text-left">
+                                    {if !empty($cpanelGeneralInfo)}
+                                        <div class="cpanel-general-info small mb-2">
+                                            {foreach $cpanelGeneralInfo as $info}
+                                                <div class="d-flex justify-content-between py-1 border-bottom border-secondary"><span class="text-muted">{$info.label}</span><span>{$info.value|escape}</span></div>
+                                            {/foreach}
+                                        </div>
+                                    {/if}
+                                    {if !empty($cpanelSidebarStats)}
+                                        <div class="cpanel-sidebar-stats small">
+                                            {foreach $cpanelSidebarStats as $stat}
+                                                <div class="d-flex justify-content-between py-1 border-bottom border-secondary"><span class="text-muted">{$stat.title|escape}</span><span>{$stat.value|escape}</span></div>
+                                            {/foreach}
+                                        </div>
+                                    {/if}
+                                </div>
+                            {/if}
                             <a href="http://{$domain}" target="_blank">www.{$domain}</a>
                         </div>
 

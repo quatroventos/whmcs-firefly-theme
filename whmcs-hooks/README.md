@@ -48,3 +48,32 @@ Exemplo para ocultar “Downloads” e mudar o texto de “Faturas”:
 - [Menu and Sidebar Context](https://docs.whmcs.com/9-0/customization/client-area-customization/menu-and-sidebar-context/)
 
 Compatível com **WHMCS 9.x**.
+
+---
+
+## FireflyCpanelSidebarStats – Estatísticas e informações do cPanel no painel Pacote/Domínio
+
+Preenche o overview do produto cPanel com dados da barra lateral do cPanel: uso de disco, largura de banda, CPU, memória, domínios, contas de e-mail, etc., obtidos via **UAPI do cPanel** (StatsBar/get_stats e ResourceUsage/get_usages). Também mostra informações gerais (usuário da conta, domínio primário).
+
+### Instalação
+
+1. Copie o ficheiro **`FireflyCpanelSidebarStats.php`** para a pasta de hooks do WHMCS:
+   - **Destino:** `includes/hooks/`  
+   - Exemplo: `/var/www/whmcs/includes/hooks/FireflyCpanelSidebarStats.php`.
+
+2. O WHMCS carrega os hooks automaticamente. Não é necessário ativar nada.
+
+### Requisitos
+
+- Serviço com **módulo cPanel** e servidor configurado em *Setup → Products/Services → Servers* com **hostname** correto.
+- A conta cPanel deve ter **username e password** disponíveis (o WHMCS passa-os ao hook).
+- O servidor cPanel deve responder em **porta 2083** (HTTPS) e permitir chamadas UAPI com as credenciais da conta.
+
+### Onde aparece
+
+No painel **Pacote/Domínio** da página de detalhes do produto (overview cPanel), **logo abaixo do nome do plano**, em duas secções:
+
+- **Informações gerais:** usuário da conta, domínio primário.
+- **Estatísticas:** largura de banda, uso de disco, contas de e-mail, domínios, subdomínios, bases de dados, etc. (conforme o que o cPanel devolver).
+
+Se a chamada à API falhar (servidor inacessível, credenciais incorretas, firewall), o bloco não é mostrado e a página continua normal.
