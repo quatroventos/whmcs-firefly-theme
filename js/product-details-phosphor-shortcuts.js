@@ -15,8 +15,8 @@
         { keys: ['phpmyadmin'], icon: 'ph-browser' },
         { keys: ['awstats', 'estatísticas'], icon: 'ph-chart-line' },
         { keys: ['criar conta', 'email account'], icon: 'ph-envelope-simple' },
-        { keys: ['accelerate wp', 'acceleratewp', 'litespeed accelerate'], icon: 'ph-rocket-launch' },
-        { keys: ['imunify360', 'imunify'], icon: 'ph-shield-check' }
+        { keys: ['accelerate wp', 'acceleratewp', 'litespeed accelerate', 'cache'], icon: 'ph-rocket-launch' },
+        { keys: ['imunify360', 'imunify', 'anti-vírus', 'anti-virus', 'antivirus'], icon: 'ph-shield-check' }
     ];
 
     function iconForText(text) {
