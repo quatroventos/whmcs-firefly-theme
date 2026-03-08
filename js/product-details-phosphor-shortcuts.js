@@ -15,8 +15,8 @@
         { keys: ['phpmyadmin'], icon: 'ph-browser' },
         { keys: ['awstats', 'estatísticas'], icon: 'ph-chart-line' },
         { keys: ['criar conta', 'email account'], icon: 'ph-envelope-simple' },
-        { keys: ['accelerate wp', 'acceleratewp', 'litespeed accelerate', 'cache'], icon: 'ph-rocket-launch' },
-        { keys: ['imunify360', 'imunify', 'anti-vírus', 'anti-virus', 'antivirus'], icon: 'ph-shield-check' }
+        { keys: ['accelerate wp', 'acceleratewp', 'litespeed accelerate'], icon: 'ph-rocket-launch' },
+        { keys: ['imunify360', 'imunify'], icon: 'ph-shield-check' }
     ];
 
     function iconForText(text) {
@@ -44,15 +44,7 @@
                 var text = (a.textContent || '').trim().replace(/\s+/g, ' ');
                 if (text.length < 2) continue;
                 var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, .fa, .icon');
-                var phIcon;
-                var href = (a.getAttribute('href') || a.href || '').toLowerCase();
-                if (href.indexOf('litespeed_accelerate') !== -1) {
-                    phIcon = 'ph-rocket-launch';
-                } else if (href.indexOf('imunify360') !== -1) {
-                    phIcon = 'ph-shield-check';
-                } else {
-                    phIcon = iconForText(text);
-                }
+                var phIcon = iconForText(text);
                 var ph = document.createElement('i');
                 ph.className = 'ph-thin ph ' + phIcon + ' product-shortcut-phosphor-icon';
                 ph.setAttribute('aria-hidden', 'true');
