@@ -51,3 +51,32 @@
         <p><i class="fas fa-spinner fa-spin"></i> {lang key='loading'}</p>
     </div>
 </div>
+
+{if isset($fireflyUpsellProducts) && $fireflyUpsellProducts|@count > 0}
+    <div class="card mt-4 mb-4">
+        <div class="card-header">
+            <h3 class="card-title m-0">
+                <i class="fas fa-arrow-up fa-fw"></i>
+                {if isset($fireflyUpsellGroupName) && $fireflyUpsellGroupName}
+                    {lang key='clientareaproducts' assign='defaultTitle'}
+                    Outros planos de {$fireflyUpsellGroupName|escape}
+                {else}
+                    Outros planos de hospedagem
+                {/if}
+            </h3>
+        </div>
+        <div class="card-body">
+            <p class="text-muted small mb-3">Conheça mais opções da mesma categoria e faça upgrade quando precisar.</p>
+            <div class="row">
+                {foreach $fireflyUpsellProducts as $upsell}
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <a href="{$upsell.url}" class="btn btn-outline-primary btn-block text-left d-flex align-items-center justify-content-between">
+                            <span>{$upsell.name|escape}</span>
+                            <i class="fas fa-chevron-right fa-sm"></i>
+                        </a>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+{/if}

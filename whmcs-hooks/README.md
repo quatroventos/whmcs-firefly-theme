@@ -77,3 +77,26 @@ No painel **Pacote/Domínio** da página de detalhes do produto (overview cPanel
 - **Estatísticas:** largura de banda, uso de disco, contas de e-mail, domínios, subdomínios, bases de dados, etc. (conforme o que o cPanel devolver).
 
 Se a chamada à API falhar (servidor inacessível, credenciais incorretas, firewall), o bloco não é mostrado e a página continua normal.
+
+---
+
+## FireflyServicesUpsell – Upsell / cross-sell na página Meus Serviços
+
+Na página **Meus Serviços** (lista de produtos/serviços do cliente), mostra **outros planos de hospedagem da mesma categoria** (mesmo grupo de produtos) abaixo da tabela, com links para adicionar ao carrinho. Os produtos que o cliente já tem são excluídos.
+
+### Instalação
+
+1. Copie o ficheiro **`FireflyServicesUpsell.php`** para a pasta de hooks do WHMCS:
+   - **Destino:** `includes/hooks/`
+
+2. O WHMCS carrega os hooks automaticamente.
+
+### Comportamento
+
+- Obtém os **grupos de produtos** (categorias) dos serviços atuais do cliente.
+- Lista **outros produtos** desses mesmos grupos que o cliente ainda não tem (produtos visíveis, não ocultos).
+- Mostra um card **“Outros planos de [nome do grupo]”** com botões para cada plano que levam a `cart.php?a=add&pid=ID`.
+
+### Onde aparece
+
+Na página **Client Area → Meus Serviços**, logo **abaixo da tabela** de serviços. Se o cliente não tiver serviços ou não houver outros produtos na mesma categoria, a secção não é exibida.
