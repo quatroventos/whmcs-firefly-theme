@@ -89,18 +89,25 @@ function firefly_cpanel_format_usage($val) {
 }
 
 add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function (array $vars) {
+    // #region agent log
+    $logPath = '/Users/gabriel/VisualStudioProjects/WHMCS firefly theme/whmcs-firefly-theme/.cursor/debug-a8bd46.log';
+    @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:entry','message'=>'hook_entered','data'=>['modulename'=>isset($vars['modulename'])?$vars['modulename']:null,'var_keys'=>array_keys($vars)],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'D'])."\n", FILE_APPEND | LOCK_EX);
+    // #endregion
     if (empty($vars['modulename']) || strtolower($vars['modulename']) !== 'cpanel') {
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:skip','message'=>'not_cpanel','data'=>['modulename'=>isset($vars['modulename'])?$vars['modulename']:null],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'D'])."\n", FILE_APPEND | LOCK_EX);
         return [];
     }
     $serviceId = (int) $vars['serviceid'];
     $username = isset($vars['username']) ? trim($vars['username']) : '';
     $password = isset($vars['password']) ? $vars['password'] : '';
     if ($username === '' || $password === '') {
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:no_auth','message'=>'username_or_password_empty','data'=>['has_username'=>($username!==''),'has_password'=>($password!=='')],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'E'])."\n", FILE_APPEND | LOCK_EX);
         return [];
     }
 
     $hostname = firefly_cpanel_get_server_hostname($serviceId);
     if ($hostname === null || $hostname === '') {
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:no_hostname','message'=>'hostname_empty','data'=>['serviceId'=>$serviceId],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'E'])."\n", FILE_APPEND | LOCK_EX);
         return [];
     }
 
@@ -143,6 +150,9 @@ add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function (array $vars) 
         }
     }
 
+    // #region agent log
+    @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:return','message'=>'returning_stats','data'=>['stats_count'=>count($out['cpanelSidebarStats']),'has_data'=>(!empty($out['cpanelSidebarStats'])||!empty($out['cpanelGeneralInfo']))],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'D'])."\n", FILE_APPEND | LOCK_EX);
+    // #endregion
     return [
         'cpanelSidebarStats' => $out['cpanelSidebarStats'],
         'cpanelGeneralInfo'  => $out['cpanelGeneralInfo'],

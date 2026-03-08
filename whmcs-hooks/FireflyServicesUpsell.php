@@ -13,6 +13,10 @@ if (!defined("WHMCS")) {
 use WHMCS\Database\Capsule;
 
 add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
+    // #region agent log
+    $logPath = '/Users/gabriel/VisualStudioProjects/WHMCS firefly theme/whmcs-firefly-theme/.cursor/debug-a8bd46.log';
+    @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:entry','message'=>'hook_entered','data'=>['has_clientsdetails'=>isset($vars['clientsdetails']),'has_services'=>isset($vars['services']),'var_keys'=>array_keys($vars)],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'A'])."\n", FILE_APPEND | LOCK_EX);
+    // #endregion
     $clientId = null;
     if (!empty($vars['clientsdetails']['id'])) {
         $clientId = (int) $vars['clientsdetails']['id'];
@@ -21,6 +25,9 @@ add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
         $clientId = (int) ($_SESSION['uid'] ?? 0);
     }
     if (!$clientId) {
+        // #region agent log
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:early_return','message'=>'no_client_id','data'=>[],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'B'])."\n", FILE_APPEND | LOCK_EX);
+        // #endregion
         return ['fireflyUpsellProducts' => [], 'fireflyUpsellGroupName' => ''];
     }
 
@@ -35,6 +42,9 @@ add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
             ->toArray();
 
         if (empty($clientProductIds)) {
+            // #region agent log
+            @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:empty_products','message'=>'no_client_products','data'=>['clientId'=>$clientId],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'C'])."\n", FILE_APPEND | LOCK_EX);
+            // #endregion
             return ['fireflyUpsellProducts' => [], 'fireflyUpsellGroupName' => ''];
         }
 
@@ -47,6 +57,9 @@ add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
             ->toArray();
 
         if (empty($groupIds)) {
+            // #region agent log
+            @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:empty_groups','message'=>'no_group_ids','data'=>['clientProductIds'=>$clientProductIds],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'C'])."\n", FILE_APPEND | LOCK_EX);
+            // #endregion
             return ['fireflyUpsellProducts' => [], 'fireflyUpsellGroupName' => ''];
         }
 
@@ -71,11 +84,17 @@ add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
             ->values()
             ->all();
 
+        // #region agent log
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:return','message'=>'returning_upsell','data'=>['count'=>count($upsellProducts),'groupName'=>$groupName],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'A'])."\n", FILE_APPEND | LOCK_EX);
+        // #endregion
         return [
             'fireflyUpsellProducts' => $upsellProducts,
             'fireflyUpsellGroupName' => $groupName,
         ];
     } catch (\Exception $e) {
+        // #region agent log
+        @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:catch','message'=>'exception','data'=>['msg'=>$e->getMessage()],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'C'])."\n", FILE_APPEND | LOCK_EX);
+        // #endregion
         return ['fireflyUpsellProducts' => [], 'fireflyUpsellGroupName' => ''];
     }
 });

@@ -380,8 +380,8 @@
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-6 col-6" id="cPanelBackup">
                     <a href="clientarea.php?action=productdetails&amp;id={$serviceid}&amp;dosinglesignon=1&amp;app=Backups_Home" target="_blank" class="d-block mb-3">
-                        <img src="modules/servers/cpanel/img/backup.png" />
-                        {$LANG.cPanel.backup}
+                        <i class="ph ph-clock-counter-clockwise fa-3x mb-2" aria-hidden="true"></i>
+                        <span>{$LANG.cPanel.backup}</span>
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-6 col-6" id="cPanelDomains">
@@ -432,14 +432,14 @@
                 {/if}
                 <div class="col-md-3 col-sm-4 col-xs-6 col-6" id="cPanelAccelerateWP">
                     <a href="clientarea.php?action=productdetails&amp;id={$serviceid}&amp;dosinglesignon=1&amp;app=LiteSpeed_Accelerate" target="_blank" class="d-block mb-3">
-                        <i class="fas fa-tachometer-alt fa-3x mb-2" aria-hidden="true"></i>
-                        <span>Accelerate WP</span>
+                        <i class="ph ph-lightning fa-3x mb-2" aria-hidden="true"></i>
+                        <span>Configurar Cache</span>
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-6 col-6" id="cPanelImunify">
                     <a href="clientarea.php?action=productdetails&amp;id={$serviceid}&amp;dosinglesignon=1&amp;app=imunify360" target="_blank" class="d-block mb-3">
-                        <i class="fas fa-shield-alt fa-3x mb-2" aria-hidden="true"></i>
-                        <span>Imunify360</span>
+                        <i class="ph ph-bug fa-3x mb-2" aria-hidden="true"></i>
+                        <span>Anti-vírus</span>
                     </a>
                 </div>
             </div>

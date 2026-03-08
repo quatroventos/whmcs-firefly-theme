@@ -90,7 +90,7 @@
                                     <i class="fas fa-spinner fa-spin"></i>
                                 </span>
                                 {if $secondaryButton['identifier']|lower == 'webmail'}
-                                    <i class="ph ph-envelope btn-service-icon" aria-hidden="true"></i>
+                                    <i class="ph ph-mailbox btn-service-icon" aria-hidden="true"></i>
                                     <span class="btn-service-label">Acessar E-mails</span>
                                 {else}
                                     <i class="ph ph-envelope btn-service-icon" aria-hidden="true"></i>
