@@ -14,7 +14,9 @@
         { keys: ['mysql', 'bancos de dados'], icon: 'ph-database' },
         { keys: ['phpmyadmin'], icon: 'ph-browser' },
         { keys: ['awstats', 'estatísticas'], icon: 'ph-chart-line' },
-        { keys: ['criar conta', 'email account'], icon: 'ph-envelope-simple' }
+        { keys: ['criar conta', 'email account'], icon: 'ph-envelope-simple' },
+        { keys: ['configurar cache', 'accelerate'], icon: 'ph-lightning' },
+        { keys: ['anti-vírus', 'antivirus', 'imunify'], icon: 'ph-bug' }
     ];
 
     function iconForText(text) {
@@ -41,7 +43,7 @@
                 var a = links[i];
                 var text = (a.textContent || '').trim().replace(/\s+/g, ' ');
                 if (text.length < 2) continue;
-                var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, .fa, .icon');
+                var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, i.ph, .fa, .icon');
                 var phIcon = iconForText(text);
                 var ph = document.createElement('i');
                 ph.className = 'ph-thin ph ' + phIcon + ' product-shortcut-phosphor-icon';

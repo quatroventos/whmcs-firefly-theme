@@ -13,8 +13,8 @@ if (!defined("WHMCS")) {
 use WHMCS\Database\Capsule;
 
 add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
-    // #region agent log
-    $logPath = '/Users/gabriel/VisualStudioProjects/WHMCS firefly theme/whmcs-firefly-theme/.cursor/debug-a8bd46.log';
+    // #region agent log (log file: includes/hooks/firefly_debug_a8bd46.log no servidor)
+    $logPath = __DIR__ . DIRECTORY_SEPARATOR . 'firefly_debug_a8bd46.log';
     @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:entry','message'=>'hook_entered','data'=>['has_clientsdetails'=>isset($vars['clientsdetails']),'has_services'=>isset($vars['services']),'var_keys'=>array_keys($vars)],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'A'])."\n", FILE_APPEND | LOCK_EX);
     // #endregion
     $clientId = null;

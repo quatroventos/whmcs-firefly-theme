@@ -89,8 +89,8 @@ function firefly_cpanel_format_usage($val) {
 }
 
 add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function (array $vars) {
-    // #region agent log
-    $logPath = '/Users/gabriel/VisualStudioProjects/WHMCS firefly theme/whmcs-firefly-theme/.cursor/debug-a8bd46.log';
+    // #region agent log (log file: includes/hooks/firefly_debug_a8bd46.log no servidor)
+    $logPath = __DIR__ . DIRECTORY_SEPARATOR . 'firefly_debug_a8bd46.log';
     @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyCpanelSidebarStats.php:entry','message'=>'hook_entered','data'=>['modulename'=>isset($vars['modulename'])?$vars['modulename']:null,'var_keys'=>array_keys($vars)],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'D'])."\n", FILE_APPEND | LOCK_EX);
     // #endregion
     if (empty($vars['modulename']) || strtolower($vars['modulename']) !== 'cpanel') {
