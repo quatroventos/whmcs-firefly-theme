@@ -12,9 +12,18 @@ if (!defined("WHMCS")) {
 
 use WHMCS\Database\Capsule;
 
+// Ping: corre em TODAS as páginas da área do cliente – confirma que os hooks estão carregados
+add_hook('ClientAreaFooterOutput', 1, function () {
+    $logPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'firefly_debug_a8bd46.log';
+    error_log('[FireflyDebug a8bd46] ping ClientAreaFooterOutput – log file: ' . $logPath);
+    @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'ping','message'=>'ClientAreaFooterOutput','data'=>['note'=>'runs on every client page','logPath'=>$logPath],'timestamp'=>round(microtime(true)*1000)])."\n", FILE_APPEND | LOCK_EX);
+    return '';
+});
+
 add_hook('ClientAreaPageProductsServices', 1, function (array $vars) {
-    // #region agent log (log file: includes/hooks/firefly_debug_a8bd46.log no servidor)
-    $logPath = __DIR__ . DIRECTORY_SEPARATOR . 'firefly_debug_a8bd46.log';
+    // #region agent log (ficheiro: sys_get_temp_dir()/firefly_debug_a8bd46.log + PHP error_log)
+    $logPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'firefly_debug_a8bd46.log';
+    error_log('[FireflyDebug a8bd46] FireflyServicesUpsell hook entered');
     @file_put_contents($logPath, json_encode(['sessionId'=>'a8bd46','location'=>'FireflyServicesUpsell.php:entry','message'=>'hook_entered','data'=>['has_clientsdetails'=>isset($vars['clientsdetails']),'has_services'=>isset($vars['services']),'var_keys'=>array_keys($vars)],'timestamp'=>round(microtime(true)*1000),'hypothesisId'=>'A'])."\n", FILE_APPEND | LOCK_EX);
     // #endregion
     $clientId = null;

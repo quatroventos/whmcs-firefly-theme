@@ -39,18 +39,21 @@
             var titleText = title ? title.textContent : '';
             if (titleText.indexOf('Atalhos') === -1 && titleText.indexOf('Shortcuts') === -1) continue;
             var links = cards[c].querySelectorAll('a');
+            var iconSelector = 'img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, i.ph, i.ph-thin, .fa, .icon';
             for (var i = 0; i < links.length; i++) {
                 var a = links[i];
-                if (a.querySelector('.product-shortcut-phosphor-icon')) continue;
                 var text = (a.textContent || '').trim().replace(/\s+/g, ' ');
                 if (text.length < 2) continue;
-                var icon = a.querySelector('img, i.fa, i.fas, i.far, i.fab, i.fal, i.fad, i.ph, i.ph-thin, .fa, .icon');
+                var icons = a.querySelectorAll(iconSelector);
                 var phIcon = iconForText(text);
                 var ph = document.createElement('i');
                 ph.className = 'ph-thin ' + phIcon + ' product-shortcut-phosphor-icon';
                 ph.setAttribute('aria-hidden', 'true');
-                if (icon) {
-                    icon.parentNode.replaceChild(ph, icon);
+                if (icons.length > 0) {
+                    icons[0].parentNode.replaceChild(ph, icons[0]);
+                    for (var j = 1; j < icons.length; j++) {
+                        if (icons[j].parentNode) icons[j].parentNode.removeChild(icons[j]);
+                    }
                 } else {
                     a.insertBefore(ph, a.firstChild);
                 }
